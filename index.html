@@ -902,7 +902,7 @@
        FOOTER
     ══════════════════════════════════════════ */
     footer {
-      background: var(--dark-deep);
+      background: var(--cream-light);
       padding: 44px 0 28px;
     }
     .footer-top {
@@ -910,33 +910,31 @@
       align-items: center;
       justify-content: space-between;
       padding-bottom: 28px;
-      border-bottom: 1px solid rgba(212,173,130,0.08);
+      border-bottom: 1px solid rgba(107,26,24,0.12);
       margin-bottom: 22px;
     }
-    .footer-logo .nav-logo__word { color: var(--cream) !important; }
-    .footer-logo .nav-logo__sub  { color: var(--cream) !important; }
     .footer-socials { display: flex; gap: 12px; }
     .footer-social {
       width: 34px; height: 34px;
-      border: 1px solid rgba(212,173,130,0.12);
+      border: 1px solid rgba(107,26,24,0.2);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       transition: border-color 0.2s, background 0.2s;
     }
     .footer-social:hover {
-      border-color: var(--gold);
-      background: rgba(151,104,64,0.15);
+      border-color: var(--dark);
+      background: rgba(107,26,24,0.08);
     }
     .footer-social svg {
       width: 13px; height: 13px;
-      fill: rgba(239,230,220,0.4);
+      fill: rgba(107,26,24,0.5);
       transition: fill 0.2s;
     }
-    .footer-social:hover svg { fill: var(--sand); }
+    .footer-social:hover svg { fill: var(--dark); }
     .footer-legal {
       text-align: center;
       font-size: 0.68rem;
-      color: rgba(239,230,220,0.2);
+      color: rgba(107,26,24,0.4);
       line-height: 1.8;
       letter-spacing: 0.04em;
     }
@@ -1395,12 +1393,8 @@
   <footer>
     <div class="container--wide">
       <div class="footer-top">
-        <div class="footer-logo footer-logo-wrap">
-          <svg class="nav-logo__mark" viewBox="0 0 72 56" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path fill="currentColor" stroke="none" d="M 8.3 16.4 C 10.5 13.7 13.2 12.4 16.6 12.4 C 23.3 12.4 26.7 16.3 26.7 24.2 L 26.7 44 L 18.5 44 L 18.5 24.3 C 18.5 22.6 18.1 21.2 17.3 20.4 C 16.6 19.5 15.3 19.1 13.6 19.1 C 11.1 19.1 9.4 20.1 8.3 21.9 L 8.3 44 L 0 44 L 0 0 L 8.3 0 Z"/>
-            <circle cx="54" cy="30" r="9.8" fill="none" stroke="currentColor" stroke-width="8"/>
-            <rect x="40" y="47.5" width="28" height="6" fill="currentColor"/>
-          </svg>
+        <div class="footer-logo">
+          <img src="favicon.png" alt="holistic. academy" style="height:48px;width:auto;" />
         </div>
         <div class="footer-socials">
           <a href="https://www.instagram.com/holisticademy_/" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="Instagram">
@@ -1409,8 +1403,7 @@
         </div>
       </div>
       <p class="footer-legal">
-        USHA VEDA · Organisme de formation enregistré à la DREETS · N° 93 8308 191 83<br>
-        276 Avenue Joseph Lautier · 83110 Sanary-sur-Mer · +33 4 94 74 09 22
+        © 2026 holistic. academy · Tous droits réservés
       </p>
     </div>
   </footer>
