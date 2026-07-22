@@ -447,7 +447,8 @@
     .promise__quote {
       margin: 32px 0;
       padding: 22px 24px;
-      background: var(--dark);
+      background: var(--cream-light);
+      border-left: 3px solid var(--dark);
       border-radius: var(--radius);
     }
     .promise__quote p {
@@ -455,13 +456,13 @@
       font-weight: 400;
       font-style: italic;
       font-size: 1.05rem;
-      color: var(--sand);
+      color: var(--text);
       line-height: 1.6;
     }
 
     /* Carte "pour vous si" */
     .for-who {
-      background: var(--dark);
+      background: var(--white);
       border-radius: var(--radius-lg);
       padding: 32px 28px;
       box-shadow: var(--shadow-lg);
@@ -473,9 +474,9 @@
       font-weight: 700;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--sand);
+      color: var(--text-mid);
       padding-bottom: 16px;
-      border-bottom: 1px solid rgba(212,173,130,0.15);
+      border-bottom: 1px solid rgba(107,26,24,0.1);
       margin-bottom: 20px;
     }
     .for-who__item {
@@ -483,9 +484,9 @@
       gap: 12px;
       align-items: flex-start;
       padding: 10px 0;
-      border-bottom: 1px solid rgba(212,173,130,0.08);
+      border-bottom: 1px solid rgba(107,26,24,0.07);
       font-size: 0.83rem;
-      color: rgba(239,230,220,0.9);
+      color: var(--text);
       line-height: 1.55;
       font-weight: 400;
     }
@@ -563,7 +564,7 @@
     /* ══════════════════════════════════════════
        PROGRAMME
     ══════════════════════════════════════════ */
-    .programme { background: var(--dark); }
+    .programme { background: var(--cream-light); }
 
     .programme__days {
       margin-top: 52px;
@@ -577,30 +578,30 @@
       grid-template-columns: 196px 1fr;
       border-radius: var(--radius);
       overflow: hidden;
-      border: 1px solid rgba(212,173,130,0.1);
+      border: 1px solid rgba(107,26,24,0.1);
       transition: border-color 0.2s;
     }
-    .day:hover { border-color: rgba(212,173,130,0.25); }
+    .day:hover { border-color: rgba(107,26,24,0.25); }
 
     .day__left {
-      background: rgba(36,8,4,0.5);
+      background: var(--white);
       padding: 26px 24px;
-      border-right: 1px solid rgba(212,173,130,0.1);
+      border-right: 1px solid rgba(107,26,24,0.1);
     }
     .day__left .label {
-      color: var(--gold);
+      color: var(--dark);
       margin-bottom: 7px;
     }
     .day__left h3 {
       font-family: var(--font-head);
       font-weight: 700;
       font-size: 1.1rem;
-      color: var(--cream);
+      color: var(--text);
       line-height: 1.2;
     }
 
     .day__right {
-      background: rgba(255,255,255,0.03);
+      background: rgba(255,255,255,0.7);
       padding: 26px 28px;
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -612,14 +613,14 @@
       align-items: center;
       gap: 10px;
       font-size: 0.8rem;
-      color: rgba(239,230,220,0.88);
+      color: var(--text);
       font-weight: 400;
       line-height: 1.4;
     }
     .day__item::before {
       content: '';
       width: 5px; height: 5px;
-      background: var(--gold);
+      background: var(--dark);
       border-radius: 50%;
       flex-shrink: 0;
     }
@@ -627,8 +628,8 @@
     .ia-callout {
       margin-top: 24px;
       padding: 28px 32px;
-      background: linear-gradient(135deg, rgba(151,104,64,0.18) 0%, rgba(151,104,64,0.06) 100%);
-      border: 1px solid rgba(212,173,130,0.18);
+      background: var(--white);
+      border: 1px solid rgba(107,26,24,0.12);
       border-radius: var(--radius-lg);
       display: grid;
       grid-template-columns: auto 1fr;
@@ -637,7 +638,7 @@
     }
     .ia-callout__icon {
       width: 44px; height: 44px;
-      background: rgba(212,173,130,0.12);
+      background: rgba(107,26,24,0.08);
       border-radius: 10px;
       display: flex;
       align-items: center;
@@ -646,7 +647,7 @@
     }
     .ia-callout__icon svg {
       width: 20px; height: 20px;
-      stroke: var(--sand);
+      stroke: var(--dark);
       fill: none;
       stroke-width: 1.5;
       stroke-linecap: round;
@@ -656,12 +657,12 @@
       font-family: var(--font-body);
       font-weight: 600;
       font-size: 0.95rem;
-      color: var(--sand);
+      color: var(--text);
       margin-bottom: 6px;
     }
     .ia-callout p {
       font-size: 0.82rem;
-      color: rgba(239,230,220,0.55);
+      color: var(--text-mid);
       line-height: 1.78;
     }
 
@@ -798,7 +799,7 @@
     /* ══════════════════════════════════════════
        CALENDLY
     ══════════════════════════════════════════ */
-    .calendly-section { background: var(--dark); }
+    .calendly-section { background: var(--cream); }
 
     .calendly-intro {
       max-width: 560px;
@@ -806,7 +807,7 @@
     }
     .calendly-intro p {
       font-size: 0.9rem;
-      color: rgba(239,230,220,0.85);
+      color: var(--text-mid);
       line-height: 1.85;
       margin-top: 20px;
     }
