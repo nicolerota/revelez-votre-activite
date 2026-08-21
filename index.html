@@ -665,10 +665,20 @@
     .day__right {
       background: rgba(255,255,255,0.7);
       padding: 26px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .day__objective {
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+    .day__items {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 8px;
-      align-content: center;
     }
     .day__item {
       display: flex;
@@ -1071,6 +1081,213 @@
     }
 
     /* ══════════════════════════════════════════
+       MÉTHODE (pourquoi différent)
+    ══════════════════════════════════════════ */
+    .methode { background: var(--cream); }
+    .methode__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 52px;
+    }
+
+    /* ══════════════════════════════════════════
+       360°
+    ══════════════════════════════════════════ */
+    .accomp360 { background: var(--cream-light); }
+    .accomp360__intro {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      max-width: 640px;
+      line-height: 1.85;
+      margin-top: 20px;
+    }
+    .chain-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 32px 0;
+      max-width: 640px;
+    }
+    .chain-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.6;
+      font-weight: 400;
+    }
+    .chain-list li::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 9px;
+      flex-shrink: 0;
+    }
+    .accomp360__closing {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--dark);
+      max-width: 640px;
+      line-height: 1.6;
+    }
+
+    /* ══════════════════════════════════════════
+       LIVRABLES (ce que vous repartez avec)
+    ══════════════════════════════════════════ */
+    .livrables { background: var(--cream); }
+    .livrables__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px 28px;
+      margin: 52px 0 32px;
+    }
+    .livrables__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--text);
+      line-height: 1.5;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(107,26,24,0.08);
+    }
+    .livrables__item svg {
+      width: 16px; height: 16px;
+      stroke: var(--gold);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .livrables__note {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      max-width: 640px;
+      line-height: 1.75;
+      padding-top: 12px;
+    }
+
+    /* ══════════════════════════════════════════
+       POUR QUI
+    ══════════════════════════════════════════ */
+    .pourqui { background: var(--cream-light); }
+    .fit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .fit-panel {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      box-shadow: var(--shadow);
+    }
+    .fit-panel--muted { background: transparent; box-shadow: none; border: 1px dashed var(--border); }
+    .fit-panel__title {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--dark);
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+    .fit-panel--muted .fit-panel__title { color: var(--text-mid); }
+    .fit-panel__list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .fit-panel__list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 0.83rem;
+      line-height: 1.6;
+      color: var(--text);
+    }
+    .fit-panel__list li::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+    .fit-panel--muted .fit-panel__list li { color: var(--text-light); }
+    .fit-panel--muted .fit-panel__list li::before { background: var(--text-light); }
+
+    /* ══════════════════════════════════════════
+       PRICE CARD EXTRAS
+    ══════════════════════════════════════════ */
+    .offer-card__savings {
+      font-size: 0.76rem;
+      color: var(--gold);
+      font-weight: 600;
+      margin: -6px 0 16px;
+      line-height: 1.5;
+    }
+    .offer-card__fineprint {
+      font-size: 0.68rem;
+      color: var(--text-light);
+      margin-top: 16px;
+      line-height: 1.5;
+    }
+    .btn--card {
+      width: 100%;
+      justify-content: center;
+      margin-top: 6px;
+    }
+    .btn--card.btn--primary { background: var(--dark); color: var(--cream); }
+    .btn--card.btn--primary:hover { background: var(--dark-mid); }
+    .btn--card.btn--outline {
+      background: transparent;
+      color: var(--dark);
+      border: 1.5px solid var(--border);
+    }
+    .btn--card.btn--outline:hover { border-color: var(--gold); background: rgba(151,104,64,0.06); }
+    .offers__note {
+      font-size: 0.8rem;
+      color: var(--text-mid);
+      margin-top: 20px;
+      font-style: italic;
+    }
+
+    /* ══════════════════════════════════════════
+       FAQ
+    ══════════════════════════════════════════ */
+    .faq { background: var(--cream-light); }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      margin-top: 48px;
+      max-width: 760px;
+    }
+    .faq-item {
+      padding: 26px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h3 {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--dark);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .faq-item p {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.78;
+    }
+
+    /* ══════════════════════════════════════════
        RESPONSIVE
     ══════════════════════════════════════════ */
     @media (max-width: 920px) {
@@ -1079,6 +1296,9 @@
       .blocages__grid      { grid-template-columns: 1fr; }
       .financement__grid   { grid-template-columns: 1fr; gap: 48px; }
       .inclus__grid        { grid-template-columns: 1fr 1fr; }
+      .methode__grid        { grid-template-columns: 1fr; }
+      .livrables__grid       { grid-template-columns: 1fr 1fr; }
+      .fit-grid              { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 640px) {
@@ -1090,9 +1310,10 @@
       .stat:nth-last-child(-n+2) { border-bottom: none; }
       .day { grid-template-columns: 1fr; }
       .day__left { border-right: none; border-bottom: 1px solid rgba(212,173,130,0.1); }
-      .day__right { grid-template-columns: 1fr; }
+      .day__items { grid-template-columns: 1fr; }
       .inclus__grid { grid-template-columns: 1fr; }
       .offers { grid-template-columns: 1fr; }
+      .livrables__grid { grid-template-columns: 1fr; }
       .cta-final__badges { flex-wrap: wrap; }
       .cta-badge { min-width: 50%; border-right: none; border-bottom: 1px solid rgba(239,230,220,0.12); padding: 14px 0; }
       .cta-badge:nth-child(odd) { border-right: 1px solid rgba(239,230,220,0.12); }
@@ -1131,7 +1352,7 @@
 
         <div class="hero__eyebrow" data-reveal>
           <span class="hero__eyebrow-dot"></span>
-          <span class="label label--sand">Accompagnement individuel · 4 modules · Dès 990 €</span>
+          <span class="label label--sand">Accompagnement stratégique individuel · Esthétique &amp; bien-être</span>
         </div>
 
         <h1 class="h-display hero__title" data-reveal data-delay="1">
@@ -1140,24 +1361,23 @@
         </h1>
 
         <p class="hero__subtitle" data-reveal data-delay="2">
-          Passez de la professionnelle qui s'épuise à la <strong>cheffe d'entreprise qui choisit.</strong><br>
-          Conçue par une professionnelle du secteur, pour celles qui veulent retrouver leur élan.
+          <strong>4 piliers stratégiques</strong> pour rendre votre activité plus rentable, plus claire, plus visible et plus facile à développer.<br>
+          Conçu par une professionnelle du secteur, pour celles qui veulent retrouver leur élan.
         </p>
 
         <div class="hero__tags" data-reveal data-delay="3">
-          <span class="hero__tag">Identité</span>
-          <span class="hero__tag">Positionnement</span>
+          <span class="hero__tag">Rentabilité</span>
+          <span class="hero__tag">Offre &amp; Positionnement</span>
           <span class="hero__tag">Visibilité</span>
-          <span class="hero__tag">Vente éthique</span>
-          <span class="hero__tag">Intelligence artificielle</span>
+          <span class="hero__tag">Vente &amp; Relation client</span>
         </div>
 
         <div class="hero__cta" data-reveal data-delay="4">
           <button class="btn btn--primary-dark btn--lg"
             onclick="Calendly.initPopupWidget({url:'https://calendly.com/nicole-rota/appel-decouverte-revelez-votre-activite'});return false;">
-            Réserver mon appel découverte
+            Échanger sur mon activité
           </button>
-          <a href="#programme" class="btn btn--outline">Voir le programme</a>
+          <a href="#methode" class="btn btn--outline">Découvrir l'accompagnement</a>
         </div>
 
       </div>
@@ -1168,19 +1388,19 @@
       <div class="container--wide stats-bar__inner">
         <div class="stat">
           <span class="stat__val"><span data-counter="4">4</span></span>
-          <span class="stat__lbl">Modules</span>
+          <span class="stat__lbl">Piliers stratégiques</span>
         </div>
         <div class="stat">
           <span class="stat__val">1:1</span>
-          <span class="stat__lbl">Suivi individuel</span>
+          <span class="stat__lbl">Accompagnement individuel</span>
+        </div>
+        <div class="stat">
+          <span class="stat__val"><span data-counter="100">100</span> %</span>
+          <span class="stat__lbl">Sur-mesure</span>
         </div>
         <div class="stat">
           <span class="stat__val"><span data-counter="360">360</span>°</span>
-          <span class="stat__lbl">Ou à la carte</span>
-        </div>
-        <div class="stat">
-          <span class="stat__val"><span data-counter="990">990</span> €</span>
-          <span class="stat__lbl">À partir de</span>
+          <span class="stat__lbl">Vision globale</span>
         </div>
       </div>
     </div>
@@ -1194,16 +1414,16 @@
       <span class="ticker__item">Visibilité</span><span class="ticker__sep">·</span>
       <span class="ticker__item">Vente éthique</span><span class="ticker__sep">·</span>
       <span class="ticker__item">Intelligence artificielle</span><span class="ticker__sep">·</span>
-      <span class="ticker__item">Formation individuelle</span><span class="ticker__sep">·</span>
-      <span class="ticker__item">4 sessions sur-mesure</span><span class="ticker__sep">·</span>
+      <span class="ticker__item">Accompagnement individuel</span><span class="ticker__sep">·</span>
+      <span class="ticker__item">4 piliers stratégiques</span><span class="ticker__sep">·</span>
       <span class="ticker__item">Holistic. Academy</span><span class="ticker__sep">·</span>
       <span class="ticker__item">Identité</span><span class="ticker__sep">·</span>
       <span class="ticker__item">Positionnement</span><span class="ticker__sep">·</span>
       <span class="ticker__item">Visibilité</span><span class="ticker__sep">·</span>
       <span class="ticker__item">Vente éthique</span><span class="ticker__sep">·</span>
       <span class="ticker__item">Intelligence artificielle</span><span class="ticker__sep">·</span>
-      <span class="ticker__item">Formation individuelle</span><span class="ticker__sep">·</span>
-      <span class="ticker__item">4 sessions sur-mesure</span><span class="ticker__sep">·</span>
+      <span class="ticker__item">Accompagnement individuel</span><span class="ticker__sep">·</span>
+      <span class="ticker__item">4 piliers stratégiques</span><span class="ticker__sep">·</span>
       <span class="ticker__item">Holistic. Academy</span><span class="ticker__sep">·</span>
     </div>
   </div>
@@ -1217,14 +1437,14 @@
           <p class="label label--gold" data-reveal>I — La promesse</p>
           <div class="rule" data-reveal data-delay="1"></div>
           <h2 class="h-section promise__headline" data-reveal data-delay="2">
-            En 4 sessions sur-mesure, vous passez<br>de la professionnelle qui s'épuise à la <span>cheffe d'entreprise qui choisit.</span>
+            Construisez une activité <span>plus rentable, plus lisible et plus simple à développer.</span>
           </h2>
 
           <p class="promise__text body-text" data-reveal data-delay="3">
             Pas de formules magiques. Pas de marketing agressif. Un regard lucide sur ce qui vous bloque vraiment — et des outils concrets pour construire une activité qui vous ressemble, vous nourrit, et dure.
           </p>
           <p class="promise__text body-text" data-reveal data-delay="4">
-            Depuis <strong>10 ans au contact des professionnelles de la beauté</strong>, je vois les mêmes signaux revenir : la baisse de chiffre d'affaires, la perte de sens, le sentiment de ne pas savoir se valoriser. Cette formation, c'est la réponse à tout ça.
+            Depuis <strong>10 ans au contact des professionnelles de la beauté</strong>, je vois les mêmes signaux revenir : la baisse de chiffre d'affaires, la perte de sens, le sentiment de ne pas savoir se valoriser. Cet accompagnement, c'est la réponse à tout ça.
           </p>
 
           <blockquote class="promise__quote" data-reveal data-delay="5">
@@ -1234,7 +1454,7 @@
 
         <div data-reveal="right" data-delay="2">
           <div class="for-who">
-            <p class="for-who__title">Cette formation est pour vous si…</p>
+            <p class="for-who__title">Cet accompagnement est pour vous si…</p>
             <div class="for-who__item"><div class="for-who__dot"></div><span>Vous êtes esthéticienne ou praticienne bien-être, en institut ou à votre compte</span></div>
             <div class="for-who__item"><div class="for-who__dot"></div><span>Votre chiffre d'affaires baisse et vous ne savez plus par où le reprendre</span></div>
             <div class="for-who__item"><div class="for-who__dot"></div><span>Vous voyez moins de clientes venir et perdez en motivation</span></div>
@@ -1252,7 +1472,7 @@
   <!-- ══ BLOCAGES ══ -->
   <section class="blocages" id="blocages">
     <div class="container--wide">
-      <p class="label label--gold" data-reveal>II — Les 4 blocages</p>
+      <p class="label label--gold" data-reveal>II — Le problème</p>
       <div class="rule" data-reveal data-delay="1"></div>
       <h2 class="h-section" style="font-size:clamp(1.8rem,4vw,2.6rem);color:var(--dark);max-width:520px;line-height:1.1;" data-reveal data-delay="2">
         Ce que nous levons ensemble.
@@ -1295,10 +1515,45 @@
   </section>
 
 
+  <!-- ══ MÉTHODE ══ -->
+  <section class="methode" id="methode">
+    <div class="container--wide">
+      <p class="label label--gold" data-reveal>III — La méthode</p>
+      <div class="rule" data-reveal data-delay="1"></div>
+      <h2 class="h-section" style="font-size:clamp(1.8rem,4vw,2.6rem);color:var(--dark);max-width:560px;line-height:1.1;" data-reveal data-delay="2">
+        Pourquoi cet accompagnement est différent.
+      </h2>
+
+      <div class="methode__grid">
+        <div class="inclus-card tilt-card" data-reveal data-delay="1">
+          <div class="inclus-card__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a6.5 6.5 0 0 1 13 0"/></svg></div>
+          <h3>100 % individuel</h3>
+          <p>Vous ne suivez pas un contenu générique en groupe. Chaque échange est construit pour votre situation, votre rythme, vos objectifs.</p>
+        </div>
+        <div class="inclus-card tilt-card" data-reveal data-delay="2">
+          <div class="inclus-card__icon"><svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+          <h3>Nous travaillons directement sur votre activité</h3>
+          <p>Vos tarifs, votre carte de soins, votre site, vos clientes, vos chiffres — pas des exemples théoriques.</p>
+        </div>
+        <div class="inclus-card tilt-card" data-reveal data-delay="3">
+          <div class="inclus-card__icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <h3>Des décisions concrètes à chaque étape</h3>
+          <p>Chaque module débouche sur des modifications réellement applicables — pas sur une liste de bonnes intentions.</p>
+        </div>
+        <div class="inclus-card tilt-card" data-reveal data-delay="4">
+          <div class="inclus-card__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
+          <h3>Un accompagnement stratégique, pas seulement des cours</h3>
+          <p>L'objectif est de transformer progressivement votre entreprise, pas simplement d'accumuler des connaissances.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <!-- ══ PROGRAMME ══ -->
   <section class="programme" id="programme">
     <div class="container--wide">
-      <p class="label label--sand" data-reveal>III — Le programme</p>
+      <p class="label label--sand" data-reveal>IV — Les 4 modules</p>
       <div class="rule rule--sand" data-reveal data-delay="1"></div>
       <h2 class="h-section" style="font-size:clamp(1.8rem,4vw,2.6rem);color:var(--dark);line-height:1.1;margin-bottom:0;" data-reveal data-delay="2">
         Les 4 modules.
@@ -1314,11 +1569,14 @@
             <h3>Rentabilité</h3>
           </div>
           <div class="day__right">
-            <span class="day__item">Coût de revient réel</span>
-            <span class="day__item">Prestations rentables</span>
-            <span class="day__item">Construction de la grille tarifaire</span>
-            <span class="day__item">Études de cas pratiques</span>
-            <span class="day__item">IA pour simuler vos tarifs et marges</span>
+            <p class="day__objective">Comprendre vos vrais coûts, identifier vos prestations rentables, revoir vos tarifs et construire une activité qui vous rémunère réellement.</p>
+            <div class="day__items">
+              <span class="day__item">Analyse des charges</span>
+              <span class="day__item">Coût de revient réel</span>
+              <span class="day__item">Rentabilité des prestations</span>
+              <span class="day__item">Construction de la grille tarifaire</span>
+              <span class="day__item">IA pour simuler vos tarifs et marges</span>
+            </div>
           </div>
         </div>
 
@@ -1328,11 +1586,14 @@
             <h3>Offre &amp; Positionnement</h3>
           </div>
           <div class="day__right">
-            <span class="day__item">Structuration de la carte de soins</span>
-            <span class="day__item">Proposition de valeur claire</span>
-            <span class="day__item">Positionnement différenciant</span>
-            <span class="day__item">Analyse concurrentielle</span>
-            <span class="day__item">IA pour affiner votre positionnement</span>
+            <p class="day__objective">Clarifier ce que vous proposez, à qui, pourquoi — et restructurer votre offre pour qu'elle soit immédiatement compréhensible.</p>
+            <div class="day__items">
+              <span class="day__item">Analyse de la carte de soins</span>
+              <span class="day__item">Simplification &amp; hiérarchisation de l'offre</span>
+              <span class="day__item">Proposition de valeur</span>
+              <span class="day__item">Positionnement &amp; soin signature</span>
+              <span class="day__item">IA pour challenger votre positionnement</span>
+            </div>
           </div>
         </div>
 
@@ -1342,11 +1603,14 @@
             <h3>Visibilité digitale</h3>
           </div>
           <div class="day__right">
-            <span class="day__item">Google Business Profile</span>
-            <span class="day__item">Stratégie Instagram</span>
-            <span class="day__item">Ligne éditoriale</span>
-            <span class="day__item">Calendrier de contenu</span>
-            <span class="day__item">ChatGPT &amp; Canva IA pour vos contenus</span>
+            <p class="day__objective">Mettre en place les leviers qui vous rendent réellement trouvable localement, et communiquer de façon régulière sans vous épuiser.</p>
+            <div class="day__items">
+              <span class="day__item">Google Business Profile &amp; avis clients</span>
+              <span class="day__item">Stratégie Instagram</span>
+              <span class="day__item">Ligne éditoriale</span>
+              <span class="day__item">Calendrier de contenu</span>
+              <span class="day__item">ChatGPT &amp; Canva IA pour vos contenus</span>
+            </div>
           </div>
         </div>
 
@@ -1356,11 +1620,14 @@
             <h3>Vente &amp; Relation client</h3>
           </div>
           <div class="day__right">
-            <span class="day__item">Parcours client</span>
-            <span class="day__item">Techniques de présentation</span>
-            <span class="day__item">Vente additionnelle éthique</span>
-            <span class="day__item">Fidélisation</span>
-            <span class="day__item">IA pour automatiser votre suivi client</span>
+            <p class="day__objective">Structurer un parcours client qui augmente la fidélisation, les recommandations et les ventes — sans jamais avoir l'impression de forcer.</p>
+            <div class="day__items">
+              <span class="day__item">Diagnostic &amp; recommandation</span>
+              <span class="day__item">Cures, programmes &amp; suivi</span>
+              <span class="day__item">Relance &amp; fidélisation</span>
+              <span class="day__item">Vente de produits</span>
+              <span class="day__item">IA pour automatiser votre suivi client</span>
+            </div>
           </div>
         </div>
       </div>
@@ -1371,52 +1638,102 @@
         </div>
         <div>
           <h4>L'intelligence artificielle, votre nouvelle alliée</h4>
-          <p>La plupart des professionnelles n'utilisent pas encore l'IA — ou l'utilisent mal. C'est précisément là que se creuse l'écart. Nous l'intégrons à chaque session : pour vos contenus, vos visuels, votre organisation — un temps précieux libéré à chaque étape.</p>
+          <p>La plupart des professionnelles n'utilisent pas encore l'IA — ou l'utilisent mal. C'est précisément là que se creuse l'écart. Nous l'intégrons comme un outil transversal, à chaque module : pour vos contenus, vos calculs, votre organisation — un temps précieux libéré à chaque étape.</p>
         </div>
       </div>
     </div>
   </section>
 
 
-  <!-- ══ INCLUS ══ -->
-  <section class="inclus" id="inclus">
+  <!-- ══ ACCOMPAGNEMENT 360° ══ -->
+  <section class="accomp360" id="accomp360">
     <div class="container--wide">
-      <p class="label label--gold" data-reveal>IV — Ce qui est inclus</p>
+      <p class="label label--gold" data-reveal>V — L'accompagnement 360°</p>
       <div class="rule" data-reveal data-delay="1"></div>
-      <h2 class="h-section" style="font-size:clamp(1.8rem,4vw,2.6rem);color:var(--dark);line-height:1.1;margin-bottom:0;" data-reveal data-delay="2">
-        Tout ce dont vous avez besoin.
+      <h2 class="h-section" style="font-size:clamp(1.8rem,4vw,2.6rem);color:var(--dark);max-width:640px;line-height:1.1;" data-reveal data-delay="2">
+        L'accompagnement 360°.
+      </h2>
+      <p class="accomp360__intro" data-reveal data-delay="3">
+        Les 4 piliers sont travaillés ensemble pour créer une stratégie cohérente : rentabilité, offre, visibilité et relation client. Un problème de chiffre d'affaires vient rarement d'un seul sujet.
+      </p>
+
+      <ul class="chain-list" data-reveal data-delay="4">
+        <li>Un tarif peut être juste mais difficile à vendre si l'offre est floue.</li>
+        <li>Une offre peut être excellente mais invisible.</li>
+        <li>Une bonne visibilité ne suffit pas si le parcours client ne fidélise pas.</li>
+      </ul>
+
+      <p class="accomp360__closing" data-reveal data-delay="5">
+        C'est précisément pour cela que le parcours complet existe.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ══ CE QUE VOUS REPARTEZ AVEC ══ -->
+  <section class="livrables" id="livrables">
+    <div class="container--wide">
+      <p class="label label--gold" data-reveal>VI — Ce que vous repartez avec</p>
+      <div class="rule" data-reveal data-delay="1"></div>
+      <h2 class="h-section" style="font-size:clamp(1.8rem,4vw,2.6rem);color:var(--dark);max-width:640px;line-height:1.1;" data-reveal data-delay="2">
+        Vous ne repartez pas avec de la théorie.<br>Vous repartez avec des outils prêts à utiliser.
       </h2>
 
-      <div class="inclus__grid">
-        <div class="inclus-card tilt-card" data-reveal data-delay="1">
-          <div class="inclus-card__icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg></div>
-          <h3>Livrables concrets</h3>
-          <p>Des outils et supports prêts à l'emploi après chaque module — pour agir, pas pour archiver.</p>
+      <div class="livrables__grid" data-reveal data-delay="3">
+        <div class="livrables__item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Votre audit personnalisé</span></div>
+        <div class="livrables__item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Votre calculateur de coût de revient</span></div>
+        <div class="livrables__item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Votre grille tarifaire retravaillée</span></div>
+        <div class="livrables__item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Votre offre restructurée</span></div>
+        <div class="livrables__item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Votre positionnement clarifié</span></div>
+        <div class="livrables__item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Votre carte de soins simplifiée</span></div>
+        <div class="livrables__item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Votre stratégie de visibilité</span></div>
+        <div class="livrables__item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Votre ligne éditoriale</span></div>
+        <div class="livrables__item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Votre calendrier de contenu</span></div>
+        <div class="livrables__item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Votre parcours client</span></div>
+        <div class="livrables__item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Vos scripts de recommandation et de relance</span></div>
+        <div class="livrables__item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Vos prompts IA personnalisés</span></div>
+        <div class="livrables__item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Votre plan d'action</span></div>
+        <div class="livrables__item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Votre attestation de formation</span></div>
+      </div>
+
+      <p class="livrables__note" data-reveal data-delay="4">
+        Chaque accompagnement est adapté à votre entreprise : vos chiffres, votre clientèle, votre offre et vos objectifs.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ══ POUR QUI ══ -->
+  <section class="pourqui" id="pourqui">
+    <div class="container--wide">
+      <p class="label label--gold" data-reveal>VII — Pour qui ?</p>
+      <div class="rule" data-reveal data-delay="1"></div>
+      <h2 class="h-section" style="font-size:clamp(1.8rem,4vw,2.6rem);color:var(--dark);max-width:640px;line-height:1.1;" data-reveal data-delay="2">
+        Cet accompagnement est fait pour vous si…
+      </h2>
+
+      <div class="fit-grid">
+        <div class="fit-panel" data-reveal data-delay="3">
+          <p class="fit-panel__title">C'est fait pour vous si…</p>
+          <ul class="fit-panel__list">
+            <li>Vous êtes esthéticienne, praticienne bien-être, gérante d'institut ou indépendante</li>
+            <li>Votre activité fonctionne mais manque de structure</li>
+            <li>Vos tarifs ont été fixés un peu « au feeling » ou en regardant la concurrence</li>
+            <li>Votre carte de soins est devenue trop large ou difficile à comprendre</li>
+            <li>Vous avez du mal à savoir quoi mettre en avant</li>
+            <li>Vous communiquez sans vraie stratégie</li>
+            <li>Vous souhaitez augmenter votre chiffre d'affaires sans simplement travailler plus</li>
+            <li>Vous voulez gagner du temps grâce à des outils et à l'IA</li>
+            <li>Vous avez besoin d'un regard extérieur pour prendre des décisions</li>
+          </ul>
         </div>
-        <div class="inclus-card tilt-card" data-reveal data-delay="2">
-          <div class="inclus-card__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-          <h3>Travail en autonomie</h3>
-          <p>Entre les sessions, vous avancez à votre rythme sur des actions ciblées, pensées pour votre activité.</p>
-        </div>
-        <div class="inclus-card tilt-card" data-reveal data-delay="3">
-          <div class="inclus-card__icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-          <h3>Audit personnalisé</h3>
-          <p>Un diagnostic sur-mesure de votre structure — pas un programme générique appliqué à toutes.</p>
-        </div>
-        <div class="inclus-card tilt-card" data-reveal data-delay="4">
-          <div class="inclus-card__icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <h3>Résultats immédiats</h3>
-          <p>On travaille ensemble sur vos changements prioritaires — les effets se voient dès les premières sessions.</p>
-        </div>
-        <div class="inclus-card tilt-card" data-reveal data-delay="5">
-          <div class="inclus-card__icon"><svg viewBox="0 0 24 24"><path d="M15 10l-4 4 6 6 4-16-18 7 4 2 2 6 3-4"/></svg></div>
-          <h3>Séances en visio</h3>
-          <p>Un accompagnement 100 % individuel, adapté à votre activité, vos objectifs et votre rythme.</p>
-        </div>
-        <div class="inclus-card tilt-card" data-reveal data-delay="6">
-          <div class="inclus-card__icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-          <h3>Attestation de formation</h3>
-          <p>Remise en fin de parcours pour attester de votre suivi.</p>
+        <div class="fit-panel fit-panel--muted" data-reveal data-delay="4">
+          <p class="fit-panel__title">Ce n'est probablement pas pour vous si…</p>
+          <ul class="fit-panel__list">
+            <li>Vous recherchez uniquement une formation théorique</li>
+            <li>Vous ne souhaitez pas remettre en question votre fonctionnement actuel</li>
+            <li>Vous cherchez une méthode magique sans mise en application</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -1428,7 +1745,7 @@
     <div class="container--wide">
       <div class="financement__grid">
         <div>
-          <p class="label label--gold" data-reveal>V — Tarif & inscription</p>
+          <p class="label label--gold" data-reveal>VIII — Tarif &amp; inscription</p>
           <div class="rule" data-reveal data-delay="1"></div>
           <h2 class="h-section" style="font-size:clamp(1.8rem,4vw,2.6rem);color:var(--dark);line-height:1.1;" data-reveal data-delay="2">
             Deux formules, un accompagnement 100 % individuel.
@@ -1439,20 +1756,26 @@
               <p class="offer-card__badge">Accompagnement complet</p>
               <p class="offer-card__price">3 700 €</p>
               <p class="offer-card__price-sub">Les 4 modules · Refonte à 360°</p>
-              <p class="offer-card__desc">Une prise en charge complète de votre activité : rentabilité, positionnement, visibilité et vente — on reconstruit chaque pilier avec vous.</p>
+              <p class="offer-card__desc">Vous souhaitez revoir votre activité dans son ensemble ? On reconstruit chaque pilier avec vous : rentabilité, positionnement, visibilité et vente.</p>
               <ul class="offer-card__list">
                 <li>Les 4 modules, en profondeur</li>
                 <li>Livrables à chaque étape</li>
-                <li>Travail en autonomie entre les sessions</li>
+                <li>Travail en autonomie entre les rendez-vous</li>
                 <li>Audit personnalisé de votre structure</li>
                 <li>Changements et résultats immédiats</li>
               </ul>
+              <p class="offer-card__savings">260 € économisés par rapport aux 4 modules pris séparément (3 960 €)</p>
+              <button class="btn btn--primary btn--card"
+                onclick="Calendly.initPopupWidget({url:'https://calendly.com/nicole-rota/appel-decouverte-revelez-votre-activite'});return false;">
+                Je choisis l'accompagnement 360°
+              </button>
+              <p class="offer-card__fineprint">Parcours pédagogique estimé : jusqu'à 40 heures, séances individuelles et mises en application comprises.</p>
             </div>
             <div class="offer-card">
               <p class="offer-card__badge">Un module au choix</p>
               <p class="offer-card__price">990 €</p>
               <p class="offer-card__price-sub">Le module qui compte le plus, maintenant</p>
-              <p class="offer-card__desc">Vous identifiez votre priorité — rentabilité, positionnement, visibilité ou vente — et on la travaille à fond, ensemble.</p>
+              <p class="offer-card__desc">Vous avez un problème très ciblé ? Vous identifiez votre priorité et on la travaille à fond, ensemble.</p>
               <ul class="offer-card__list">
                 <li>1 module, au choix</li>
                 <li>Livrables à chaque étape</li>
@@ -1460,8 +1783,15 @@
                 <li>Audit personnalisé de votre structure</li>
                 <li>Changements et résultats immédiats</li>
               </ul>
+              <button class="btn btn--outline btn--card"
+                onclick="Calendly.initPopupWidget({url:'https://calendly.com/nicole-rota/appel-decouverte-revelez-votre-activite'});return false;">
+                Choisir mon module
+              </button>
+              <p class="offer-card__fineprint">Durée pédagogique indicative : jusqu'à 10 heures.</p>
             </div>
           </div>
+
+          <p class="offers__note" data-reveal data-delay="3">Possibilité de construire un accompagnement sur plusieurs modules selon vos besoins.</p>
 
           <div class="alert" data-reveal data-delay="4">
             <p><strong>Paiement en plusieurs fois possible</strong> — pas de date limite d'inscription, chaque parcours est étudié au cas par cas. Contactez-moi pour qu'on en discute ensemble.</p>
@@ -1469,13 +1799,13 @@
         </div>
 
         <div>
-          <p class="label label--gold" data-reveal>Comment ça fonctionne</p>
+          <p class="label label--gold" data-reveal>Comment se déroule l'accompagnement</p>
           <div class="rule" style="margin-top:16px;" data-reveal data-delay="1"></div>
 
           <div class="steps" data-reveal data-delay="2">
             <div class="step">
               <div class="step__num">1</div>
-              <p class="step__text">On échange lors d'un appel découverte pour voir si la formation vous correspond.</p>
+              <p class="step__text">On échange lors d'un appel découverte pour voir si l'accompagnement vous correspond.</p>
             </div>
             <div class="step">
               <div class="step__num">2</div>
@@ -1483,9 +1813,48 @@
             </div>
             <div class="step">
               <div class="step__num">3</div>
-              <p class="step__text">Vous suivez votre accompagnement — <strong>les 4 modules ou le module choisi</strong> — en visio, avec du travail en autonomie entre chaque étape, à votre rythme.</p>
+              <p class="step__text">Vous suivez votre accompagnement — <strong>les 4 modules ou le module choisi</strong> — en séances individuelles, avec des mises en application entre chaque rendez-vous. Le rythme et les travaux sont adaptés à votre activité et à vos besoins.</p>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ FAQ ══ -->
+  <section class="faq" id="faq">
+    <div class="container--wide">
+      <p class="label label--gold" data-reveal>IX — Questions fréquentes</p>
+      <div class="rule" data-reveal data-delay="1"></div>
+      <h2 class="h-section" style="font-size:clamp(1.8rem,4vw,2.6rem);color:var(--dark);max-width:640px;line-height:1.1;" data-reveal data-delay="2">
+        Ce que l'on me demande le plus souvent.
+      </h2>
+
+      <div class="faq-list" data-reveal data-delay="3">
+        <div class="faq-item">
+          <h3>Est-ce une formation ou du conseil ?</h3>
+          <p>Il s'agit d'une formation-action individuelle. Chaque notion est immédiatement appliquée à votre propre activité.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Combien de temps dure l'accompagnement ?</h3>
+          <p>Le rythme dépend du parcours choisi et de votre situation. Les rendez-vous individuels sont complétés par des mises en application entre les séances. Le parcours complet représente jusqu'à environ 40 heures de travail pédagogique.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Puis-je choisir un seul module ?</h3>
+          <p>Oui. Chaque module peut être suivi indépendamment.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Est-ce adapté si je travaille seule ?</h3>
+          <p>Oui, l'accompagnement est justement pensé pour les indépendantes et petites structures.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Vais-je devoir utiliser l'IA ?</h3>
+          <p>L'IA est utilisée uniquement comme outil pour vous faire gagner du temps : calculs, rédaction, réflexion, communication ou organisation. Elle ne remplace jamais votre expertise.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Est-ce personnalisable ?</h3>
+          <p>Oui. Les exemples, exercices et recommandations sont adaptés à votre activité.</p>
         </div>
       </div>
     </div>
@@ -1501,7 +1870,7 @@
         <h2 class="h-section" style="font-size:clamp(1.8rem,4vw,2.6rem);color:var(--dark);line-height:1.1;" data-reveal data-delay="2">
           Réservez votre appel découverte.
         </h2>
-        <p data-reveal data-delay="3">Un appel de 15 minutes pour faire connaissance, répondre à vos questions et voir ensemble si cette formation vous correspond. Sans engagement.</p>
+        <p data-reveal data-delay="3">Un appel de 15 minutes pour faire connaissance, répondre à vos questions et voir ensemble si cet accompagnement vous correspond. Sans engagement.</p>
       </div>
 
       <div class="calendly-wrap" data-reveal data-delay="4">
@@ -1528,7 +1897,7 @@
 
       <button class="btn btn--primary-dark btn--lg" data-reveal data-delay="3"
         onclick="Calendly.initPopupWidget({url:'https://calendly.com/nicole-rota/appel-decouverte-revelez-votre-activite'});return false;">
-        Je réserve ma place
+        Je veux faire le point sur mon activité
       </button>
 
       <div class="cta-final__badges" data-reveal data-delay="4">
