@@ -1993,10 +1993,11 @@
     }, { threshold: 0.5 });
     document.querySelectorAll('[data-counter]').forEach(el => cio.observe(el));
 
-    /* ── Parallax hero ── */
+    /* ── Parallax hero (desktop only — mobile hero can grow taller than the viewport, which makes the translate overlap the stats bar) ── */
     const heroInner = document.querySelector('.hero__inner');
     const heroSection = document.querySelector('.hero');
     window.addEventListener('scroll', () => {
+      if (window.innerWidth <= 640) return;
       const y = window.scrollY;
       const heroHeight = heroSection ? heroSection.offsetHeight : window.innerHeight;
       if (y < heroHeight && heroInner) {
