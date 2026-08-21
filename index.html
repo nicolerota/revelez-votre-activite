@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Révélez votre activité · holistic. academy</title>
-  <meta name="description" content="Formation individuelle · 4 sessions sur-mesure · Prix de lancement 990 € · Paiement en plusieurs fois possible." />
+  <meta name="description" content="Accompagnement individuel pour professionnelles de la beauté & bien-être · Un module au choix dès 990 € ou refonte complète à 360° à 3 700 €." />
   <link rel="icon" type="image/png" href="favicon.png" />
 
   <!-- Polices exactes de la charte graphique -->
@@ -820,6 +820,74 @@
       color: var(--text-light);
     }
 
+    .offers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 32px 0;
+    }
+    .offer-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 22px;
+      box-shadow: var(--shadow);
+    }
+    .offer-card--featured {
+      border-color: var(--gold);
+      box-shadow: 0 4px 28px rgba(151,104,64,0.18);
+    }
+    .offer-card__badge {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .offer-card__price {
+      font-family: var(--font-head);
+      font-weight: 900;
+      font-size: 2rem;
+      color: var(--dark);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .offer-card__price-sub {
+      font-size: 0.78rem;
+      color: var(--text-mid);
+      margin-bottom: 16px;
+    }
+    .offer-card__desc {
+      font-size: 0.83rem;
+      color: var(--text);
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+    .offer-card__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .offer-card__list li {
+      font-size: 0.78rem;
+      color: var(--text);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.4;
+    }
+    .offer-card__list li::before {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+
     .steps { display: flex; flex-direction: column; }
     .step {
       display: flex;
@@ -1024,6 +1092,7 @@
       .day__left { border-right: none; border-bottom: 1px solid rgba(212,173,130,0.1); }
       .day__right { grid-template-columns: 1fr; }
       .inclus__grid { grid-template-columns: 1fr; }
+      .offers { grid-template-columns: 1fr; }
       .cta-final__badges { flex-wrap: wrap; }
       .cta-badge { min-width: 50%; border-right: none; border-bottom: 1px solid rgba(239,230,220,0.12); padding: 14px 0; }
       .cta-badge:nth-child(odd) { border-right: 1px solid rgba(239,230,220,0.12); }
@@ -1062,7 +1131,7 @@
 
         <div class="hero__eyebrow" data-reveal>
           <span class="hero__eyebrow-dot"></span>
-          <span class="label label--sand">Formation individuelle · 4 sessions sur-mesure · Prix de lancement</span>
+          <span class="label label--sand">Accompagnement individuel · 4 modules · Dès 990 €</span>
         </div>
 
         <h1 class="h-display hero__title" data-reveal data-delay="1">
@@ -1098,20 +1167,20 @@
     <div class="stats-bar">
       <div class="container--wide stats-bar__inner">
         <div class="stat">
-          <span class="stat__val"><span data-counter="40">40</span> h</span>
-          <span class="stat__lbl">Live + travail personnel</span>
+          <span class="stat__val"><span data-counter="4">4</span></span>
+          <span class="stat__lbl">Modules</span>
         </div>
         <div class="stat">
           <span class="stat__val">1:1</span>
           <span class="stat__lbl">Suivi individuel</span>
         </div>
         <div class="stat">
-          <span class="stat__val">1:1</span>
-          <span class="stat__lbl">Suivi individuel</span>
+          <span class="stat__val"><span data-counter="360">360</span>°</span>
+          <span class="stat__lbl">Ou à la carte</span>
         </div>
         <div class="stat">
           <span class="stat__val"><span data-counter="990">990</span> €</span>
-          <span class="stat__lbl">Prix de lancement</span>
+          <span class="stat__lbl">À partir de</span>
         </div>
       </div>
     </div>
@@ -1232,13 +1301,16 @@
       <p class="label label--sand" data-reveal>III — Le programme</p>
       <div class="rule rule--sand" data-reveal data-delay="1"></div>
       <h2 class="h-section" style="font-size:clamp(1.8rem,4vw,2.6rem);color:var(--cream);line-height:1.1;margin-bottom:0;" data-reveal data-delay="2">
-        Formation individuelle · 4 sessions sur-mesure.
+        Les 4 modules.
       </h2>
+      <p class="body-text" style="color:var(--cream);opacity:0.75;max-width:560px;margin-top:14px;" data-reveal data-delay="2">
+        En accompagnement complet sur les 4 modules, ou à la carte sur celui qui compte le plus pour vous maintenant.
+      </p>
 
       <div class="programme__days">
         <div class="day" data-reveal data-delay="1">
           <div class="day__left">
-            <p class="label">Session 1</p>
+            <p class="label">Module 1</p>
             <h3>Rentabilité</h3>
           </div>
           <div class="day__right">
@@ -1252,7 +1324,7 @@
 
         <div class="day" data-reveal data-delay="2">
           <div class="day__left">
-            <p class="label">Session 2</p>
+            <p class="label">Module 2</p>
             <h3>Offre &amp; Positionnement</h3>
           </div>
           <div class="day__right">
@@ -1266,7 +1338,7 @@
 
         <div class="day" data-reveal data-delay="3">
           <div class="day__left">
-            <p class="label">Session 3</p>
+            <p class="label">Module 3</p>
             <h3>Visibilité digitale</h3>
           </div>
           <div class="day__right">
@@ -1280,7 +1352,7 @@
 
         <div class="day" data-reveal data-delay="4">
           <div class="day__left">
-            <p class="label">Session 4</p>
+            <p class="label">Module 4</p>
             <h3>Vente &amp; Relation client</h3>
           </div>
           <div class="day__right">
@@ -1317,34 +1389,34 @@
 
       <div class="inclus__grid">
         <div class="inclus-card tilt-card" data-reveal data-delay="1">
+          <div class="inclus-card__icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg></div>
+          <h3>Livrables concrets</h3>
+          <p>Des outils et supports prêts à l'emploi après chaque module — pour agir, pas pour archiver.</p>
+        </div>
+        <div class="inclus-card tilt-card" data-reveal data-delay="2">
+          <div class="inclus-card__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+          <h3>Travail en autonomie</h3>
+          <p>Entre les sessions, vous avancez à votre rythme sur des actions ciblées, pensées pour votre activité.</p>
+        </div>
+        <div class="inclus-card tilt-card" data-reveal data-delay="3">
+          <div class="inclus-card__icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          <h3>Audit personnalisé</h3>
+          <p>Un diagnostic sur-mesure de votre structure — pas un programme générique appliqué à toutes.</p>
+        </div>
+        <div class="inclus-card tilt-card" data-reveal data-delay="4">
+          <div class="inclus-card__icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <h3>Résultats immédiats</h3>
+          <p>On travaille ensemble sur vos changements prioritaires — les effets se voient dès les premières sessions.</p>
+        </div>
+        <div class="inclus-card tilt-card" data-reveal data-delay="5">
           <div class="inclus-card__icon"><svg viewBox="0 0 24 24"><path d="M15 10l-4 4 6 6 4-16-18 7 4 2 2 6 3-4"/></svg></div>
           <h3>Séances en visio</h3>
           <p>Un accompagnement 100 % individuel, adapté à votre activité, vos objectifs et votre rythme.</p>
         </div>
-        <div class="inclus-card tilt-card" data-reveal data-delay="2">
-          <div class="inclus-card__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></div>
-          <h3>Enregistrement fourni</h3>
-          <p>Chaque session est enregistrée et mise à disposition pour réviser à votre rythme.</p>
-        </div>
-        <div class="inclus-card tilt-card" data-reveal data-delay="3">
-          <div class="inclus-card__icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg></div>
-          <h3>PDF récap par module</h3>
-          <p>Les points essentiels de chaque jour — pour agir, pas pour archiver.</p>
-        </div>
-        <div class="inclus-card tilt-card" data-reveal data-delay="4">
+        <div class="inclus-card tilt-card" data-reveal data-delay="6">
           <div class="inclus-card__icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
           <h3>Attestation de formation</h3>
           <p>Remise en fin de parcours pour attester de votre suivi.</p>
-        </div>
-        <div class="inclus-card tilt-card" data-reveal data-delay="5">
-          <div class="inclus-card__icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
-          <h3>Suivi post-formation</h3>
-          <p>Un accompagnement individuel disponible après la formation pour ancrer vos acquis et passer à l'action.</p>
-        </div>
-        <div class="inclus-card tilt-card" data-reveal data-delay="6">
-          <div class="inclus-card__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 6-6v0a6 6 0 0 1 6 6v2"/></svg></div>
-          <h3>Sessions 1:1 en option</h3>
-          <p>Un accompagnement individuel disponible en complément, pour aller plus loin.</p>
         </div>
       </div>
     </div>
@@ -1359,21 +1431,35 @@
           <p class="label label--gold" data-reveal>V — Tarif & inscription</p>
           <div class="rule" data-reveal data-delay="1"></div>
           <h2 class="h-section" style="font-size:clamp(1.8rem,4vw,2.6rem);color:var(--dark);line-height:1.1;" data-reveal data-delay="2">
-            Une formation individuelle à 100 %.
+            Deux formules, un accompagnement 100 % individuel.
           </h2>
 
-          <div class="price-row" data-reveal data-delay="3">
-            <div class="price-pill">
-              <span class="price-pill__val">990 €</span>
-              <span class="price-pill__lbl">Prix de lancement</span>
+          <div class="offers" data-reveal data-delay="3">
+            <div class="offer-card offer-card--featured">
+              <p class="offer-card__badge">Accompagnement complet</p>
+              <p class="offer-card__price">3 700 €</p>
+              <p class="offer-card__price-sub">Les 4 modules · Refonte à 360°</p>
+              <p class="offer-card__desc">Une prise en charge complète de votre activité : rentabilité, positionnement, visibilité et vente — on reconstruit chaque pilier avec vous.</p>
+              <ul class="offer-card__list">
+                <li>Les 4 modules, en profondeur</li>
+                <li>Livrables à chaque étape</li>
+                <li>Travail en autonomie entre les sessions</li>
+                <li>Audit personnalisé de votre structure</li>
+                <li>Changements et résultats immédiats</li>
+              </ul>
             </div>
-            <div class="price-pill">
-              <span class="price-pill__val">40 h</span>
-              <span class="price-pill__lbl">En individuel</span>
-            </div>
-            <div class="price-pill">
-              <span class="price-pill__val">100 %</span>
-              <span class="price-pill__lbl">Personnalisée</span>
+            <div class="offer-card">
+              <p class="offer-card__badge">Un module au choix</p>
+              <p class="offer-card__price">990 €</p>
+              <p class="offer-card__price-sub">Le module qui compte le plus, maintenant</p>
+              <p class="offer-card__desc">Vous identifiez votre priorité — rentabilité, positionnement, visibilité ou vente — et on la travaille à fond, ensemble.</p>
+              <ul class="offer-card__list">
+                <li>1 module, au choix</li>
+                <li>Livrables à chaque étape</li>
+                <li>Travail en autonomie</li>
+                <li>Audit personnalisé de votre structure</li>
+                <li>Changements et résultats immédiats</li>
+              </ul>
             </div>
           </div>
 
@@ -1397,7 +1483,7 @@
             </div>
             <div class="step">
               <div class="step__num">3</div>
-              <p class="step__text">Vous suivez vos <strong>4 sessions sur-mesure</strong> en visio, avec du travail en autonomie entre chaque, à votre rythme.</p>
+              <p class="step__text">Vous suivez votre accompagnement — <strong>les 4 modules ou le module choisi</strong> — en visio, avec du travail en autonomie entre chaque étape, à votre rythme.</p>
             </div>
           </div>
         </div>
@@ -1452,11 +1538,11 @@
         </div>
         <div class="cta-badge">
           <span class="cta-badge__val">990 €</span>
-          <span class="cta-badge__lbl">Prix de lancement</span>
+          <span class="cta-badge__lbl">Un module au choix</span>
         </div>
         <div class="cta-badge">
-          <span class="cta-badge__val">40 h</span>
-          <span class="cta-badge__lbl">Live + travail personnel</span>
+          <span class="cta-badge__val">3 700 €</span>
+          <span class="cta-badge__lbl">Accompagnement complet</span>
         </div>
         <div class="cta-badge">
           <span class="cta-badge__val">Cas par cas</span>
