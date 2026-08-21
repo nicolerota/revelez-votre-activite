@@ -358,7 +358,7 @@
        HERO
     ══════════════════════════════════════════ */
     .hero {
-      height: 100svh;
+      min-height: 100svh;
       background: var(--dark);
       display: flex;
       flex-direction: column;
@@ -1989,11 +1989,13 @@
 
     /* ── Parallax hero ── */
     const heroInner = document.querySelector('.hero__inner');
+    const heroSection = document.querySelector('.hero');
     window.addEventListener('scroll', () => {
       const y = window.scrollY;
-      if (y < window.innerHeight && heroInner) {
+      const heroHeight = heroSection ? heroSection.offsetHeight : window.innerHeight;
+      if (y < heroHeight && heroInner) {
         heroInner.style.transform = `translateY(${y * 0.12}px)`;
-        heroInner.style.opacity = Math.max(0, 1 - y / window.innerHeight * 1.5);
+        heroInner.style.opacity = Math.max(0, 1 - y / heroHeight * 1.5);
       }
     }, { passive: true });
 
