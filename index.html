@@ -96,7 +96,9 @@
     /* Ticker */
     .ticker {
       overflow: hidden;
-      background: var(--dark);
+      background: var(--cream-light);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
       padding: 14px 0;
       user-select: none;
     }
@@ -112,7 +114,7 @@
       font-weight: 600;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(212,173,130,0.6);
+      color: var(--text-mid);
       padding: 0 40px;
     }
     .ticker__sep {
@@ -239,12 +241,12 @@
     }
     .btn--outline {
       background: transparent;
-      color: var(--sand);
-      border: 1.5px solid rgba(212,173,130,0.38);
+      color: var(--dark);
+      border: 1.5px solid var(--border);
     }
     .btn--outline:hover {
-      border-color: var(--sand);
-      background: rgba(212,173,130,0.1);
+      border-color: var(--gold);
+      background: rgba(151,104,64,0.06);
     }
     .btn--lg { padding: 20px 52px; font-size: 0.7rem; }
 
@@ -359,7 +361,7 @@
     ══════════════════════════════════════════ */
     .hero {
       min-height: 100svh;
-      background: var(--dark);
+      background: var(--cream);
       display: flex;
       flex-direction: column;
       padding-top: 80px;
@@ -395,25 +397,25 @@
 
     .hero__title {
       font-size: clamp(3.4rem, 7.5vw, 6.5rem);
-      color: var(--cream);
+      color: var(--dark);
       margin-bottom: 6px;
     }
     .hero__title-accent {
-      color: var(--sand);
+      color: var(--gold);
       display: block;
       white-space: nowrap;
     }
 
     .hero__subtitle {
       font-size: clamp(0.9rem, 2vw, 1.1rem);
-      color: rgba(239,230,220,0.85);
+      color: var(--text-mid);
       max-width: 540px;
       margin: 20px 0 14px;
       font-weight: 400;
       line-height: 1.8;
     }
     .hero__subtitle strong {
-      color: rgba(239,230,220,0.9);
+      color: var(--text);
       font-weight: 600;
     }
 
@@ -425,13 +427,14 @@
     }
     .hero__tag {
       padding: 6px 14px;
-      border: 1px solid rgba(212,173,130,0.22);
+      background: var(--white);
+      border: 1px solid var(--border);
       border-radius: 100px;
       font-size: 0.62rem;
       font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: rgba(212,173,130,0.6);
+      color: var(--text-mid);
     }
 
     .hero__cta {
@@ -443,28 +446,29 @@
 
     /* Barre stats */
     .stats-bar {
-      background: rgba(36, 8, 4, 0.55);
-      backdrop-filter: blur(10px);
-      border-top: 1px solid rgba(212,173,130,0.12);
       position: relative;
       z-index: 1;
+      padding-bottom: 56px;
     }
     .stats-bar__inner {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
     }
     .stat {
-      padding: 24px 16px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 22px 16px;
       text-align: center;
-      border-right: 1px solid rgba(212,173,130,0.1);
     }
-    .stat:last-child { border-right: none; }
     .stat__val {
       display: block;
       font-family: var(--font-head);
       font-weight: 900;
       font-size: 1.9rem;
-      color: var(--sand);
+      color: var(--gold);
       line-height: 1;
       letter-spacing: -0.02em;
       margin-bottom: 5px;
@@ -475,7 +479,7 @@
       font-weight: 600;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(212,173,130,0.45);
+      color: var(--text-light);
     }
 
     /* ══════════════════════════════════════════
@@ -970,7 +974,7 @@
        CTA FINAL
     ══════════════════════════════════════════ */
     .cta-final {
-      background: var(--terracotta);
+      background: var(--cream);
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -979,7 +983,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 50% 50%, rgba(212,173,130,0.12) 0%, transparent 65%);
+      background: radial-gradient(ellipse at 50% 50%, rgba(151,104,64,0.08) 0%, transparent 65%);
       pointer-events: none;
     }
 
@@ -987,22 +991,22 @@
       font-family: var(--font-head);
       font-weight: 900;
       font-size: 1.2rem;
-      color: rgba(239,230,220,0.35);
+      color: var(--text-light);
       letter-spacing: -0.01em;
       margin-bottom: 40px;
     }
 
     .cta-final__title {
       font-size: clamp(3rem, 8vw, 5.5rem);
-      color: var(--cream);
+      color: var(--dark);
       margin-bottom: 8px;
       position: relative;
     }
-    .cta-final__title span { color: var(--sand); }
+    .cta-final__title span { color: var(--gold); }
 
     .cta-final__sub {
       font-size: 0.9rem;
-      color: rgba(239,230,220,0.85);
+      color: var(--text-mid);
       max-width: 440px;
       margin: 20px auto 44px;
       line-height: 1.8;
@@ -1011,25 +1015,29 @@
     .cta-final__badges {
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       margin-top: 56px;
       padding-top: 44px;
-      border-top: 1px solid rgba(239,230,220,0.15);
-      gap: 0;
+      border-top: 1px solid var(--border);
+      gap: 12px;
     }
     .cta-badge {
       flex: 1;
+      min-width: 140px;
       max-width: 200px;
       text-align: center;
-      border-right: 1px solid rgba(239,230,220,0.12);
-      padding: 0 24px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 20px 16px;
     }
-    .cta-badge:last-child { border-right: none; }
     .cta-badge__val {
       display: block;
       font-family: var(--font-head);
       font-weight: 900;
       font-size: 1.8rem;
-      color: var(--sand);
+      color: var(--gold);
       letter-spacing: -0.02em;
       line-height: 1;
       margin-bottom: 6px;
@@ -1039,7 +1047,7 @@
       font-weight: 600;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: rgba(239,230,220,0.45);
+      color: var(--text-light);
     }
 
     /* ══════════════════════════════════════════
@@ -1310,18 +1318,13 @@
       section { padding: 64px 0; }
       .hero__title { font-size: 3.4rem; }
       .stats-bar__inner { grid-template-columns: 1fr 1fr; }
-      .stat { border-right: none; border-bottom: 1px solid rgba(212,173,130,0.1); }
-      .stat:nth-child(2n) { border-left: 1px solid rgba(212,173,130,0.1); }
-      .stat:nth-last-child(-n+2) { border-bottom: none; }
       .day { grid-template-columns: 1fr; }
       .day__left { border-right: none; border-bottom: 1px solid rgba(212,173,130,0.1); }
       .day__items { grid-template-columns: 1fr; }
       .inclus__grid { grid-template-columns: 1fr; }
       .offers { grid-template-columns: 1fr; }
       .livrables__grid { grid-template-columns: 1fr; }
-      .cta-final__badges { flex-wrap: wrap; }
-      .cta-badge { min-width: 50%; border-right: none; border-bottom: 1px solid rgba(239,230,220,0.12); padding: 14px 0; }
-      .cta-badge:nth-child(odd) { border-right: 1px solid rgba(239,230,220,0.12); }
+      .cta-badge { min-width: 42%; }
       .footer-top { flex-direction: column; gap: 20px; text-align: center; }
       .floating-cta { bottom: 16px; right: 16px; }
       nav .btn { display: none; }
@@ -1334,8 +1337,8 @@
   <div id="scroll-progress"></div>
 
   <!-- ══ NAV ══ -->
-  <nav style="position:fixed;top:0;left:0;right:0;z-index:100;padding:12px 32px;display:flex;align-items:center;background:#6B1A18;">
-    <img src="logo.png" alt="holistic. academy" style="height:72px;width:auto;" />
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:100;padding:12px 32px;display:flex;align-items:center;background:var(--cream);border-bottom:1px solid var(--border);">
+    <img src="favicon.png" alt="holistic. academy" style="height:56px;width:auto;" />
   </nav>
   <div style="height:80px;"></div>
 
@@ -1378,7 +1381,7 @@
         </div>
 
         <div class="hero__cta" data-reveal data-delay="4">
-          <button class="btn btn--primary-dark btn--lg"
+          <button class="btn btn--primary btn--lg"
             onclick="Calendly.initPopupWidget({url:'https://calendly.com/nicole-rota/appel-decouverte-revelez-votre-activite'});return false;">
             Échanger sur mon activité
           </button>
@@ -1901,7 +1904,7 @@
         Inscription ouverte en continu — chaque parcours est étudié au cas par cas, à votre rythme.
       </p>
 
-      <button class="btn btn--primary-dark btn--lg" data-reveal data-delay="3"
+      <button class="btn btn--primary btn--lg" data-reveal data-delay="3"
         onclick="Calendly.initPopupWidget({url:'https://calendly.com/nicole-rota/appel-decouverte-revelez-votre-activite'});return false;">
         Je veux faire le point sur mon activité
       </button>
