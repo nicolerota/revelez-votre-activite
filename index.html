@@ -93,39 +93,6 @@
     [data-delay="5"] { transition-delay: 0.50s; }
     [data-delay="6"] { transition-delay: 0.60s; }
 
-    /* Ticker */
-    .ticker {
-      overflow: hidden;
-      background: var(--cream-light);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 14px 0;
-      user-select: none;
-    }
-    .ticker__track {
-      display: flex;
-      gap: 0;
-      animation: ticker-scroll 22s linear infinite;
-      white-space: nowrap;
-    }
-    .ticker__item {
-      flex-shrink: 0;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--text-mid);
-      padding: 0 40px;
-    }
-    .ticker__sep {
-      color: var(--gold);
-      padding: 0 4px;
-    }
-    @keyframes ticker-scroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
     /* Pulsation dot hero */
     @keyframes pulse-dot {
       0%, 100% { box-shadow: 0 0 0 0 rgba(212,173,130,0.6); }
@@ -1363,7 +1330,7 @@
 
         <div class="hero__eyebrow" data-reveal>
           <span class="hero__eyebrow-dot"></span>
-          <span class="label label--sand">Accompagnement stratégique individuel · Esthétique &amp; bien-être</span>
+          <span class="label label--sand">Accompagnement individuel · Esthétique &amp; bien-être</span>
         </div>
 
         <h1 class="h-display hero__title" data-reveal data-delay="1">
@@ -1372,8 +1339,8 @@
         </h1>
 
         <p class="hero__subtitle" data-reveal data-delay="2">
-          <strong>4 piliers stratégiques</strong> pour rendre votre activité plus rentable, plus claire, plus visible et plus facile à développer.<br>
-          Conçu par une professionnelle du secteur, pour celles qui veulent reprendre le contrôle de leur activité.
+          Rentabilité, offre, visibilité, vente : on reprend chaque pilier de votre activité, un par un, avec vous.<br>
+          Par une professionnelle du secteur, pour celles qui veulent reprendre la main.
         </p>
 
         <div class="hero__tags" data-reveal data-delay="3">
@@ -1417,28 +1384,6 @@
     </div>
   </section>
 
-  <!-- Ticker -->
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker__track">
-      <span class="ticker__item">Identité</span><span class="ticker__sep">·</span>
-      <span class="ticker__item">Positionnement</span><span class="ticker__sep">·</span>
-      <span class="ticker__item">Visibilité</span><span class="ticker__sep">·</span>
-      <span class="ticker__item">Vente éthique</span><span class="ticker__sep">·</span>
-      <span class="ticker__item">Intelligence artificielle</span><span class="ticker__sep">·</span>
-      <span class="ticker__item">Accompagnement individuel</span><span class="ticker__sep">·</span>
-      <span class="ticker__item">4 piliers stratégiques</span><span class="ticker__sep">·</span>
-      <span class="ticker__item">Holistic. Academy</span><span class="ticker__sep">·</span>
-      <span class="ticker__item">Identité</span><span class="ticker__sep">·</span>
-      <span class="ticker__item">Positionnement</span><span class="ticker__sep">·</span>
-      <span class="ticker__item">Visibilité</span><span class="ticker__sep">·</span>
-      <span class="ticker__item">Vente éthique</span><span class="ticker__sep">·</span>
-      <span class="ticker__item">Intelligence artificielle</span><span class="ticker__sep">·</span>
-      <span class="ticker__item">Accompagnement individuel</span><span class="ticker__sep">·</span>
-      <span class="ticker__item">4 piliers stratégiques</span><span class="ticker__sep">·</span>
-      <span class="ticker__item">Holistic. Academy</span><span class="ticker__sep">·</span>
-    </div>
-  </div>
-
   <!-- ══ PROMESSE ══ -->
   <section class="promise" id="promesse">
     <div class="container--wide">
@@ -1446,18 +1391,18 @@
         <p class="label label--gold" data-reveal>I — La promesse</p>
         <div class="rule" data-reveal data-delay="1"></div>
         <h2 class="h-section promise__headline" data-reveal data-delay="2">
-          Construisez une activité <span>plus rentable, plus lisible et plus simple à développer.</span>
+          Vous n'avez pas besoin de tout recommencer. <span>Vous avez besoin d'y voir clair.</span>
         </h2>
 
         <p class="promise__text body-text" data-reveal data-delay="3">
-          Pas de formules magiques. Pas de marketing agressif. Un regard lucide sur ce qui vous bloque vraiment — et des outils concrets pour construire une activité qui vous ressemble, vous nourrit, et dure.
+          Je ne vous vends pas de méthode miracle. On regarde ensemble ce qui coince vraiment dans votre activité, et on répare, concrètement — vos tarifs, votre offre, votre com', votre façon de vendre.
         </p>
         <p class="promise__text body-text" data-reveal data-delay="4">
-          Depuis <strong>10 ans au contact des professionnelles de la beauté</strong>, je vois les mêmes signaux revenir : la baisse de chiffre d'affaires, la perte de sens, le sentiment de ne pas savoir se valoriser. Cet accompagnement, c'est la réponse à tout ça.
+          Depuis <strong>10 ans au contact des professionnelles de la beauté</strong>, j'entends toujours les mêmes phrases : « je n'ose pas augmenter mes prix », « je travaille tout le temps et je gagne peu », « je ne sais plus quoi mettre en avant ». Ce n'est pas un manque de talent. C'est un manque de structure.
         </p>
 
         <blockquote class="promise__quote" data-reveal data-delay="5">
-          <p>« Une activité rentable commence par savoir exactement qui vous êtes et ce que vous valez. »</p>
+          <p>« La plupart de mes clientes ne sont pas mauvaises en business. Elles n'ont juste jamais pris le temps de s'asseoir et de regarder leurs chiffres en face. »</p>
         </blockquote>
       </div>
     </div>
@@ -1529,7 +1474,7 @@
             <h3>Rentabilité</h3>
           </div>
           <div class="day__right">
-            <p class="day__objective">Comprendre vos vrais coûts, identifier vos prestations rentables, revoir vos tarifs et construire une activité qui vous rémunère réellement.</p>
+            <p class="day__objective">On regarde ce que vous coûte vraiment chaque prestation, et on reconstruit vos tarifs pour qu'ils vous rémunèrent enfin correctement.</p>
             <div class="day__items">
               <span class="day__item">Analyse des charges</span>
               <span class="day__item">Coût de revient réel</span>
@@ -1546,7 +1491,7 @@
             <h3>Offre &amp; Positionnement</h3>
           </div>
           <div class="day__right">
-            <p class="day__objective">Clarifier ce que vous proposez, à qui, pourquoi — et restructurer votre offre pour qu'elle soit immédiatement compréhensible.</p>
+            <p class="day__objective">Votre carte de soins est reprise de A à Z : ce que vous proposez, pour qui, et pourquoi une cliente devrait vous choisir vous plutôt qu'une autre.</p>
             <div class="day__items">
               <span class="day__item">Analyse de la carte de soins</span>
               <span class="day__item">Simplification &amp; hiérarchisation de l'offre</span>
@@ -1563,7 +1508,7 @@
             <h3>Visibilité digitale</h3>
           </div>
           <div class="day__right">
-            <p class="day__objective">Mettre en place les leviers qui vous rendent réellement trouvable localement, et communiquer de façon régulière sans vous épuiser.</p>
+            <p class="day__objective">On met en place ce qui vous rend vraiment visible près de chez vous, et un rythme de communication que vous pouvez tenir sans vous épuiser.</p>
             <div class="day__items">
               <span class="day__item">Google Business Profile &amp; avis clients</span>
               <span class="day__item">Stratégie Instagram</span>
@@ -1580,7 +1525,7 @@
             <h3>Vente &amp; Relation client</h3>
           </div>
           <div class="day__right">
-            <p class="day__objective">Structurer un parcours client qui augmente la fidélisation, les recommandations et les ventes — sans jamais avoir l'impression de forcer.</p>
+            <p class="day__objective">On structure un vrai parcours client, pour que vos clientes reviennent, vous recommandent et achètent — sans que vous ayez l'impression de forcer la vente.</p>
             <div class="day__items">
               <span class="day__item">Diagnostic &amp; recommandation</span>
               <span class="day__item">Cures, programmes &amp; suivi</span>
@@ -1597,13 +1542,13 @@
           <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6v6l4 2"/></svg>
         </div>
         <div>
-          <h4>L'intelligence artificielle, votre nouvelle alliée</h4>
-          <p>La plupart des professionnelles n'utilisent pas encore l'IA — ou l'utilisent mal. C'est précisément là que se creuse l'écart. Nous l'intégrons comme un outil transversal, à chaque module : pour vos contenus, vos calculs, votre organisation — un temps précieux libéré à chaque étape.</p>
+          <h4>Et l'IA dans tout ça ?</h4>
+          <p>La plupart des professionnelles n'utilisent pas encore l'IA, ou s'en servent mal. On l'utilise à chaque module, tout simplement : pour rédiger plus vite, calculer vos marges, ou organiser votre semaine.</p>
         </div>
       </div>
 
       <p class="accomp360__closing" data-reveal data-delay="4">
-        Un problème de chiffre d'affaires vient rarement d'un seul sujet — un tarif juste mais mal vendu, une offre floue, une visibilité sans fidélisation. C'est pour cela que les 4 modules se travaillent bien ensemble.
+        Un problème de chiffre d'affaires vient presque toujours de plusieurs endroits à la fois. C'est pour ça que les 4 modules fonctionnent mieux ensemble que séparément.
       </p>
     </div>
   </section>
@@ -1615,7 +1560,7 @@
       <p class="label label--gold" data-reveal>IV — Ce que vous repartez avec</p>
       <div class="rule" data-reveal data-delay="1"></div>
       <h2 class="h-section" style="font-size:clamp(1.8rem,4vw,2.6rem);color:var(--dark);max-width:640px;line-height:1.1;" data-reveal data-delay="2">
-        Vous ne repartez pas avec de la théorie.<br>Vous repartez avec des outils prêts à utiliser.
+        Ce qui reste après notre dernier rendez-vous.
       </h2>
 
       <div class="livrables__grid" data-reveal data-delay="3">
@@ -1688,7 +1633,7 @@
           <p class="label label--gold" data-reveal>VI — Tarif &amp; inscription</p>
           <div class="rule" data-reveal data-delay="1"></div>
           <h2 class="h-section" style="font-size:clamp(1.8rem,4vw,2.6rem);color:var(--dark);line-height:1.1;" data-reveal data-delay="2">
-            Deux formules, un accompagnement 100 % individuel.
+            Deux façons de travailler avec moi.
           </h2>
 
           <div class="offers" data-reveal data-delay="3">
@@ -1768,7 +1713,7 @@
       <div class="faq-list" data-reveal data-delay="3">
         <div class="faq-item">
           <h3>Est-ce une formation ou du conseil ?</h3>
-          <p>Il s'agit d'une formation-action individuelle. Chaque notion est immédiatement appliquée à votre propre activité.</p>
+          <p>De la formation-action : chaque chose qu'on voit ensemble, on l'applique tout de suite à votre activité — pas à un exemple fictif.</p>
         </div>
         <div class="faq-item">
           <h3>Puis-je choisir un seul module ?</h3>
@@ -1887,25 +1832,6 @@
       progressBar.style.width = (y / h * 100) + '%';
       floatingCta.classList.toggle('show', y > 600);
     }, { passive: true });
-
-    /* ── Counter animation ── */
-    function animateCount(el) {
-      const target = +el.dataset.counter;
-      const dur = 1600;
-      const t0 = performance.now();
-      (function tick(now) {
-        const p = Math.min((now - t0) / dur, 1);
-        const eased = 1 - Math.pow(1 - p, 4);
-        el.textContent = Math.round(eased * target);
-        if (p < 1) requestAnimationFrame(tick);
-      })(t0);
-    }
-    const cio = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { animateCount(e.target); cio.unobserve(e.target); }
-      });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('[data-counter]').forEach(el => cio.observe(el));
 
     /* ── Parallax hero (desktop only — mobile hero can grow taller than the viewport, which makes the translate overlap the stats bar) ── */
     const heroInner = document.querySelector('.hero__inner');
