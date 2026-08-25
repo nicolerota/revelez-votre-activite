@@ -873,46 +873,6 @@
       flex-shrink: 0;
     }
 
-    .steps { display: flex; flex-direction: column; }
-    .steps--row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 36px;
-      margin-top: 32px;
-    }
-    .steps--row .step {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 0;
-      border-bottom: none;
-    }
-    .step {
-      display: flex;
-      gap: 18px;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--border);
-      align-items: flex-start;
-    }
-    .step:last-child { border-bottom: none; }
-    .step__num {
-      width: 30px; height: 30px;
-      background: var(--gold);
-      border-radius: 50%;
-      color: var(--white);
-      font-family: var(--font-head);
-      font-weight: 900;
-      font-size: 0.75rem;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .step__text {
-      font-size: 0.86rem;
-      color: var(--text-mid);
-      line-height: 1.7;
-      padding-top: 4px;
-    }
-    .step__text strong { color: var(--text); font-weight: 600; }
 
     .alert {
       margin-top: 24px;
@@ -1331,7 +1291,6 @@
       .promise__grid       { grid-template-columns: 1fr; gap: 48px; }
       .for-who             { position: static; }
       .blocages__grid      { grid-template-columns: 1fr; }
-      .steps--row           { grid-template-columns: 1fr; gap: 28px; }
       .inclus__grid        { grid-template-columns: 1fr 1fr; }
       .methode__grid        { grid-template-columns: 1fr; }
       .livrables__grid       { grid-template-columns: 1fr 1fr; }
@@ -1752,25 +1711,6 @@
           <div class="alert" data-reveal data-delay="4">
             <p><strong>Paiement en plusieurs fois possible</strong> — pas de date limite d'inscription, chaque parcours est étudié au cas par cas. Contactez-moi pour qu'on en discute ensemble.</p>
           </div>
-      </div>
-
-      <div style="margin-top:72px;padding-top:56px;border-top:1px solid var(--border);">
-        <p class="label label--gold" data-reveal>Comment se déroule l'accompagnement</p>
-
-        <div class="steps steps--row" data-reveal data-delay="2">
-          <div class="step">
-            <div class="step__num">1</div>
-            <p class="step__text">On échange lors d'un appel découverte pour voir si l'accompagnement vous correspond.</p>
-          </div>
-          <div class="step">
-            <div class="step__num">2</div>
-            <p class="step__text">Vous vous inscrivez — paiement en une fois ou en plusieurs fois selon votre situation.</p>
-          </div>
-          <div class="step">
-            <div class="step__num">3</div>
-            <p class="step__text">Vous suivez votre accompagnement — <strong>les 4 modules ou le module choisi</strong> — en séances individuelles, avec des mises en application entre chaque rendez-vous. Le rythme et les travaux sont adaptés à votre activité et à vos besoins.</p>
-          </div>
-        </div>
       </div>
     </div>
   </section>
