@@ -1058,28 +1058,44 @@
     .livrables__grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 14px 28px;
+      gap: 14px;
       margin: 52px 0 32px;
     }
     .livrables__item {
       display: flex;
-      align-items: flex-start;
-      gap: 10px;
+      align-items: center;
+      gap: 14px;
       font-size: 0.85rem;
       color: var(--text);
-      line-height: 1.5;
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(107,26,24,0.08);
+      line-height: 1.4;
+      font-weight: 500;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 18px 20px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .livrables__item:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+    .livrables__item .livrables__icon {
+      width: 34px; height: 34px;
+      background: var(--cream);
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
     }
     .livrables__item svg {
       width: 16px; height: 16px;
       stroke: var(--gold);
       fill: none;
-      stroke-width: 2;
+      stroke-width: 2.2;
       stroke-linecap: round;
       stroke-linejoin: round;
-      flex-shrink: 0;
-      margin-top: 2px;
     }
     .livrables__note {
       font-family: var(--font-body);
@@ -1542,20 +1558,20 @@
       </h2>
 
       <div class="livrables__grid" data-reveal data-delay="3">
-        <div class="livrables__item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Votre audit personnalisé</span></div>
-        <div class="livrables__item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Votre calculateur de coût de revient</span></div>
-        <div class="livrables__item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Votre grille tarifaire retravaillée</span></div>
-        <div class="livrables__item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Votre offre restructurée</span></div>
-        <div class="livrables__item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Votre positionnement clarifié</span></div>
-        <div class="livrables__item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Votre carte de soins simplifiée</span></div>
-        <div class="livrables__item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Votre stratégie de visibilité</span></div>
-        <div class="livrables__item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Votre ligne éditoriale</span></div>
-        <div class="livrables__item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Votre calendrier de contenu</span></div>
-        <div class="livrables__item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Votre parcours client</span></div>
-        <div class="livrables__item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Vos scripts de recommandation et de relance</span></div>
-        <div class="livrables__item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Vos prompts IA personnalisés</span></div>
-        <div class="livrables__item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Votre plan d'action</span></div>
-        <div class="livrables__item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Votre attestation de formation</span></div>
+        <div class="livrables__item tilt-card"><span class="livrables__icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Votre audit personnalisé</span></div>
+        <div class="livrables__item tilt-card"><span class="livrables__icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Votre calculateur de coût de revient</span></div>
+        <div class="livrables__item tilt-card"><span class="livrables__icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Votre grille tarifaire retravaillée</span></div>
+        <div class="livrables__item tilt-card"><span class="livrables__icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Votre offre restructurée</span></div>
+        <div class="livrables__item tilt-card"><span class="livrables__icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Votre positionnement clarifié</span></div>
+        <div class="livrables__item tilt-card"><span class="livrables__icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Votre carte de soins simplifiée</span></div>
+        <div class="livrables__item tilt-card"><span class="livrables__icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Votre stratégie de visibilité</span></div>
+        <div class="livrables__item tilt-card"><span class="livrables__icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Votre ligne éditoriale</span></div>
+        <div class="livrables__item tilt-card"><span class="livrables__icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Votre calendrier de contenu</span></div>
+        <div class="livrables__item tilt-card"><span class="livrables__icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Votre parcours client</span></div>
+        <div class="livrables__item tilt-card"><span class="livrables__icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Vos scripts de recommandation et de relance</span></div>
+        <div class="livrables__item tilt-card"><span class="livrables__icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Vos prompts IA personnalisés</span></div>
+        <div class="livrables__item tilt-card"><span class="livrables__icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Votre plan d'action</span></div>
+        <div class="livrables__item tilt-card"><span class="livrables__icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Votre attestation de formation</span></div>
       </div>
 
       <p class="livrables__note" data-reveal data-delay="4">
