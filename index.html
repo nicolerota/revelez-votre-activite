@@ -1262,22 +1262,42 @@
       margin-top: 48px;
     }
     .faq-item {
-      padding: 26px 0;
+      padding: 22px 0;
       border-bottom: 1px solid var(--border);
     }
     .faq-item:last-child { border-bottom: none; }
-    .faq-item h3 {
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
       font-family: var(--font-head);
       font-weight: 700;
       font-size: 1rem;
       color: var(--dark);
-      margin-bottom: 10px;
       line-height: 1.3;
     }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::marker { content: ''; }
+    .faq-item summary:hover { color: var(--gold); }
+    .faq-item__chevron {
+      width: 20px; height: 20px;
+      stroke: var(--gold);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+    }
+    .faq-item[open] .faq-item__chevron { transform: rotate(180deg); }
     .faq-item p {
       font-size: 0.85rem;
       color: var(--text-mid);
       line-height: 1.78;
+      margin-top: 14px;
     }
 
     /* ══════════════════════════════════════════
@@ -1721,22 +1741,22 @@
       </h2>
 
       <div class="faq-list" data-reveal data-delay="3">
-        <div class="faq-item">
-          <h3>Est-ce une formation ou du conseil ?</h3>
+        <details class="faq-item">
+          <summary>Est-ce une formation ou du conseil ?<svg class="faq-item__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></summary>
           <p>De la formation-action : chaque chose qu'on voit ensemble, on l'applique tout de suite à votre activité — pas à un exemple fictif.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Puis-je choisir un seul module ?</h3>
+        </details>
+        <details class="faq-item">
+          <summary>Puis-je choisir un seul module ?<svg class="faq-item__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></summary>
           <p>Oui. Chaque module peut être suivi indépendamment.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Est-ce adapté si je travaille seule ?</h3>
+        </details>
+        <details class="faq-item">
+          <summary>Est-ce adapté si je travaille seule ?<svg class="faq-item__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></summary>
           <p>Oui, l'accompagnement est justement pensé pour les indépendantes et petites structures.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Vais-je devoir utiliser l'IA ?</h3>
+        </details>
+        <details class="faq-item">
+          <summary>Vais-je devoir utiliser l'IA ?<svg class="faq-item__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></summary>
           <p>L'IA est utilisée uniquement comme outil pour vous faire gagner du temps : calculs, rédaction, réflexion, communication ou organisation. Elle ne remplace jamais votre expertise.</p>
-        </div>
+        </details>
       </div>
     </div>
   </section>
