@@ -1347,18 +1347,27 @@
     /* ══════════════════════════════════════════════════════════════
        INSTAGRAM
     ══════════════════════════════════════════════════════════════ */
-    .insta__head {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 24px;
-      flex-wrap: wrap;
-      margin-bottom: 44px;
+    .closing {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: clamp(40px, 5vw, 76px);
+      align-items: start;
     }
-    .insta__head h2 { max-width: 24ch; }
+    .closing__insta { position: relative; }
+    .closing__insta-title {
+      font-size: clamp(1.5rem, 2.4vw, 2rem);
+      max-width: 16ch;
+      margin-bottom: 30px;
+    }
+    .closing__insta-cta { margin-top: 20px; }
+    .closing__faq .faq-list { margin-top: 40px; }
+    @media (max-width: 980px) {
+      .closing { grid-template-columns: 1fr; gap: 64px; }
+      .closing__insta-title { max-width: 24ch; }
+    }
     .insta__grid {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: clamp(8px, 1.2vw, 16px);
     }
     .insta__tile {
@@ -2032,71 +2041,70 @@
     </div>
   </section>
 
-  <!-- ═══ FAQ ═══ -->
+  <!-- ═══ FAQ + INSTAGRAM (bloc de clôture) ═══ -->
   <section class="sec-line" id="faq">
-    <div class="wrap wrap--narrow">
-      <span class="eyebrow" data-anim="up">FAQ</span>
-      <h2 class="display" data-anim="up">Ce que l'on me demande <em>le plus souvent.</em></h2>
-
-      <div class="faq-list" data-anim="up">
-        <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">Est-ce une formation ou du conseil ?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-          <div class="faq-a"><div class="faq-a__inner">De la formation-action : chaque chose qu'on voit ensemble, on l'applique tout de suite à votre activité, pas à un exemple fictif.</div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">Puis-je choisir un seul module ?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-          <div class="faq-a"><div class="faq-a__inner">Oui. Chaque module peut être suivi indépendamment.</div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">Est-ce adapté à ma structure ?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-          <div class="faq-a"><div class="faq-a__inner">Oui, à toutes. Que vous soyez indépendante, à la tête d'un petit institut ou d'une plus grande structure, on part toujours de vos chiffres, votre organisation et vos objectifs.</div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">Vais-je devoir utiliser l'IA ?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-          <div class="faq-a"><div class="faq-a__inner">L'IA est utilisée uniquement comme outil pour vous faire gagner du temps : calculs, rédaction, réflexion, communication ou organisation. Elle ne remplace jamais votre expertise.</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ INSTAGRAM ═══
-       Vignettes : déposez « insta-1.jpg » à « insta-6.jpg » à la racine (carrées, ~600×600 px)
-       — captures de vos posts, ou photos libres. Sans fichier, une tuile dégradée avec l'icône s'affiche. -->
-  <section class="insta sec-line" id="instagram">
     <div class="wrap">
-      <span class="eyebrow" data-anim="up">Instagram</span>
-      <div class="insta__head">
-        <h2 class="display" data-anim="up">Suivez les coulisses <em>@holisticademy_</em></h2>
-        <a href="https://www.instagram.com/holisticademy_/" target="_blank" rel="noopener noreferrer" class="btn btn--ghost" data-cursor data-anim="up"><span>Me suivre</span></a>
-      </div>
-      <div class="insta__grid" data-anim="up">
-        <a href="https://www.instagram.com/holisticademy_/" target="_blank" rel="noopener noreferrer" class="insta__tile" aria-label="Voir sur Instagram">
-          <img src="insta-1.jpg" loading="lazy" decoding="async" alt="" onerror="this.remove()" />
-          <span class="insta__ph" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><line x1="17.6" y1="6.4" x2="17.61" y2="6.4"/></svg></span>
-        </a>
-        <a href="https://www.instagram.com/holisticademy_/" target="_blank" rel="noopener noreferrer" class="insta__tile" aria-label="Voir sur Instagram">
-          <img src="insta-2.jpg" loading="lazy" decoding="async" alt="" onerror="this.remove()" />
-          <span class="insta__ph" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><line x1="17.6" y1="6.4" x2="17.61" y2="6.4"/></svg></span>
-        </a>
-        <a href="https://www.instagram.com/holisticademy_/" target="_blank" rel="noopener noreferrer" class="insta__tile" aria-label="Voir sur Instagram">
-          <img src="insta-3.jpg" loading="lazy" decoding="async" alt="" onerror="this.remove()" />
-          <span class="insta__ph" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><line x1="17.6" y1="6.4" x2="17.61" y2="6.4"/></svg></span>
-        </a>
-        <a href="https://www.instagram.com/holisticademy_/" target="_blank" rel="noopener noreferrer" class="insta__tile" aria-label="Voir sur Instagram">
-          <img src="insta-4.jpg" loading="lazy" decoding="async" alt="" onerror="this.remove()" />
-          <span class="insta__ph" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><line x1="17.6" y1="6.4" x2="17.61" y2="6.4"/></svg></span>
-        </a>
-        <a href="https://www.instagram.com/holisticademy_/" target="_blank" rel="noopener noreferrer" class="insta__tile" aria-label="Voir sur Instagram">
-          <img src="insta-5.jpg" loading="lazy" decoding="async" alt="" onerror="this.remove()" />
-          <span class="insta__ph" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><line x1="17.6" y1="6.4" x2="17.61" y2="6.4"/></svg></span>
-        </a>
-        <a href="https://www.instagram.com/holisticademy_/" target="_blank" rel="noopener noreferrer" class="insta__tile" aria-label="Voir sur Instagram">
-          <img src="insta-6.jpg" loading="lazy" decoding="async" alt="" onerror="this.remove()" />
-          <span class="insta__ph" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><line x1="17.6" y1="6.4" x2="17.61" y2="6.4"/></svg></span>
-        </a>
+      <div class="closing">
+
+        <div class="closing__faq">
+          <span class="eyebrow" data-anim="up">FAQ</span>
+          <h2 class="display" data-anim="up">Ce que l'on me demande <em>le plus souvent.</em></h2>
+          <div class="faq-list" data-anim="up">
+            <div class="faq-item">
+              <button class="faq-q" aria-expanded="false">Est-ce une formation ou du conseil ?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+              <div class="faq-a"><div class="faq-a__inner">De la formation-action : chaque chose qu'on voit ensemble, on l'applique tout de suite à votre activité, pas à un exemple fictif.</div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" aria-expanded="false">Puis-je choisir un seul module ?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+              <div class="faq-a"><div class="faq-a__inner">Oui. Chaque module peut être suivi indépendamment.</div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" aria-expanded="false">Est-ce adapté à ma structure ?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+              <div class="faq-a"><div class="faq-a__inner">Oui, à toutes. Que vous soyez indépendante, à la tête d'un petit institut ou d'une plus grande structure, on part toujours de vos chiffres, votre organisation et vos objectifs.</div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" aria-expanded="false">Vais-je devoir utiliser l'IA ?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+              <div class="faq-a"><div class="faq-a__inner">L'IA est utilisée uniquement comme outil pour vous faire gagner du temps : calculs, rédaction, réflexion, communication ou organisation. Elle ne remplace jamais votre expertise.</div></div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="closing__insta" id="instagram">
+          <span class="eyebrow" data-anim="up">Instagram</span>
+          <h2 class="display closing__insta-title" data-anim="up">Suivez les coulisses <em>@holisticademy_</em></h2>
+          <div class="insta__grid" data-anim="up">
+            <a href="https://www.instagram.com/holisticademy_/" target="_blank" rel="noopener noreferrer" class="insta__tile" aria-label="Voir sur Instagram">
+              <img src="insta-1.jpg" loading="lazy" decoding="async" alt="" onerror="this.remove()" />
+              <span class="insta__ph" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><line x1="17.6" y1="6.4" x2="17.61" y2="6.4"/></svg></span>
+            </a>
+            <a href="https://www.instagram.com/holisticademy_/" target="_blank" rel="noopener noreferrer" class="insta__tile" aria-label="Voir sur Instagram">
+              <img src="insta-2.jpg" loading="lazy" decoding="async" alt="" onerror="this.remove()" />
+              <span class="insta__ph" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><line x1="17.6" y1="6.4" x2="17.61" y2="6.4"/></svg></span>
+            </a>
+            <a href="https://www.instagram.com/holisticademy_/" target="_blank" rel="noopener noreferrer" class="insta__tile" aria-label="Voir sur Instagram">
+              <img src="insta-3.jpg" loading="lazy" decoding="async" alt="" onerror="this.remove()" />
+              <span class="insta__ph" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><line x1="17.6" y1="6.4" x2="17.61" y2="6.4"/></svg></span>
+            </a>
+            <a href="https://www.instagram.com/holisticademy_/" target="_blank" rel="noopener noreferrer" class="insta__tile" aria-label="Voir sur Instagram">
+              <img src="insta-4.jpg" loading="lazy" decoding="async" alt="" onerror="this.remove()" />
+              <span class="insta__ph" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><line x1="17.6" y1="6.4" x2="17.61" y2="6.4"/></svg></span>
+            </a>
+            <a href="https://www.instagram.com/holisticademy_/" target="_blank" rel="noopener noreferrer" class="insta__tile" aria-label="Voir sur Instagram">
+              <img src="insta-5.jpg" loading="lazy" decoding="async" alt="" onerror="this.remove()" />
+              <span class="insta__ph" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><line x1="17.6" y1="6.4" x2="17.61" y2="6.4"/></svg></span>
+            </a>
+            <a href="https://www.instagram.com/holisticademy_/" target="_blank" rel="noopener noreferrer" class="insta__tile" aria-label="Voir sur Instagram">
+              <img src="insta-6.jpg" loading="lazy" decoding="async" alt="" onerror="this.remove()" />
+              <span class="insta__ph" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><line x1="17.6" y1="6.4" x2="17.61" y2="6.4"/></svg></span>
+            </a>
+          </div>
+          <a href="https://www.instagram.com/holisticademy_/" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--block closing__insta-cta" data-cursor data-anim="up"><span>Me suivre</span></a>
+        </aside>
+
       </div>
     </div>
   </section>
+
 
   <!-- ═══ FOOTER ═══ -->
   <footer>
