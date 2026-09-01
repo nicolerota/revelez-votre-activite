@@ -525,9 +525,10 @@
     .hero__cta {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 18px;
       flex-wrap: wrap;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
     .hero__note {
       font-size: 0.8rem;
@@ -535,7 +536,8 @@
       line-height: 1.6;
       color: var(--ink-2);
       max-width: none;
-      margin-bottom: 56px;
+      text-align: center;
+      margin-bottom: 0;
     }
     .hero__note strong { color: var(--accent-ink); font-weight: 700; }
     .hero__stats {
@@ -543,6 +545,7 @@
       grid-template-columns: repeat(4, 1fr);
       border-radius: var(--r);
       overflow: hidden;
+      margin-bottom: 44px;
     }
     .stat { padding: 24px 20px; text-align: center; border-left: 1px solid var(--line-2); }
     .stat:first-child { border-left: none; }
@@ -1566,6 +1569,13 @@
         <span class="hero__tag">Vente &amp; relation client</span>
       </div>
 
+      <div class="hero__stats glass" data-anim="up">
+        <div class="stat"><span class="stat__v"><span data-count="4">4</span></span><span class="stat__l">Piliers stratégiques</span></div>
+        <div class="stat"><span class="stat__v">1:1</span><span class="stat__l">Accompagnement individuel</span></div>
+        <div class="stat"><span class="stat__v"><span data-count="100">100</span>&#8239;%</span><span class="stat__l">Sur-mesure</span></div>
+        <div class="stat"><span class="stat__v"><span data-count="360">360</span>°</span><span class="stat__l">Vision globale</span></div>
+      </div>
+
       <div class="hero__cta" data-anim="up">
         <button class="btn btn--lg" data-cursor
           onclick="Calendly.initPopupWidget({url:'https://calendly.com/nicole-rota/appel-decouverte-revelez-votre-activite'});return false;">
@@ -1574,13 +1584,6 @@
       </div>
 
       <p class="hero__note" data-anim="up">30 min, gratuit, vous repartez avec <strong>votre audit</strong> : ce qui va, ce qui bloque, par où commencer.</p>
-
-      <div class="hero__stats glass" data-anim="up">
-        <div class="stat"><span class="stat__v"><span data-count="4">4</span></span><span class="stat__l">Piliers stratégiques</span></div>
-        <div class="stat"><span class="stat__v">1:1</span><span class="stat__l">Accompagnement individuel</span></div>
-        <div class="stat"><span class="stat__v"><span data-count="100">100</span>&#8239;%</span><span class="stat__l">Sur-mesure</span></div>
-        <div class="stat"><span class="stat__v"><span data-count="360">360</span>°</span><span class="stat__l">Vision globale</span></div>
-      </div>
     </div>
   </section>
 
@@ -2321,8 +2324,8 @@
         .to('.hero .eyebrow', { opacity: 1, y: 0, duration: 0.8 }, 0.15)
         .to('.hero__sub', { opacity: 1, y: 0, duration: 0.9 }, 0.4)
         .to('.hero__tags', { opacity: 1, y: 0, duration: 0.9 }, 0.55)
-        .to('.hero__cta', { opacity: 1, y: 0, duration: 0.9 }, 0.65)
-        .to('.hero__stats', { opacity: 1, y: 0, duration: 1 }, 0.78);
+        .to('.hero__stats', { opacity: 1, y: 0, duration: 1 }, 0.65)
+        .to('.hero__cta', { opacity: 1, y: 0, duration: 0.9 }, 0.8);
 
       /* Aurora parallax */
       gsap.to('.aurora__blob--1', { yPercent: 18, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: true } });
