@@ -589,10 +589,8 @@
     }
     .manifesto__statement em { font-style: normal; color: var(--accent); }
     .manifesto__cols {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(28px, 5vw, 72px);
-      max-width: 980px;
+      display: block;
+      max-width: none;
     }
     .manifesto__cols p + p { margin-top: 18px; }
     .manifesto__cols strong { color: var(--ink); font-weight: 600; }
@@ -1430,7 +1428,6 @@
        RESPONSIVE
     ══════════════════════════════════════════════════════════════ */
     @media (max-width: 1000px) {
-      .manifesto__cols { grid-template-columns: 1fr; }
       .about__grid { grid-template-columns: 1fr; }
       .about__aside { position: static; display: flex; gap: 24px; align-items: center; }
       .about__photo { width: 168px; flex-shrink: 0; }
@@ -1583,11 +1580,6 @@
         <p data-anim="up">
           <span class="l">Je sais à quel point c'est épuisant de tout gérer seule, les soins, les clientes, les tarifs, la communication, les chiffres.</span>
           <span class="l">Ensemble, on prend le temps de regarder ce qui vous pèse vraiment, et on construit, pas à pas, une activité qui vous ressemble et qui vous porte, plutôt que l'inverse.</span>
-        </p>
-        <p data-anim="up">
-          <span class="l">Depuis <strong>10 ans auprès de professionnelles de la beauté</strong>, j'entends toujours les mêmes mots : « je n'ose pas augmenter mes prix », « je travaille tout le temps et je gagne peu », « je ne sais plus quoi mettre en avant ».</span>
-          <span class="l">Ce n'est jamais un manque de talent.</span>
-          <span class="l">C'est simplement que personne ne vous a jamais appris à structurer ce que vous savez déjà si bien faire.</span>
         </p>
       </div>
 
