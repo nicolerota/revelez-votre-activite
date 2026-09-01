@@ -634,7 +634,15 @@
       background: linear-gradient(155deg, var(--accent), var(--accent-2));
       box-shadow: var(--shadow-lg);
     }
-    .about__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; }
+    .about__photo img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: 50% 18%;
+      /* Recadrage plus serré sur le visage */
+      transform: scale(1.22);
+      transform-origin: 50% 30%;
+    }
     .about__photo img + .about__mono { display: none; }
     .about__mono {
       position: absolute;
