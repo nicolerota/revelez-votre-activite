@@ -675,17 +675,19 @@
       color: var(--ink);
       line-height: 1.5;
     }
-    .about__creds svg {
-      width: 16px; height: 16px;
-      stroke: var(--accent-2);
-      fill: none;
-      stroke-width: 2.4;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+    .cred-ic {
       flex-shrink: 0;
-      margin-top: 4px;
+      width: 26px; height: 26px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--accent-tint);
+      margin-top: 1px;
+      transition: transform 0.4s var(--ease), background 0.3s var(--ease);
     }
-    .about__sign { font-family: var(--font-sans); font-style: italic; font-size: 1.15rem; color: var(--ink); }
+    .cred-ic svg { width: 14px; height: 14px; fill: var(--accent); stroke: none; }
+    .about__creds li:hover .cred-ic { transform: rotate(90deg) scale(1.12); background: var(--accent); }
+    .about__creds li:hover .cred-ic svg { fill: var(--white); }
 
     /* ══════════════════════════════════════════════════════════════
        MODULES — scroll horizontal épinglé
@@ -1630,9 +1632,9 @@
         </aside>
 
         <div class="about__body" data-anim="right">
-          <h2 class="display">Je ne viens pas du conseil. <em>Je viens du secteur.</em></h2>
+          <h2 class="display">Je ne viens pas du conseil.<br /><em>Je viens du secteur.</em></h2>
           <p>
-            <span class="l">Pendant <strong>dix ans</strong>, j'ai travaillé aux côtés d'esthéticiennes, de praticiennes bien-être et de gérantes d'institut, sur le terrain, au contact de leur quotidien, de leurs chiffres et de leurs doutes.</span>
+            <span class="l">Pendant <strong>10 ans</strong>, j'ai travaillé aux côtés d'esthéticiennes, de praticiennes bien-être et de gérantes d'institut, sur le terrain, au contact de leur quotidien, de leurs chiffres et de leurs doutes.</span>
           </p>
           <p>
             <span class="l">J'ai vu les mêmes situations revenir, encore et encore : des tarifs fixés « au feeling », des cartes de soins devenues illisibles, des heures passées sur Instagram sans résultat, et beaucoup de talent qui ne se transformait pas en revenu.</span>
@@ -1644,14 +1646,12 @@
           </p>
 
           <ul class="about__creds glass">
-            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>10 ans auprès de professionnelles de la beauté &amp; du bien-être</li>
-            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Accompagnement individuel, 100 % adapté à votre activité et à vos chiffres</li>
-            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Une méthode en 4 piliers : rentabilité, offre, visibilité, vente</li>
+            <li><span class="cred-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.2c.65 4.9 3.25 7.5 8.15 8.15-4.9.65-7.5 3.25-8.15 8.15-.65-4.9-3.25-7.5-8.15-8.15C8.75 10.7 11.35 8.1 12 3.2Z"/></svg></span>10 ans auprès de professionnelles de la beauté &amp; du bien-être</li>
+            <li><span class="cred-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.2c.65 4.9 3.25 7.5 8.15 8.15-4.9.65-7.5 3.25-8.15 8.15-.65-4.9-3.25-7.5-8.15-8.15C8.75 10.7 11.35 8.1 12 3.2Z"/></svg></span>Accompagnement individuel, 100 % adapté à votre activité et à vos chiffres</li>
+            <li><span class="cred-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.2c.65 4.9 3.25 7.5 8.15 8.15-4.9.65-7.5 3.25-8.15 8.15-.65-4.9-3.25-7.5-8.15-8.15C8.75 10.7 11.35 8.1 12 3.2Z"/></svg></span>Une méthode en 4 piliers : rentabilité, offre, visibilité, vente</li>
             <!-- À COMPLÉTER ci-dessous : formation, certification ou parcours réel -->
-            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Formatrice spécialisée dans la structuration des instituts et des activités indépendantes</li>
+            <li><span class="cred-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.2c.65 4.9 3.25 7.5 8.15 8.15-4.9.65-7.5 3.25-8.15 8.15-.65-4.9-3.25-7.5-8.15-8.15C8.75 10.7 11.35 8.1 12 3.2Z"/></svg></span>Formatrice spécialisée dans la structuration des instituts et des activités indépendantes</li>
           </ul>
-
-          <p class="about__sign">— Nicole</p>
         </div>
       </div>
     </div>
