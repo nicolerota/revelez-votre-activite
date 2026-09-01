@@ -152,6 +152,14 @@
     section { position: relative; padding-block: clamp(72px, 10.5vh, 132px); }
     body.menu-open { overflow: hidden; }
     .sec-line { border-top: 1px solid var(--line-2); }
+    /* Alternance des fonds : blocs beiges / blocs clairs.
+       Volontairement translucide pour laisser l'aurora transparaître. */
+    .sec-alt {
+      background: rgba(240, 233, 224, 0.62);
+      border-top: 1px solid var(--line-2);
+      border-bottom: 1px solid var(--line-2);
+    }
+    .sec-alt + .sec-line { border-top: none; }
 
     /* ══════════════════════════════════════════════════════════════
        TYPOGRAPHIE
@@ -1573,7 +1581,7 @@
   </section>
 
   <!-- ═══ MANIFESTE ═══ -->
-  <section class="sec-line" id="promesse">
+  <section class="sec-line sec-alt" id="promesse">
     <div class="wrap">
       <span class="eyebrow" data-anim="up">Promesse</span>
       <p class="manifesto__statement" data-anim="up">
@@ -1696,7 +1704,7 @@
   </section>
 
   <!-- ═══ MODULES (scroll horizontal) ═══ -->
-  <section class="modules sec-line" id="programme">
+  <section class="modules sec-line sec-alt" id="programme">
     <div class="wrap">
       <div class="modules__head">
         <div>
@@ -1894,7 +1902,7 @@
   </section>
 
   <!-- ═══ AVIS CLIENTES ═══ -->
-  <section class="sec-line" id="avis">
+  <section class="sec-line sec-alt" id="avis">
     <div class="wrap">
       <div class="avis__head">
         <span class="eyebrow eyebrow--center" data-anim="up">Avis clientes</span>
@@ -1981,7 +1989,7 @@
   </section>
 
   <!-- ═══ APPEL DÉCOUVERTE + CALENDRIER ═══ -->
-  <section class="sec-line" id="rdv">
+  <section class="sec-line sec-alt" id="rdv">
     <div class="wrap">
       <div class="cal__intro">
         <span class="eyebrow" data-anim="up">Appel découverte · offert</span>
@@ -2023,7 +2031,7 @@
   </section>
 
   <!-- ═══ FAQ ═══ -->
-  <section class="sec-line" id="faq">
+  <section class="sec-line sec-alt" id="faq">
     <div class="wrap wrap--narrow">
       <span class="eyebrow" data-anim="up">FAQ</span>
       <h2 class="display" data-anim="up">Ce que l'on me demande <em>le plus souvent.</em></h2>
