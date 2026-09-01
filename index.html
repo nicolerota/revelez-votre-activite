@@ -70,6 +70,22 @@
       --font-display: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
       --font-sans:    'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
+      /* ── Échelle typographique ── */
+      --fs-h1:       clamp(2.7rem, 7.6vw, 5.6rem);
+      --fs-h2:       clamp(1.85rem, 4.2vw, 3.1rem);
+      --fs-h2-sm:    clamp(1.7rem, 3.6vw, 2.7rem);
+      --fs-h3:       clamp(1.5rem, 2.6vw, 2rem);
+      --fs-h4:       clamp(1.2rem, 2vw, 1.5rem);
+      --fs-h5:       1.15rem;
+      --fs-quote:    clamp(1.3rem, 2.8vw, 2rem);
+      --fs-quote-sm: clamp(1rem, 1.5vw, 1.16rem);
+      --fs-lead:     clamp(1.02rem, 1.3vw, 1.2rem);
+      --fs-body:     0.94rem;
+      --fs-sm:       0.86rem;
+      --fs-xs:       0.78rem;
+      --fs-label:    0.66rem;
+      --fs-label-sm: 0.58rem;
+
       --maxw: 1240px;
       --pad:  clamp(20px, 5.5vw, 68px);
     }
@@ -171,9 +187,9 @@
       color: var(--dark);
       line-height: 1.02;
     }
-    h1.display { font-size: clamp(2.7rem, 7.6vw, 5.6rem); line-height: 0.97; }
-    h2.display { font-size: clamp(1.85rem, 4.2vw, 3.1rem); line-height: 1.08; }
-    h3.display { font-size: clamp(1.3rem, 2.1vw, 1.6rem); line-height: 1.12; font-weight: 700; letter-spacing: -0.015em; }
+    h1.display { font-size: var(--fs-h1); line-height: 0.97; }
+    h2.display { font-size: var(--fs-h2); line-height: 1.08; }
+    h3.display { font-size: var(--fs-h4); line-height: 1.18; font-weight: 700; letter-spacing: -0.015em; }
     .display em { font-style: normal; font-weight: 900; color: var(--accent); }
 
     .eyebrow {
@@ -181,7 +197,7 @@
       align-items: center;
       gap: 14px;
       font-family: var(--font-sans);
-      font-size: 0.68rem;
+      font-size: var(--fs-label);
       font-weight: 600;
       letter-spacing: 0.26em;
       text-transform: uppercase;
@@ -203,7 +219,7 @@
 
     .lead {
       font-weight: 400;
-      font-size: clamp(1.04rem, 1.4vw, 1.26rem);
+      font-size: var(--fs-lead);
       line-height: 1.66;
       color: var(--ink-2);
     }
@@ -227,7 +243,7 @@
     .l { display: block; }   /* une phrase par ligne (compatible avec le texte justifié) */
 
     .kicker {
-      font-size: 0.62rem;
+      font-size: var(--fs-label-sm);
       font-weight: 600;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -508,7 +524,7 @@
     .hero__title { margin-bottom: 30px; }
     .hero__sub {
       max-width: none;
-      font-size: clamp(0.98rem, 1.15vw, 1.14rem);
+      font-size: var(--fs-lead);
       margin-bottom: 34px;
     }
     .hero__tags {
@@ -521,7 +537,7 @@
       padding: 8px 18px;
       border: 1px solid var(--line);
       border-radius: 100px;
-      font-size: 0.64rem;
+      font-size: var(--fs-label);
       font-weight: 500;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -539,7 +555,7 @@
       margin-bottom: 16px;
     }
     .hero__note {
-      font-size: 0.8rem;
+      font-size: var(--fs-sm);
       font-weight: 700;
       line-height: 1.6;
       color: var(--ink-2);
@@ -568,7 +584,7 @@
     .stat__l {
       display: block;
       margin-top: 8px;
-      font-size: 0.56rem;
+      font-size: var(--fs-label-sm);
       font-weight: 600;
       letter-spacing: 0.16em;
       text-transform: uppercase;
@@ -580,7 +596,7 @@
     .manifesto__statement {
       font-family: var(--font-display);
       font-weight: 900;
-      font-size: clamp(1.85rem, 4.2vw, 3.1rem);
+      font-size: var(--fs-h2);
       line-height: 1.1;
       letter-spacing: -0.02em;
       color: var(--dark);
@@ -615,7 +631,7 @@
       font-family: var(--font-sans);
       font-style: italic;
       font-weight: 400;
-      font-size: clamp(1.3rem, 2.8vw, 2rem);
+      font-size: var(--fs-quote);
       line-height: 1.42;
       color: var(--ink);
       position: relative;
@@ -663,10 +679,10 @@
       opacity: 0.9;
     }
     .about__id { margin-top: 20px; }
-    .about__name { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; color: var(--dark); }
+    .about__name { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-h5); color: var(--dark); }
     .about__role {
       margin-top: 4px;
-      font-size: 0.64rem;
+      font-size: var(--fs-label);
       font-weight: 600;
       letter-spacing: 0.16em;
       text-transform: uppercase;
@@ -688,7 +704,7 @@
       display: flex;
       gap: 14px;
       align-items: flex-start;
-      font-size: 0.9rem;
+      font-size: var(--fs-sm);
       color: var(--ink);
       line-height: 1.5;
     }
@@ -746,7 +762,7 @@
       margin-bottom: 22px;
     }
     .module__pilier {
-      font-size: 0.6rem;
+      font-size: var(--fs-label-sm);
       font-weight: 600;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -755,12 +771,12 @@
     .module__name {
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: clamp(1.5rem, 2.6vw, 2rem);
+      font-size: var(--fs-h3);
       color: var(--dark);
       letter-spacing: -0.02em;
       margin: 8px 0 16px;
     }
-    .module__obj { font-size: 0.92rem; line-height: 1.7; color: var(--ink-2); margin-bottom: 22px; }
+    .module__obj { font-size: var(--fs-body); line-height: 1.7; color: var(--ink-2); margin-bottom: 22px; }
     .module__list { list-style: none; display: flex; flex-direction: column; }
     .module__list li {
       display: flex;
@@ -768,7 +784,7 @@
       gap: 12px;
       padding: 12px 0;
       border-top: 1px solid var(--line-2);
-      font-size: 0.86rem;
+      font-size: var(--fs-sm);
       color: var(--ink);
     }
     .module__list li::before {
@@ -796,8 +812,8 @@
       flex-shrink: 0;
     }
     .ia-band__icon svg { width: 24px; height: 24px; stroke: var(--accent-ink); fill: none; stroke-width: 1.5; stroke-linecap: round; }
-    .ia-band h4 { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--dark); margin-bottom: 6px; }
-    .ia-band p { font-size: 0.88rem; line-height: 1.7; }
+    .ia-band h4 { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-h5); color: var(--dark); margin-bottom: 6px; }
+    .ia-band p { font-size: var(--fs-body); line-height: 1.7; }
     /* ══════════════════════════════════════════════════════════════
        DÉROULEMENT — processus (étapes + visuels alternés)
     ══════════════════════════════════════════════════════════════ */
@@ -860,7 +876,7 @@
       top: -12px; right: 12px;
       background: var(--accent-tint);
       color: var(--accent-ink);
-      font-size: 0.6rem;
+      font-size: var(--fs-label-sm);
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -870,7 +886,7 @@
     }
     .pstep__label {
       display: inline-block;
-      font-size: 0.64rem;
+      font-size: var(--fs-label);
       font-weight: 600;
       letter-spacing: 0.16em;
       text-transform: uppercase;
@@ -890,12 +906,12 @@
     .pstep__title {
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: clamp(1.3rem, 2.4vw, 1.85rem);
+      font-size: var(--fs-h4);
       color: var(--dark);
       line-height: 1.2;
       margin-bottom: 10px;
     }
-    .pstep__text { font-size: 0.9rem; line-height: 1.7; color: var(--ink-2); max-width: 42ch; }
+    .pstep__text { font-size: var(--fs-body); line-height: 1.7; color: var(--ink-2); max-width: 42ch; }
     .pstep:nth-child(even) .pstep__text { margin-left: auto; }
 
     /* — maquettes — */
@@ -1025,7 +1041,7 @@
     .shiftcard__from {
       font-family: var(--font-display);
       font-weight: 600;
-      font-size: clamp(1rem, 1.5vw, 1.16rem);
+      font-size: var(--fs-quote-sm);
       color: var(--ink-3);
       line-height: 1.4;
       text-decoration: line-through;
@@ -1050,12 +1066,12 @@
     .shiftcard__reveal h3 {
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: clamp(1.15rem, 2vw, 1.42rem);
+      font-size: var(--fs-h4);
       color: var(--dark);
       line-height: 1.22;
       margin-bottom: 7px;
     }
-    .shiftcard__reveal p { font-size: 0.87rem; line-height: 1.62; color: var(--ink-2); }
+    .shiftcard__reveal p { font-size: var(--fs-sm); line-height: 1.62; color: var(--ink-2); }
 
     html.anim .shiftcard .shiftcard__arrow,
     html.anim .shiftcard .shiftcard__reveal {
@@ -1113,7 +1129,7 @@
     .avis-card__text {
       position: relative;
       font-style: italic;
-      font-size: clamp(1rem, 1.5vw, 1.16rem);
+      font-size: var(--fs-quote-sm);
       line-height: 1.62;
       color: var(--ink);
       text-align: justify;
@@ -1144,14 +1160,14 @@
     .avis-card__name {
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: 1rem;
+      font-size: var(--fs-h5);
       color: var(--dark);
       line-height: 1.3;
     }
     .avis-card__offer {
       display: block;
       font-family: var(--font-sans);
-      font-size: 0.66rem;
+      font-size: var(--fs-label);
       font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -1175,7 +1191,7 @@
     .offer--feat { box-shadow: var(--shadow-lg), var(--shadow-glow); border-color: rgba(201, 169, 140, 0.5); }
     .offer__badge {
       display: inline-block;
-      font-size: 0.58rem;
+      font-size: var(--fs-label-sm);
       font-weight: 600;
       letter-spacing: 0.16em;
       text-transform: uppercase;
@@ -1186,19 +1202,19 @@
       margin-bottom: 22px;
     }
     .offer__price { font-family: var(--font-display); font-weight: 900; font-size: clamp(2.4rem, 5vw, 3.2rem); color: var(--dark); line-height: 1; letter-spacing: -0.03em; }
-    .offer__price-sub { font-size: 0.82rem; color: var(--ink-3); margin: 8px 0 20px; }
-    .offer__desc { font-size: 0.9rem; line-height: 1.65; color: var(--ink-2); margin-bottom: 20px; }
+    .offer__price-sub { font-size: var(--fs-sm); color: var(--ink-3); margin: 8px 0 20px; }
+    .offer__desc { font-size: var(--fs-body); line-height: 1.65; color: var(--ink-2); margin-bottom: 20px; }
     .offer__list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px; }
-    .offer__list li { display: flex; gap: 10px; align-items: flex-start; font-size: 0.84rem; color: var(--ink); line-height: 1.45; }
+    .offer__list li { display: flex; gap: 10px; align-items: flex-start; font-size: var(--fs-sm); color: var(--ink); line-height: 1.45; }
     .offer__list li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--accent-2); margin-top: 8px; flex-shrink: 0; }
-    .offer__savings { font-size: 0.78rem; color: var(--accent-ink); font-weight: 500; padding: 16px 0; margin-bottom: 16px; border-top: 1px solid var(--line); }
-    .offer__fine { font-size: 0.7rem; color: var(--ink-3); margin-top: 16px; line-height: 1.5; }
-    .offers__note { margin-top: 22px; font-style: italic; font-size: 0.86rem; color: var(--ink-2); }
+    .offer__savings { font-size: var(--fs-xs); color: var(--accent-ink); font-weight: 500; padding: 16px 0; margin-bottom: 16px; border-top: 1px solid var(--line); }
+    .offer__fine { font-size: var(--fs-xs); color: var(--ink-3); margin-top: 16px; line-height: 1.5; }
+    .offers__note { margin-top: 22px; font-style: italic; font-size: var(--fs-sm); color: var(--ink-2); }
 
     /* ══════════════════════════════════════════════════════════════
        AUDIT — bande
     ══════════════════════════════════════════════════════════════ */
-    .audit__lead { max-width: 62ch; margin-bottom: 46px; font-size: 0.94rem; line-height: 1.72; color: var(--ink-2); }
+    .audit__lead { max-width: 62ch; margin-bottom: 46px; font-size: var(--fs-body); line-height: 1.72; color: var(--ink-2); }
     .audit__lead strong { color: var(--dark); font-weight: 600; }
 
     /* ══════════════════════════════════════════════════════════════
@@ -1216,7 +1232,7 @@
       text-align: left;
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-size: var(--fs-h4);
       color: var(--dark);
       line-height: 1.3;
     }
@@ -1224,7 +1240,7 @@
     .faq-q svg { width: 20px; height: 20px; stroke: var(--accent-2); fill: none; stroke-width: 1.8; stroke-linecap: round; flex-shrink: 0; transition: transform 0.4s var(--ease); }
     .faq-item.open .faq-q svg { transform: rotate(45deg); }
     .faq-a { overflow: hidden; height: 0; }
-    .faq-a__inner { padding: 0 0 28px; font-size: 0.92rem; line-height: 1.8; color: var(--ink-2); max-width: 68ch; }
+    .faq-a__inner { padding: 0 0 28px; font-size: var(--fs-body); line-height: 1.8; color: var(--ink-2); max-width: 68ch; }
 
     /* ══════════════════════════════════════════════════════════════
        CALENDLY
@@ -1233,7 +1249,7 @@
     .cal__intro h2 {
       margin-bottom: 18px;
       max-width: none;
-      font-size: clamp(1.7rem, 3.6vw, 2.7rem);
+      font-size: var(--fs-h2-sm);
     }
     .cal__intro .audit__lead { margin-top: 0; max-width: none; }
     /* Sur écran large, chaque phrase tient sur une seule ligne */
@@ -1248,7 +1264,7 @@
        CTA FINAL
     ══════════════════════════════════════════════════════════════ */
     .final { text-align: center; padding-block: clamp(88px, 14vh, 160px); }
-    .final__title { margin-bottom: 22px; font-size: clamp(1.85rem, 4.2vw, 3.1rem); line-height: 1.1; }
+    .final__title { margin-bottom: 22px; font-size: var(--fs-h2); line-height: 1.1; }
     @media (min-width: 720px) { .final__title { white-space: nowrap; } }
     .final__sub { max-width: 46ch; margin: 0 auto 44px; }
     .final__cta { display: inline-flex; flex-direction: column; align-items: center; gap: 30px; position: relative; }
@@ -1400,7 +1416,7 @@
     }
     .foot__social:hover { border-color: var(--accent-2); background: var(--accent-tint); }
     .foot__social svg { width: 15px; height: 15px; fill: none; stroke: var(--ink-2); stroke-width: 1.6; }
-    .foot__legal { font-size: 0.68rem; letter-spacing: 0.06em; color: var(--ink-3); }
+    .foot__legal { font-size: var(--fs-label); letter-spacing: 0.06em; color: var(--ink-3); }
 
     /* ══════════════════════════════════════════════════════════════
        REVEALS (état initial masqué avant GSAP)
