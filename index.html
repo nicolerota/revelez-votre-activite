@@ -994,6 +994,14 @@
     /* ══════════════════════════════════════════════════════════════
        PROBLÈME → RÉSULTAT
     ══════════════════════════════════════════════════════════════ */
+    .shift-intro {
+      margin: 64px 0 34px;
+      padding-top: 34px;
+      border-top: 1px solid var(--line);
+      font-size: clamp(1rem, 1.3vw, 1.16rem);
+      line-height: 1.6;
+      color: var(--ink-2);
+    }
     .shift-grid {
       margin-top: 52px;
       display: grid;
@@ -1516,7 +1524,7 @@
       <li><a href="#apropos">Qui je suis</a></li>
       <li><a href="#programme">La méthode</a></li>
       <li><a href="#deroulement">Le déroulement</a></li>
-      <li><a href="#resultats">Ce qui change</a></li>
+      <li><a href="#avis">Avis clientes</a></li>
       <li><a href="#financement">Tarifs</a></li>
       <li><a href="#rdv">Appel découverte</a></li>
       <li><a href="#faq">FAQ</a></li>
@@ -1583,6 +1591,54 @@
           <span class="l">Ce n'est jamais un manque de talent.</span>
           <span class="l">C'est simplement que personne ne vous a jamais appris à structurer ce que vous savez déjà si bien faire.</span>
         </p>
+      </div>
+
+      <p class="shift-intro" data-anim="up"><span class="l">Les mêmes phrases reviennent toujours.</span><span class="l">Voici ce qu'on en fait, ensemble.</span></p>
+
+      <div class="shift-grid">
+        <article class="shiftcard glass" data-anim="up">
+          <span class="shiftcard__n" aria-hidden="true">01</span>
+          <span class="shiftcard__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+          <p class="shiftcard__from">« Je n'ose pas augmenter mes prix »</p>
+          <svg class="shiftcard__arrow" viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="4" x2="12" y2="20"/><polyline points="6 14 12 20 18 14"/></svg>
+          <div class="shiftcard__reveal">
+            <h3>Des tarifs justes, assumés, rentables</h3>
+            <p>Construits sur votre coût de revient réel, pas sur la concurrence.</p>
+          </div>
+        </article>
+
+        <article class="shiftcard glass" data-anim="up">
+          <span class="shiftcard__n" aria-hidden="true">02</span>
+          <span class="shiftcard__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <p class="shiftcard__from">« Je poste mais ça ne ramène pas de clientes »</p>
+          <svg class="shiftcard__arrow" viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="4" x2="12" y2="20"/><polyline points="6 14 12 20 18 14"/></svg>
+          <div class="shiftcard__reveal">
+            <h3>Une visibilité locale qui tourne</h3>
+            <p>Fiche Google, avis, Instagram : ce qui fait venir des clientes près de chez vous, sans y passer vos soirées.</p>
+          </div>
+        </article>
+
+        <article class="shiftcard glass" data-anim="up">
+          <span class="shiftcard__n" aria-hidden="true">03</span>
+          <span class="shiftcard__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+          <p class="shiftcard__from">« Je travaille tout le temps mais je gagne peu »</p>
+          <svg class="shiftcard__arrow" viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="4" x2="12" y2="20"/><polyline points="6 14 12 20 18 14"/></svg>
+          <div class="shiftcard__reveal">
+            <h3>Chaque heure rentable, chaque cliente fidélisée</h3>
+            <p>Un parcours client structuré, et du temps récupéré grâce aux bons outils et à l'IA.</p>
+          </div>
+        </article>
+
+        <article class="shiftcard glass" data-anim="up">
+          <span class="shiftcard__n" aria-hidden="true">04</span>
+          <span class="shiftcard__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></span>
+          <p class="shiftcard__from">« Mon offre est devenue trop large »</p>
+          <svg class="shiftcard__arrow" viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="4" x2="12" y2="20"/><polyline points="6 14 12 20 18 14"/></svg>
+          <div class="shiftcard__reveal">
+            <h3>Une offre claire, comprise en 10 secondes</h3>
+            <p>Simplifiée, hiérarchisée, plus cohérente et plus facile à vendre.</p>
+          </div>
+        </article>
       </div>
 
       <blockquote class="pull glass" data-anim="scale">
@@ -1833,61 +1889,6 @@
             <p class="pstep__text">Vous repartez avec des outils concrets, une feuille de route priorisée et votre attestation de formation. L'accompagnement s'arrête, la structure reste.</p>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ PROBLÈME → RÉSULTAT ═══ -->
-  <section class="sec-line" id="resultats">
-    <div class="wrap">
-      <span class="eyebrow" data-anim="up">Ce qui change</span>
-      <h2 class="display" data-anim="up">De ce qui vous bloque <em>à ce qu'on vise.</em></h2>
-      <p class="lead measure" data-anim="up" style="margin-top:16px"><span class="l">Les mêmes phrases reviennent toujours.</span><span class="l">Voici ce qu'on en fait, ensemble.</span></p>
-
-      <div class="shift-grid">
-        <article class="shiftcard glass" data-anim="up">
-          <span class="shiftcard__n" aria-hidden="true">01</span>
-          <span class="shiftcard__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
-          <p class="shiftcard__from">« Je n'ose pas augmenter mes prix »</p>
-          <svg class="shiftcard__arrow" viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="4" x2="12" y2="20"/><polyline points="6 14 12 20 18 14"/></svg>
-          <div class="shiftcard__reveal">
-            <h3>Des tarifs justes, assumés, rentables</h3>
-            <p>Construits sur votre coût de revient réel, pas sur la concurrence.</p>
-          </div>
-        </article>
-
-        <article class="shiftcard glass" data-anim="up">
-          <span class="shiftcard__n" aria-hidden="true">02</span>
-          <span class="shiftcard__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-          <p class="shiftcard__from">« Je poste mais ça ne ramène pas de clientes »</p>
-          <svg class="shiftcard__arrow" viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="4" x2="12" y2="20"/><polyline points="6 14 12 20 18 14"/></svg>
-          <div class="shiftcard__reveal">
-            <h3>Une visibilité locale qui tourne</h3>
-            <p>Fiche Google, avis, Instagram : ce qui fait venir des clientes près de chez vous, sans y passer vos soirées.</p>
-          </div>
-        </article>
-
-        <article class="shiftcard glass" data-anim="up">
-          <span class="shiftcard__n" aria-hidden="true">03</span>
-          <span class="shiftcard__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
-          <p class="shiftcard__from">« Je travaille tout le temps mais je gagne peu »</p>
-          <svg class="shiftcard__arrow" viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="4" x2="12" y2="20"/><polyline points="6 14 12 20 18 14"/></svg>
-          <div class="shiftcard__reveal">
-            <h3>Chaque heure rentable, chaque cliente fidélisée</h3>
-            <p>Un parcours client structuré, et du temps récupéré grâce aux bons outils et à l'IA.</p>
-          </div>
-        </article>
-
-        <article class="shiftcard glass" data-anim="up">
-          <span class="shiftcard__n" aria-hidden="true">04</span>
-          <span class="shiftcard__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></span>
-          <p class="shiftcard__from">« Mon offre est devenue trop large »</p>
-          <svg class="shiftcard__arrow" viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="4" x2="12" y2="20"/><polyline points="6 14 12 20 18 14"/></svg>
-          <div class="shiftcard__reveal">
-            <h3>Une offre claire, comprise en 10 secondes</h3>
-            <p>Simplifiée, hiérarchisée, plus cohérente et plus facile à vendre.</p>
-          </div>
-        </article>
       </div>
     </div>
   </section>
