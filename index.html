@@ -1217,33 +1217,8 @@
     /* ══════════════════════════════════════════════════════════════
        AUDIT — bande
     ══════════════════════════════════════════════════════════════ */
-    .audit__lead { max-width: 62ch; margin-bottom: 42px; font-size: 0.94rem; line-height: 1.72; color: var(--ink-2); }
-    .audit__points {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: clamp(20px, 3vw, 44px);
-      margin-bottom: 42px;
-      padding-top: 34px;
-      border-top: 1px solid var(--line);
-    }
-    .audit__point-ic {
-      width: 36px; height: 36px;
-      border-radius: 50%;
-      background: var(--accent-tint);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .audit__point-ic svg { width: 17px; height: 17px; stroke: var(--accent-ink); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-    .audit__point h3 {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--dark);
-      margin: 14px 0 6px;
-    }
-    .audit__point p { font-size: 0.85rem; line-height: 1.62; color: var(--ink-2); }
-    @media (max-width: 780px) {
-      .audit__points { grid-template-columns: 1fr; gap: 26px; }
-    }
+    .audit__lead { max-width: 62ch; margin-bottom: 46px; font-size: 0.94rem; line-height: 1.72; color: var(--ink-2); }
+    .audit__lead strong { color: var(--dark); font-weight: 600; }
 
     /* ══════════════════════════════════════════════════════════════
        FAQ
@@ -2020,29 +1995,12 @@
     <div class="wrap">
       <div class="cal__intro">
         <span class="eyebrow" data-anim="up">Appel découverte · offert</span>
-        <h2 class="display" data-anim="up">Réservez votre appel, <em>repartez avec votre audit.</em></h2>
+        <h2 class="display" data-anim="up">Réservez votre appel,<br /><em>repartez avec votre audit 100&#8239;% gratuit.</em></h2>
         <p class="audit__lead" data-anim="up">
-          <span class="l">30 minutes, en visio ou par téléphone — pas un argumentaire de vente.</span>
-          <span class="l">On regarde votre activité ensemble et vous repartez avec un retour clair et honnête, que vous décidiez de continuer avec moi ou non.</span>
+          <span class="l">30 minutes, en visio ou par téléphone, sans argumentaire de vente.</span>
+          <span class="l">Vous repartez avec un retour honnête&nbsp;: <strong>ce qui fonctionne déjà</strong>, <strong>ce qui vous freine</strong>, <strong>par où commencer</strong>.</span>
         </p>
 
-        <div class="audit__points" data-anim="up">
-          <div class="audit__point">
-            <span class="audit__point-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-            <h3>Ce qui fonctionne déjà</h3>
-            <p>Vos points forts, ce sur quoi on peut s'appuyer tout de suite.</p>
-          </div>
-          <div class="audit__point">
-            <span class="audit__point-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></span>
-            <h3>Ce qui vous freine</h3>
-            <p>Les 2 ou 3 points qui vous coûtent du chiffre d'affaires aujourd'hui.</p>
-          </div>
-          <div class="audit__point">
-            <span class="audit__point-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-            <h3>Par où commencer</h3>
-            <p>Mes recommandations concrètes, classées par priorité.</p>
-          </div>
-        </div>
       </div>
 
       <div class="cal__frame glass" data-anim="up">
