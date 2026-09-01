@@ -693,7 +693,9 @@
        MODULES — scroll horizontal épinglé
     ══════════════════════════════════════════════════════════════ */
     .modules__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 48px; }
-    .modules__head p { max-width: 46ch; margin-top: 14px; }
+    .modules__head p { max-width: none; margin-top: 14px; }
+    /* Sur écran large, la phrase tient sur une seule ligne */
+    @media (min-width: 1080px) { .modules__head p { white-space: nowrap; } }
     .modules__progress { display: flex; gap: 8px; }
     .modules__progress i { width: 26px; height: 2px; background: var(--line); transition: background 0.4s; }
     .modules__progress i.on { background: var(--accent-2); }
@@ -1664,7 +1666,7 @@
         <div>
           <span class="eyebrow" data-anim="up">La méthode · 4 modules</span>
           <h2 class="display" data-anim="up">Quatre piliers, <em>une activité entière.</em></h2>
-          <p class="lead" data-anim="up">En accompagnement complet sur les 4 modules, ou à la carte sur celui qui compte le plus pour vous maintenant.</p>
+          <p class="lead" data-anim="up">Un accompagnement complet sur les 4 modules ou à la carte selon ce qui compte le plus pour vous.</p>
         </div>
         <div class="modules__progress" id="modProgress" aria-hidden="true">
           <i class="on"></i><i></i><i></i><i></i>
