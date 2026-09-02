@@ -1230,7 +1230,7 @@
     .faq-photo { margin: 0; }
     .faq-photo__frame {
       position: relative;
-      aspect-ratio: 4 / 5;
+      aspect-ratio: 3 / 4;
       border-radius: var(--r-lg);
       overflow: hidden;
       background: var(--bg-2);
@@ -1241,23 +1241,21 @@
       inset: 0;
       width: 100%; height: 100%;
       object-fit: cover;
-      object-position: 50% 26%;
-      /* la source est en 500 px de large : on renforce le micro-contraste
-         pour compenser et la faire paraître plus nette */
-      filter: contrast(1.09) saturate(1.05) brightness(1.02);
+      object-position: 50% 58%;
+      filter: contrast(1.03) saturate(1.02);
     }
     /* voile chaud, dans la palette de la charte */
     .faq-photo__frame::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(165deg, rgba(212, 173, 130, 0.20), rgba(107, 26, 24, 0.12));
+      background: linear-gradient(165deg, rgba(212, 173, 130, 0.12), rgba(107, 26, 24, 0.07));
       mix-blend-mode: multiply;
       pointer-events: none;
     }
     @media (max-width: 900px) {
       .faq-layout { grid-template-columns: 1fr; gap: 44px; }
-      .faq-photo__frame { max-width: 400px; margin-inline: auto; aspect-ratio: 3 / 4; }
+      .faq-photo__frame { max-width: 400px; margin-inline: auto; }
     }
     .faq-list { margin-top: 44px; border-top: 1px solid var(--line); }
     .faq-item { border-bottom: 1px solid var(--line); }
@@ -2051,8 +2049,8 @@
 
         <figure class="faq-photo" data-anim="left">
           <div class="faq-photo__frame">
-            <img src="faq-photo.jpg" loading="lazy" decoding="async" width="500" height="909"
-                 alt="Une professionnelle prend des notes à côté de son ordinateur" onerror="this.remove()" />
+            <img src="faq-photo.jpg" loading="lazy" decoding="async" width="900" height="1360"
+                 alt="Un bureau lumineux : ordinateur, carnets et plante" onerror="this.remove()" />
           </div>
         </figure>
 
