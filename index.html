@@ -228,14 +228,12 @@
 
     /* Paragraphes de corps justifiés (texte structuré) */
     .about__body p,
-    .manifesto__cols p,
     .modules__head p,
     .module__obj,
     .offer__desc,
     .cal__intro p,
     .audit__lead,
-    .faq-a__inner,
-    .results-note {
+    .faq-a__inner {
       text-align: justify;
       text-align-last: left;
       -webkit-hyphens: auto;
@@ -590,25 +588,8 @@
       color: var(--ink-3);
     }
     /* ══════════════════════════════════════════════════════════════
-       MANIFESTE (Promesse)
+       PROMESSE — citation
     ══════════════════════════════════════════════════════════════ */
-    .manifesto__statement {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: var(--fs-h2);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      color: var(--dark);
-      max-width: none;
-      margin-bottom: 44px;
-    }
-    .manifesto__statement em { font-style: normal; color: var(--accent); }
-    .manifesto__cols {
-      display: block;
-      max-width: none;
-    }
-    .manifesto__cols p + p { margin-top: 18px; }
-    .manifesto__cols strong { color: var(--ink); font-weight: 600; }
     .pull {
       margin-top: 72px;
       padding: clamp(32px, 5vw, 60px);
@@ -1002,101 +983,83 @@
     /* ══════════════════════════════════════════════════════════════
        PROBLÈME → RÉSULTAT
     ══════════════════════════════════════════════════════════════ */
-    .shift-grid {
-      margin-top: 64px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
+    /* ══════════════════════════════════════════════════════════════
+       PROMESSE — panneau + tuiles
+    ══════════════════════════════════════════════════════════════ */
+    .promise {
+      background: rgba(255, 255, 255, 0.42);
+      border: 1px solid var(--glass-brd);
+      border-radius: var(--r-xl);
+      padding: clamp(28px, 4vw, 66px);
+      box-shadow: var(--shadow-sm);
     }
-    .shiftcard {
-      position: relative;
-      border-radius: var(--r-lg);
-      padding: clamp(26px, 3.2vw, 40px);
-      overflow: hidden;
-      transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
-    }
-    .shiftcard:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
-    .shiftcard__n {
-      position: absolute;
-      top: 16px; right: 22px;
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 3rem;
-      line-height: 1;
-      color: var(--accent);
-      opacity: 0.14;
-    }
-    .shiftcard__ic {
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      background: var(--accent-tint);
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 18px;
-    }
-    .shiftcard__ic svg { width: 18px; height: 18px; stroke: var(--accent-ink); fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
-    .shiftcard__from {
-      font-family: var(--font-display);
-      font-weight: 600;
-      font-size: var(--fs-quote-sm);
-      color: var(--ink-3);
-      line-height: 1.4;
-      text-decoration: line-through;
-      text-decoration-color: transparent;
-      text-decoration-thickness: 2px;
-      text-underline-offset: -0.05em;
-    }
-    html.anim .shiftcard.in .shiftcard__from {
-      text-decoration-color: var(--accent-2);
-      transition: text-decoration-color 0.55s var(--ease) 0.35s;
-    }
-    .shiftcard__arrow {
-      display: block;
-      width: 22px; height: 22px;
-      margin: 16px 0 14px;
-      stroke: var(--accent-2);
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    .shiftcard__reveal h3 {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: var(--fs-h4);
-      color: var(--dark);
-      line-height: 1.22;
-      margin-bottom: 7px;
-    }
-    .shiftcard__reveal p { font-size: var(--fs-sm); line-height: 1.62; color: var(--ink-2); }
-
-    html.anim .shiftcard .shiftcard__arrow,
-    html.anim .shiftcard .shiftcard__reveal {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    html.anim .shiftcard.in .shiftcard__arrow {
-      opacity: 1; transform: none;
-      transition: opacity 0.5s var(--ease) 0.5s, transform 0.5s var(--ease) 0.5s;
-    }
-    html.anim .shiftcard.in .shiftcard__reveal {
-      opacity: 1; transform: none;
-      transition: opacity 0.6s var(--ease) 0.62s, transform 0.6s var(--ease) 0.62s;
-    }
-    html.anim .shift-grid .shiftcard:nth-child(even) { transition-delay: 0.09s; }
-
-    @media (max-width: 760px) {
-      .shift-grid { grid-template-columns: 1fr; }
-    }
-    .results-note {
-      margin-top: 40px;
-      padding: 24px 28px;
-      border-radius: var(--r);
-      border: 1px dashed var(--line);
-      font-size: 0.88rem;
+    .promise__title { margin: 4px 0 20px; }
+    .promise__intro {
+      font-size: var(--fs-body);
+      line-height: 1.75;
       color: var(--ink-2);
-      line-height: 1.7;
+      max-width: 76ch;
+      margin-bottom: clamp(32px, 4vw, 52px);
+      text-align: justify;
+      text-align-last: left;
+      -webkit-hyphens: auto;
+      hyphens: auto;
     }
-    .results-note strong { color: var(--ink); font-weight: 600; }
+    .promise__grid {
+      display: grid;
+      grid-template-columns: 0.82fr repeat(4, 1fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+    /* tuile visuelle : dégradé maison, dans les tons de l'aurora */
+    .promise__visual {
+      border-radius: var(--r);
+      min-height: 230px;
+      box-shadow: var(--shadow-md);
+      background:
+        radial-gradient(120% 105% at 22% 18%, rgba(212, 173, 130, 0.95), transparent 58%),
+        radial-gradient(105% 95% at 82% 28%, rgba(151, 104, 64, 0.80), transparent 60%),
+        radial-gradient(115% 100% at 48% 92%, rgba(107, 26, 24, 0.48), transparent 64%),
+        linear-gradient(158deg, #F7EFE6, #E4D3C1);
+    }
+    .promise__card {
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid var(--glass-brd);
+      border-radius: var(--r);
+      padding: 26px 22px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
+    }
+    .promise__card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+    .promise__from {
+      font-size: var(--fs-xs);
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--ink-3);
+      margin-bottom: 12px;
+    }
+    .promise__name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: var(--fs-h5);
+      line-height: 1.24;
+      letter-spacing: -0.01em;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+    .promise__text {
+      font-size: var(--fs-sm);
+      line-height: 1.6;
+      color: var(--ink-2);
+    }
+    @media (max-width: 1100px) {
+      .promise__grid { grid-template-columns: repeat(2, 1fr); }
+      .promise__visual { min-height: 180px; }
+    }
+    @media (max-width: 620px) {
+      .promise__grid { grid-template-columns: 1fr; }
+      .promise__visual { min-height: 150px; }
+    }
 
     /* ── AVIS CLIENTES ── */
     .avis__head { text-align: center; margin-bottom: 56px; }
@@ -1594,66 +1557,42 @@
     </div>
   </section>
 
-  <!-- ═══ MANIFESTE ═══ -->
+  <!-- ═══ PROMESSE ═══ -->
   <section class="sec-line sec-alt" id="promesse">
     <div class="wrap">
-      <span class="eyebrow" data-anim="up">Promesse</span>
-      <p class="manifesto__statement" data-anim="up">
-        Vous portez beaucoup, seule.<br />
-        <em>Vous n'avez plus à le faire.</em>
-      </p>
 
-      <div class="manifesto__cols">
-        <p data-anim="up">
-          <span class="l">Je sais à quel point c'est épuisant de tout gérer seule, les soins, les clientes, les tarifs, la communication, les chiffres.</span>
-          <span class="l">Ensemble, on prend le temps de regarder ce qui vous pèse vraiment, et on construit, pas à pas, une activité qui vous ressemble et qui vous porte, plutôt que l'inverse.</span>
-        </p>
-      </div>
+      <div class="promise" data-anim="up">
+        <span class="eyebrow">Promesse</span>
+        <h2 class="display promise__title">Vous portez beaucoup, seule.<br /><em>Vous n'avez plus à le faire.</em></h2>
+        <p class="promise__intro">Je sais à quel point c'est épuisant de tout gérer seule, les soins, les clientes, les tarifs, la communication, les chiffres. Ensemble, on prend le temps de regarder ce qui vous pèse vraiment, et on construit, pas à pas, une activité qui vous ressemble et qui vous porte, plutôt que l'inverse.</p>
 
-      <div class="shift-grid">
-        <article class="shiftcard glass" data-anim="up">
-          <span class="shiftcard__n" aria-hidden="true">01</span>
-          <span class="shiftcard__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
-          <p class="shiftcard__from">« Je n'ose pas augmenter mes prix »</p>
-          <svg class="shiftcard__arrow" viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="4" x2="12" y2="20"/><polyline points="6 14 12 20 18 14"/></svg>
-          <div class="shiftcard__reveal">
-            <h3>Des tarifs justes, assumés, rentables</h3>
-            <p>Construits sur votre coût de revient réel, pas sur la concurrence.</p>
-          </div>
-        </article>
+        <div class="promise__grid">
+          <div class="promise__visual" aria-hidden="true"></div>
 
-        <article class="shiftcard glass" data-anim="up">
-          <span class="shiftcard__n" aria-hidden="true">02</span>
-          <span class="shiftcard__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-          <p class="shiftcard__from">« Je poste mais ça ne ramène pas de clientes »</p>
-          <svg class="shiftcard__arrow" viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="4" x2="12" y2="20"/><polyline points="6 14 12 20 18 14"/></svg>
-          <div class="shiftcard__reveal">
-            <h3>Une visibilité locale qui tourne</h3>
-            <p>Fiche Google, avis, Instagram : ce qui fait venir des clientes près de chez vous, sans y passer vos soirées.</p>
-          </div>
-        </article>
+          <article class="promise__card">
+            <p class="promise__from">« Je n'ose pas augmenter mes prix »</p>
+            <h3 class="promise__name">Des tarifs justes, assumés, rentables</h3>
+            <p class="promise__text">Construits sur votre coût de revient réel, pas sur la concurrence.</p>
+          </article>
 
-        <article class="shiftcard glass" data-anim="up">
-          <span class="shiftcard__n" aria-hidden="true">03</span>
-          <span class="shiftcard__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
-          <p class="shiftcard__from">« Je travaille tout le temps mais je gagne peu »</p>
-          <svg class="shiftcard__arrow" viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="4" x2="12" y2="20"/><polyline points="6 14 12 20 18 14"/></svg>
-          <div class="shiftcard__reveal">
-            <h3>Chaque heure rentable, chaque cliente fidélisée</h3>
-            <p>Un parcours client structuré, et du temps récupéré grâce aux bons outils et à l'IA.</p>
-          </div>
-        </article>
+          <article class="promise__card">
+            <p class="promise__from">« Mon offre est devenue trop large »</p>
+            <h3 class="promise__name">Une offre claire, comprise en 10 secondes</h3>
+            <p class="promise__text">Simplifiée, hiérarchisée, plus cohérente et plus facile à vendre.</p>
+          </article>
 
-        <article class="shiftcard glass" data-anim="up">
-          <span class="shiftcard__n" aria-hidden="true">04</span>
-          <span class="shiftcard__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></span>
-          <p class="shiftcard__from">« Mon offre est devenue trop large »</p>
-          <svg class="shiftcard__arrow" viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="4" x2="12" y2="20"/><polyline points="6 14 12 20 18 14"/></svg>
-          <div class="shiftcard__reveal">
-            <h3>Une offre claire, comprise en 10 secondes</h3>
-            <p>Simplifiée, hiérarchisée, plus cohérente et plus facile à vendre.</p>
-          </div>
-        </article>
+          <article class="promise__card">
+            <p class="promise__from">« Je poste mais ça ne ramène pas de clientes »</p>
+            <h3 class="promise__name">Une visibilité locale qui tourne</h3>
+            <p class="promise__text">Fiche Google, avis, Instagram : ce qui fait venir des clientes près de chez vous, sans y passer vos soirées.</p>
+          </article>
+
+          <article class="promise__card">
+            <p class="promise__from">« Je travaille tout le temps mais je gagne peu »</p>
+            <h3 class="promise__name">Chaque heure rentable, chaque cliente fidélisée</h3>
+            <p class="promise__text">Un parcours client structuré, et du temps récupéré grâce aux bons outils et à l'IA.</p>
+          </article>
+        </div>
       </div>
 
       <blockquote class="pull glass" data-anim="scale">
