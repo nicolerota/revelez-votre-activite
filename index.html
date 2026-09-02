@@ -1031,12 +1031,25 @@
       transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
     }
     .promise__card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
-    .promise__from {
-      font-size: var(--fs-xs);
-      font-style: italic;
-      line-height: 1.5;
-      color: var(--ink-3);
-      margin-bottom: 12px;
+    .promise__idx {
+      display: flex;
+      align-items: baseline;
+      gap: 9px;
+      font-size: var(--fs-label);
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-ink);
+      line-height: 1.3;
+      margin-bottom: 14px;
+    }
+    .promise__idx span {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+      color: var(--accent);
+      line-height: 1;
     }
     .promise__name {
       font-family: var(--font-display);
@@ -1570,33 +1583,33 @@
           <div class="promise__visual" aria-hidden="true"></div>
 
           <article class="promise__card">
-            <p class="promise__from">« Je n'ose pas augmenter mes prix »</p>
-            <h3 class="promise__name">Des tarifs justes, assumés, rentables</h3>
-            <p class="promise__text">Construits sur votre coût de revient réel, pas sur la concurrence.</p>
+            <p class="promise__idx"><span>01</span>Voir clair</p>
+            <h3 class="promise__name">Savoir exactement où vous en êtes.</h3>
+            <p class="promise__text">Comprendre ce qui fonctionne, ce qui vous fait perdre du temps ou de l'argent, et ce qui mérite réellement votre énergie.</p>
           </article>
 
           <article class="promise__card">
-            <p class="promise__from">« Mon offre est devenue trop large »</p>
-            <h3 class="promise__name">Une offre claire, comprise en 10 secondes</h3>
-            <p class="promise__text">Simplifiée, hiérarchisée, plus cohérente et plus facile à vendre.</p>
+            <p class="promise__idx"><span>02</span>Décider</p>
+            <h3 class="promise__name">Ne plus avancer au feeling.</h3>
+            <p class="promise__text">Tarifs, prestations, communication, investissements : prendre vos décisions avec une vraie logique derrière.</p>
           </article>
 
           <article class="promise__card">
-            <p class="promise__from">« Je poste mais ça ne ramène pas de clientes »</p>
-            <h3 class="promise__name">Une visibilité locale qui tourne</h3>
-            <p class="promise__text">Fiche Google, avis, Instagram : ce qui fait venir des clientes près de chez vous, sans y passer vos soirées.</p>
+            <p class="promise__idx"><span>03</span>Rentabiliser</p>
+            <h3 class="promise__name">Faire en sorte que votre travail vous rapporte vraiment.</h3>
+            <p class="promise__text">Travailler mieux plutôt que simplement travailler plus, avec une activité pensée autour de votre rentabilité.</p>
           </article>
 
           <article class="promise__card">
-            <p class="promise__from">« Je travaille tout le temps mais je gagne peu »</p>
-            <h3 class="promise__name">Chaque heure rentable, chaque cliente fidélisée</h3>
-            <p class="promise__text">Un parcours client structuré, et du temps récupéré grâce aux bons outils et à l'IA.</p>
+            <p class="promise__idx"><span>04</span>Respirer</p>
+            <h3 class="promise__name">Retrouver du temps et de la sérénité.</h3>
+            <p class="promise__text">Une activité plus structurée, des outils qui vous facilitent le quotidien et moins de charge mentale.</p>
           </article>
         </div>
       </div>
 
       <blockquote class="pull glass" data-anim="scale">
-        <p>Travaillez enfin comme vous en avez toujours rêvé : les clientes qui vous ressemblent, une activité qui vous fait vivre, du temps qui vous revient.</p>
+        <p>Une activité plus claire, plus rentable et plus simple à piloter — sans perdre ce qui fait votre différence.</p>
       </blockquote>
     </div>
   </section>
