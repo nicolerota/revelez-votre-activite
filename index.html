@@ -984,81 +984,162 @@
        PROBLÈME → RÉSULTAT
     ══════════════════════════════════════════════════════════════ */
     /* ══════════════════════════════════════════════════════════════
-       PROMESSE — panneau + tuiles
+       PROMESSE — onglets verticaux + panneau visuel
     ══════════════════════════════════════════════════════════════ */
-    .promise {
-      background: rgba(255, 255, 255, 0.42);
-      border: 1px solid var(--glass-brd);
-      border-radius: var(--r-xl);
-      padding: clamp(28px, 4vw, 66px);
-      box-shadow: var(--shadow-sm);
+    .vtabs {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: clamp(36px, 5vw, 72px);
+      align-items: start;
     }
-    .promise__title { margin: 4px 0 20px; }
-    .promise__intro {
+    .vtabs__title { margin: 4px 0 20px; }
+    .vtabs__intro {
       font-size: var(--fs-body);
       line-height: 1.75;
       color: var(--ink-2);
-      max-width: 76ch;
-      margin-bottom: clamp(32px, 4vw, 52px);
+      margin-bottom: 44px;
       text-align: justify;
       text-align-last: left;
       -webkit-hyphens: auto;
       hyphens: auto;
     }
-    .promise__grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      align-items: stretch;
-    }
-    .promise__card {
-      background: rgba(255, 255, 255, 0.86);
-      border: 1px solid var(--glass-brd);
-      border-radius: var(--r);
-      padding: 26px 22px;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
-    }
-    .promise__card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
-    .promise__idx {
+
+    .vtabs__list { display: flex; flex-direction: column; }
+    .vtab {
+      position: relative;
       display: flex;
-      align-items: baseline;
-      gap: 9px;
-      font-size: var(--fs-label);
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent-ink);
-      line-height: 1.3;
-      margin-bottom: 14px;
+      align-items: flex-start;
+      gap: 16px;
+      width: 100%;
+      padding: 26px 0 26px 22px;
+      text-align: left;
+      border-top: 1px solid var(--line-2);
+      transition: color 0.5s var(--ease);
+      color: var(--ink-3);
     }
-    .promise__idx span {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: 1.35rem;
-      letter-spacing: -0.02em;
-      color: var(--accent);
-      line-height: 1;
+    .vtab:first-child { border-top: none; }
+    .vtab:hover { color: var(--ink-2); }
+    .vtab.is-active { color: var(--ink); }
+
+    /* rail + barre de progression */
+    .vtab__rail {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: var(--line);
+      border-radius: 2px;
+      overflow: hidden;
     }
-    .promise__name {
+    .vtab__rail i {
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 100%;
+      background: var(--accent);
+      transform: scaleY(0);
+      transform-origin: top;
+    }
+    .vtab.is-active.is-running .vtab__rail i { animation: vprog 6s linear forwards; }
+    .vtab.is-active.is-paused  .vtab__rail i { transform: scaleY(1); }
+    @keyframes vprog { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+
+    .vtab__num {
+      flex-shrink: 0;
+      margin-top: 7px;
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: var(--fs-h5);
-      line-height: 1.24;
-      letter-spacing: -0.01em;
-      color: var(--dark);
-      margin-bottom: 12px;
+      font-size: var(--fs-label-sm);
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      opacity: 0.65;
     }
-    .promise__text {
+    .vtab__body { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+    .vtab__title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: var(--fs-h3);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: currentColor;
+      transition: color 0.5s var(--ease);
+    }
+    .vtab.is-active .vtab__title { color: var(--dark); }
+
+    /* description : se déplie sans hauteur figée */
+    .vtab__reveal {
+      display: grid;
+      grid-template-rows: 0fr;
+      opacity: 0;
+      transition: grid-template-rows 0.45s var(--ease), opacity 0.35s var(--ease);
+    }
+    .vtab.is-active .vtab__reveal { grid-template-rows: 1fr; opacity: 1; }
+    .vtab__desc {
+      overflow: hidden;
       font-size: var(--fs-sm);
-      line-height: 1.6;
+      line-height: 1.7;
       color: var(--ink-2);
+      max-width: 46ch;
     }
-    @media (max-width: 1100px) {
-      .promise__grid { grid-template-columns: repeat(2, 1fr); }
+    .vtab.is-active .vtab__desc { padding-top: 12px; }
+    .vtab__desc strong { color: var(--dark); font-weight: 600; }
+
+    /* panneau visuel */
+    .vtabs__right { position: relative; }
+    .vtabs__frame {
+      position: relative;
+      aspect-ratio: 16 / 11;
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      border: 1px solid var(--glass-brd);
+      box-shadow: var(--shadow-lg);
+      background: var(--bg-2);
     }
-    @media (max-width: 620px) {
-      .promise__grid { grid-template-columns: 1fr; }
+    .vslide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: transform 0.75s var(--ease), opacity 0.5s var(--ease);
+    }
+    .vslide.is-active { opacity: 1; transform: translateY(0); z-index: 1; }
+    .vslide.is-leaving { opacity: 0; z-index: 0; }
+    .vslide img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    /* dégradé de repli tant qu'aucune photo n'est déposée */
+    .vslide[data-tint="1"] { background: linear-gradient(155deg, #F7EFE6, #E4D3C1); }
+    .vslide[data-tint="2"] { background: linear-gradient(155deg, #F3E7DC, #DCC6B2); }
+    .vslide[data-tint="3"] { background: linear-gradient(155deg, #EFE2D6, #D3B79F); }
+    .vslide[data-tint="4"] { background: linear-gradient(155deg, #F5EBE1, #CBAE97); }
+
+    .vtabs__nav {
+      position: absolute;
+      right: clamp(16px, 2vw, 28px);
+      bottom: clamp(16px, 2vw, 28px);
+      display: flex;
+      gap: 10px;
+      z-index: 3;
+    }
+    .vtabs__btn {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255, 255, 255, 0.82);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--glass-brd);
+      color: var(--dark);
+      transition: background 0.3s var(--ease), transform 0.2s var(--ease);
+    }
+    .vtabs__btn:hover { background: var(--white); }
+    .vtabs__btn:active { transform: scale(0.9); }
+    .vtabs__btn svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    @media (max-width: 940px) {
+      .vtabs { grid-template-columns: 1fr; gap: 40px; }
+      .vtabs__right { order: -1; }
+      .vtabs__frame { aspect-ratio: 4 / 3; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .vtab__rail i { animation: none !important; transform: scaleY(1); }
+      .vslide { transition: opacity 0.2s; transform: none; }
     }
 
     /* ── AVIS CLIENTES ── */
@@ -1561,37 +1642,75 @@
   <section class="sec-line sec-alt" id="promesse">
     <div class="wrap">
 
-      <div class="promise" data-anim="up">
-        <span class="eyebrow">Promesse</span>
-        <h2 class="display promise__title">Vous portez beaucoup, seule.<br /><em>Vous n'avez plus à le faire.</em></h2>
-        <p class="promise__intro">Je sais à quel point c'est épuisant de tout gérer seule, les soins, les clientes, les tarifs, la communication, les chiffres. Ensemble, on prend le temps de regarder ce qui vous pèse vraiment, et on construit, pas à pas, une activité qui vous ressemble et qui vous porte, plutôt que l'inverse.</p>
+      <div class="vtabs" id="promiseTabs">
 
-        <div class="promise__grid">
+        <div class="vtabs__left">
+          <span class="eyebrow" data-anim="up">Promesse</span>
+          <h2 class="display vtabs__title" data-anim="up">Vous portez beaucoup, seule.<br /><em>Vous n'avez plus à le faire.</em></h2>
+          <p class="vtabs__intro" data-anim="up">Je sais à quel point c'est épuisant de tout gérer seule, les soins, les clientes, les tarifs, la communication, les chiffres. Ensemble, on prend le temps de regarder ce qui vous pèse vraiment, et on construit, pas à pas, une activité qui vous ressemble et qui vous porte, plutôt que l'inverse.</p>
 
-          <article class="promise__card">
-            <p class="promise__idx"><span>01</span>Voir clair</p>
-            <h3 class="promise__name">Savoir exactement où vous en êtes.</h3>
-            <p class="promise__text">Comprendre ce qui fonctionne, ce qui vous fait perdre du temps ou de l'argent, et ce qui mérite réellement votre énergie.</p>
-          </article>
-
-          <article class="promise__card">
-            <p class="promise__idx"><span>02</span>Décider</p>
-            <h3 class="promise__name">Ne plus avancer au feeling.</h3>
-            <p class="promise__text">Tarifs, prestations, communication, investissements : prendre vos décisions avec une vraie logique derrière.</p>
-          </article>
-
-          <article class="promise__card">
-            <p class="promise__idx"><span>03</span>Rentabiliser</p>
-            <h3 class="promise__name">Faire en sorte que votre travail vous rapporte vraiment.</h3>
-            <p class="promise__text">Travailler mieux plutôt que simplement travailler plus, avec une activité pensée autour de votre rentabilité.</p>
-          </article>
-
-          <article class="promise__card">
-            <p class="promise__idx"><span>04</span>Respirer</p>
-            <h3 class="promise__name">Retrouver du temps et de la sérénité.</h3>
-            <p class="promise__text">Une activité plus structurée, des outils qui vous facilitent le quotidien et moins de charge mentale.</p>
-          </article>
+          <div class="vtabs__list" role="tablist" aria-label="Les quatre promesses">
+            <button class="vtab is-active" type="button" role="tab" aria-selected="true" aria-controls="vpanel" data-i="0">
+              <span class="vtab__rail" aria-hidden="true"><i></i></span>
+              <span class="vtab__num">/01</span>
+              <span class="vtab__body">
+                <span class="vtab__title">Voir clair</span>
+                <span class="vtab__reveal"><span class="vtab__desc"><strong>Savoir exactement où vous en êtes.</strong> Comprendre ce qui fonctionne, ce qui vous fait perdre du temps ou de l'argent, et ce qui mérite réellement votre énergie.</span></span>
+              </span>
+            </button>
+            <button class="vtab" type="button" role="tab" aria-selected="false" aria-controls="vpanel" data-i="1">
+              <span class="vtab__rail" aria-hidden="true"><i></i></span>
+              <span class="vtab__num">/02</span>
+              <span class="vtab__body">
+                <span class="vtab__title">Décider</span>
+                <span class="vtab__reveal"><span class="vtab__desc"><strong>Ne plus avancer au feeling.</strong> Tarifs, prestations, communication, investissements : prendre vos décisions avec une vraie logique derrière.</span></span>
+              </span>
+            </button>
+            <button class="vtab" type="button" role="tab" aria-selected="false" aria-controls="vpanel" data-i="2">
+              <span class="vtab__rail" aria-hidden="true"><i></i></span>
+              <span class="vtab__num">/03</span>
+              <span class="vtab__body">
+                <span class="vtab__title">Rentabiliser</span>
+                <span class="vtab__reveal"><span class="vtab__desc"><strong>Faire en sorte que votre travail vous rapporte vraiment.</strong> Travailler mieux plutôt que simplement travailler plus, avec une activité pensée autour de votre rentabilité.</span></span>
+              </span>
+            </button>
+            <button class="vtab" type="button" role="tab" aria-selected="false" aria-controls="vpanel" data-i="3">
+              <span class="vtab__rail" aria-hidden="true"><i></i></span>
+              <span class="vtab__num">/04</span>
+              <span class="vtab__body">
+                <span class="vtab__title">Respirer</span>
+                <span class="vtab__reveal"><span class="vtab__desc"><strong>Retrouver du temps et de la sérénité.</strong> Une activité plus structurée, des outils qui vous facilitent le quotidien et moins de charge mentale.</span></span>
+              </span>
+            </button>
+          </div>
         </div>
+
+        <div class="vtabs__right" data-anim="up">
+          <div class="vtabs__frame" id="vpanel" role="tabpanel">
+          <div class="vslide is-active" data-i="0" data-tint="1">
+            <img src="promesse-1.jpg" loading="lazy" decoding="async" alt="" onerror="this.remove()" />
+          </div>
+          <div class="vslide" data-i="1" data-tint="2">
+            <img src="promesse-2.jpg" loading="lazy" decoding="async" alt="" onerror="this.remove()" />
+          </div>
+          <div class="vslide" data-i="2" data-tint="3">
+            <img src="promesse-3.jpg" loading="lazy" decoding="async" alt="" onerror="this.remove()" />
+          </div>
+          <div class="vslide" data-i="3" data-tint="4">
+            <img src="promesse-4.jpg" loading="lazy" decoding="async" alt="" onerror="this.remove()" />
+          </div>
+
+            <div class="vtabs__nav">
+              <button class="vtabs__btn" type="button" data-dir="-1" aria-label="Précédent">
+                <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <button class="vtabs__btn" type="button" data-dir="1" aria-label="Suivant">
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <blockquote class="pull glass" data-anim="scale">
@@ -2193,6 +2312,58 @@
       /* Failsafe : tout révéler au bout de 3,5 s quoi qu'il arrive */
       setTimeout(revealAll, 3500);
     }
+
+    /* ── Promesse : onglets verticaux ── */
+    (() => {
+      const root = document.getElementById('promiseTabs');
+      if (!root) return;
+      const tabs   = [...root.querySelectorAll('.vtab')];
+      const slides = [...root.querySelectorAll('.vslide')];
+      const frame  = root.querySelector('.vtabs__frame');
+      if (!tabs.length) return;
+
+      const DELAY = 6000;
+      let i = 0, timer = null, paused = false;
+
+      const show = (next) => {
+        next = (next + tabs.length) % tabs.length;
+        if (next === i) return;
+        const prev = i; i = next;
+
+        tabs.forEach((t, k) => {
+          t.classList.toggle('is-active', k === i);
+          t.setAttribute('aria-selected', k === i ? 'true' : 'false');
+          t.classList.remove('is-running', 'is-paused');
+        });
+        slides.forEach((sl, k) => {
+          sl.classList.toggle('is-active', k === i);
+          sl.classList.toggle('is-leaving', k === prev);
+        });
+        run();
+      };
+
+      const run = () => {
+        clearTimeout(timer);
+        const active = tabs[i];
+        active.classList.remove('is-running', 'is-paused');
+        void active.offsetWidth;                 // relance l'animation de la barre
+        if (RM || paused) { active.classList.add('is-paused'); return; }
+        active.classList.add('is-running');
+        timer = setTimeout(() => show(i + 1), DELAY);
+      };
+
+      tabs.forEach((t, k) => t.addEventListener('click', () => { paused = false; show(k); }));
+      root.querySelectorAll('.vtabs__btn').forEach(b =>
+        b.addEventListener('click', () => { paused = false; show(i + Number(b.dataset.dir)); }));
+
+      if (frame) {
+        frame.addEventListener('mouseenter', () => { paused = true; clearTimeout(timer);
+          tabs[i].classList.remove('is-running'); tabs[i].classList.add('is-paused'); });
+        frame.addEventListener('mouseleave', () => { paused = false; run(); });
+      }
+
+      run();
+    })();
 
     /* ── GSAP ── */
     const startGSAP = () => {
