@@ -241,7 +241,7 @@
       -webkit-hyphens: auto;
       hyphens: auto;
     }
-    .l { display: block; }   /* une phrase par ligne (compatible avec le texte justifié) */
+    .l { display: inline; }   /* le texte coule, sans retour à la ligne forcé */
 
     .kicker {
       font-size: var(--fs-label-sm);
@@ -510,9 +510,10 @@
       font-weight: 600;
       line-height: 1.5;
       color: var(--dark);
-      max-width: 48ch;
+      max-width: none;
       margin-bottom: 20px;
     }
+    @media (min-width: 1080px) { .hero__promise { white-space: nowrap; } }
     .hero__sub {
       max-width: none;
       font-size: var(--fs-lead);
@@ -1278,8 +1279,7 @@
     .cal__intro .audit__lead { margin-top: 0; max-width: none; }
     /* Sur écran large, chaque phrase tient sur une seule ligne */
     @media (min-width: 1080px) {
-      .cal__intro h2 em,
-      .cal__intro .audit__lead .l { white-space: nowrap; }
+      .cal__intro h2 em { white-space: nowrap; }
     }
     .cal__frame { border-radius: var(--r-lg); overflow: hidden; padding: 6px; }
     .calendly-inline-widget { min-width: 320px; height: 720px; border-radius: var(--r); overflow: hidden; }
@@ -1561,7 +1561,7 @@
       <p class="hero__promise" data-anim="up">Structurez votre institut pour mieux gagner votre vie, attirer les bonnes clientes et retrouver du temps.</p>
 
       <p class="lead hero__sub" data-anim="up">
-        Rentabilité, offre, visibilité, vente : on reprend ensemble chaque pilier de votre activité, un par un.<br />
+        Rentabilité, offre, visibilité, vente : on reprend ensemble chaque pilier de votre activité, un par un.
         Par une professionnelle du secteur, pour celles qui veulent reprendre la main.
       </p>
 
