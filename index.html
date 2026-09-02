@@ -986,18 +986,20 @@
     /* ══════════════════════════════════════════════════════════════
        PROMESSE — onglets verticaux + panneau visuel
     ══════════════════════════════════════════════════════════════ */
-    .vtabs {
+    .vtabs__head { margin-bottom: clamp(40px, 5vw, 64px); }
+    .vtabs__body {
       display: grid;
       grid-template-columns: 5fr 7fr;
       gap: clamp(36px, 5vw, 72px);
       align-items: start;
     }
-    .vtabs__title { margin: 4px 0 20px; }
+    .vtabs__title { margin: 4px 0 20px; max-width: none; }
     .vtabs__intro {
       font-size: var(--fs-body);
       line-height: 1.75;
       color: var(--ink-2);
-      margin-bottom: 44px;
+      max-width: none;
+      margin-bottom: 0;
       text-align: justify;
       text-align-last: left;
       -webkit-hyphens: auto;
@@ -1133,7 +1135,7 @@
     .vtabs__btn svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
     @media (max-width: 940px) {
-      .vtabs { grid-template-columns: 1fr; gap: 40px; }
+      .vtabs__body { grid-template-columns: 1fr; gap: 40px; }
       .vtabs__right { order: -1; }
       .vtabs__frame { aspect-ratio: 4 / 3; }
     }
@@ -1644,11 +1646,13 @@
 
       <div class="vtabs" id="promiseTabs">
 
-        <div class="vtabs__left">
+        <div class="vtabs__head">
           <span class="eyebrow" data-anim="up">Promesse</span>
-          <h2 class="display vtabs__title" data-anim="up">Vous portez beaucoup, seule.<br /><em>Vous n'avez plus à le faire.</em></h2>
+          <h2 class="display vtabs__title" data-anim="up">Vous portez beaucoup, seule. <em>Vous n'avez plus à le faire.</em></h2>
           <p class="vtabs__intro" data-anim="up">Je sais à quel point c'est épuisant de tout gérer seule, les soins, les clientes, les tarifs, la communication, les chiffres. Ensemble, on prend le temps de regarder ce qui vous pèse vraiment, et on construit, pas à pas, une activité qui vous ressemble et qui vous porte, plutôt que l'inverse.</p>
+        </div>
 
+        <div class="vtabs__body">
           <div class="vtabs__list" role="tablist" aria-label="Les quatre promesses">
             <button class="vtab is-active" type="button" role="tab" aria-selected="true" aria-controls="vpanel" data-i="0">
               <span class="vtab__rail" aria-hidden="true"><i></i></span>
@@ -1683,9 +1687,8 @@
               </span>
             </button>
           </div>
-        </div>
 
-        <div class="vtabs__right" data-anim="up">
+          <div class="vtabs__right" data-anim="up">
           <div class="vtabs__frame" id="vpanel" role="tabpanel">
           <div class="vslide is-active" data-i="0" data-tint="1">
             <img src="promesse-1.jpg" loading="lazy" decoding="async" alt="" onerror="this.remove()" />
@@ -1709,6 +1712,8 @@
               </button>
             </div>
           </div>
+          </div>
+
         </div>
 
       </div>
