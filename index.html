@@ -1055,7 +1055,16 @@
       max-width: 46ch;
     }
     .vtab.is-active .vtab__desc { padding-top: 12px; }
-    .vtab__desc strong { color: var(--dark); font-weight: 600; }
+    .vtab__lead {
+      display: block;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: var(--fs-h5);
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
 
     /* panneau visuel */
     .vtabs__right { position: relative; }
@@ -1632,7 +1641,7 @@
               <span class="vtab__num">/01</span>
               <span class="vtab__body">
                 <span class="vtab__title">Voir clair</span>
-                <span class="vtab__reveal"><span class="vtab__desc"><strong>Savoir exactement où vous en êtes.</strong> Comprendre ce qui fonctionne, ce qui vous fait perdre du temps ou de l'argent, et ce qui mérite réellement votre énergie.</span></span>
+                <span class="vtab__reveal"><span class="vtab__desc"><strong class="vtab__lead">Savoir exactement où vous en êtes.</strong> Comprendre ce qui fonctionne, ce qui vous fait perdre du temps ou de l'argent, et ce qui mérite réellement votre énergie.</span></span>
               </span>
             </button>
             <button class="vtab" type="button" role="tab" aria-selected="false" aria-controls="vpanel" data-i="1">
@@ -1640,7 +1649,7 @@
               <span class="vtab__num">/02</span>
               <span class="vtab__body">
                 <span class="vtab__title">Décider</span>
-                <span class="vtab__reveal"><span class="vtab__desc"><strong>Ne plus avancer au feeling.</strong> Tarifs, prestations, communication, investissements : prendre vos décisions avec une vraie logique derrière.</span></span>
+                <span class="vtab__reveal"><span class="vtab__desc"><strong class="vtab__lead">Ne plus avancer au feeling.</strong> Tarifs, prestations, communication, investissements : prendre vos décisions avec une vraie logique derrière.</span></span>
               </span>
             </button>
             <button class="vtab" type="button" role="tab" aria-selected="false" aria-controls="vpanel" data-i="2">
@@ -1648,7 +1657,7 @@
               <span class="vtab__num">/03</span>
               <span class="vtab__body">
                 <span class="vtab__title">Rentabiliser</span>
-                <span class="vtab__reveal"><span class="vtab__desc"><strong>Faire en sorte que votre travail vous rapporte vraiment.</strong> Travailler mieux plutôt que simplement travailler plus, avec une activité pensée autour de votre rentabilité.</span></span>
+                <span class="vtab__reveal"><span class="vtab__desc"><strong class="vtab__lead">Faire en sorte que votre travail vous rapporte vraiment.</strong> Travailler mieux plutôt que simplement travailler plus, avec une activité pensée autour de votre rentabilité.</span></span>
               </span>
             </button>
             <button class="vtab" type="button" role="tab" aria-selected="false" aria-controls="vpanel" data-i="3">
@@ -1656,7 +1665,7 @@
               <span class="vtab__num">/04</span>
               <span class="vtab__body">
                 <span class="vtab__title">Respirer</span>
-                <span class="vtab__reveal"><span class="vtab__desc"><strong>Retrouver du temps et de la sérénité.</strong> Une activité plus structurée, des outils qui vous facilitent le quotidien et moins de charge mentale.</span></span>
+                <span class="vtab__reveal"><span class="vtab__desc"><strong class="vtab__lead">Retrouver du temps et de la sérénité.</strong> Une activité plus structurée, des outils qui vous facilitent le quotidien et moins de charge mentale.</span></span>
               </span>
             </button>
           </div>
