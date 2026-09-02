@@ -1007,20 +1007,9 @@
     }
     .promise__grid {
       display: grid;
-      grid-template-columns: 0.82fr repeat(4, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 16px;
       align-items: stretch;
-    }
-    /* tuile visuelle : dégradé maison, dans les tons de l'aurora */
-    .promise__visual {
-      border-radius: var(--r);
-      min-height: 230px;
-      box-shadow: var(--shadow-md);
-      background:
-        radial-gradient(120% 105% at 22% 18%, rgba(212, 173, 130, 0.95), transparent 58%),
-        radial-gradient(105% 95% at 82% 28%, rgba(151, 104, 64, 0.80), transparent 60%),
-        radial-gradient(115% 100% at 48% 92%, rgba(107, 26, 24, 0.48), transparent 64%),
-        linear-gradient(158deg, #F7EFE6, #E4D3C1);
     }
     .promise__card {
       background: rgba(255, 255, 255, 0.86);
@@ -1067,11 +1056,9 @@
     }
     @media (max-width: 1100px) {
       .promise__grid { grid-template-columns: repeat(2, 1fr); }
-      .promise__visual { min-height: 180px; }
     }
     @media (max-width: 620px) {
       .promise__grid { grid-template-columns: 1fr; }
-      .promise__visual { min-height: 150px; }
     }
 
     /* ── AVIS CLIENTES ── */
@@ -1580,7 +1567,6 @@
         <p class="promise__intro">Je sais à quel point c'est épuisant de tout gérer seule, les soins, les clientes, les tarifs, la communication, les chiffres. Ensemble, on prend le temps de regarder ce qui vous pèse vraiment, et on construit, pas à pas, une activité qui vous ressemble et qui vous porte, plutôt que l'inverse.</p>
 
         <div class="promise__grid">
-          <div class="promise__visual" aria-hidden="true"></div>
 
           <article class="promise__card">
             <p class="promise__idx"><span>01</span>Voir clair</p>
