@@ -505,6 +505,14 @@
     }
     .hero__inner { max-width: 1140px; }
     .hero__title { margin-bottom: 30px; }
+    .hero__promise {
+      font-size: var(--fs-lead);
+      font-weight: 600;
+      line-height: 1.5;
+      color: var(--dark);
+      max-width: 48ch;
+      margin-bottom: 20px;
+    }
     .hero__sub {
       max-width: none;
       font-size: var(--fs-lead);
@@ -1550,6 +1558,8 @@
 
       <h1 class="display hero__title" data-hero-title>Révélez votre <em>activité.</em></h1>
 
+      <p class="hero__promise" data-anim="up">Structurez votre institut pour mieux gagner votre vie, attirer les bonnes clientes et retrouver du temps.</p>
+
       <p class="lead hero__sub" data-anim="up">
         Rentabilité, offre, visibilité, vente : on reprend ensemble chaque pilier de votre activité, un par un.<br />
         Par une professionnelle du secteur, pour celles qui veulent reprendre la main.
@@ -2261,7 +2271,8 @@
       tl.set('.hero__title', { opacity: 1 }, 0)
         .from('.hero__title .word', { opacity: 0, yPercent: 70, duration: 1, stagger: 0.055 }, 0.1)
         .to('.hero .eyebrow', { opacity: 1, y: 0, duration: 0.8 }, 0.15)
-        .to('.hero__sub', { opacity: 1, y: 0, duration: 0.9 }, 0.4)
+        .to('.hero__promise', { opacity: 1, y: 0, duration: 0.85 }, 0.38)
+        .to('.hero__sub', { opacity: 1, y: 0, duration: 0.9 }, 0.5)
         .to('.hero__tags', { opacity: 1, y: 0, duration: 0.9 }, 0.55)
         .to('.hero__stats', { opacity: 1, y: 0, duration: 0.9 }, 0.6)
         .to('.hero__cta', { opacity: 1, y: 0, duration: 0.8 }, 0.72)
