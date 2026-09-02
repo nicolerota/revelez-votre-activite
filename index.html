@@ -966,15 +966,18 @@
     }
     .vtabs__title { margin: 4px 0 20px; max-width: none; }
     .vtabs__intro {
-      font-size: var(--fs-body);
-      line-height: 1.75;
+      font-size: var(--fs-label);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      line-height: 2;
       color: var(--ink-2);
       max-width: none;
       margin-bottom: 0;
-      text-align: justify;
-      text-align-last: left;
-      -webkit-hyphens: auto;
-      hyphens: auto;
+      /* pas de justification ni de césure : illisible en capitales */
+      text-align: left;
+      -webkit-hyphens: manual;
+      hyphens: manual;
     }
 
     .vtabs__list { display: flex; flex-direction: column; }
