@@ -661,10 +661,7 @@
       position: absolute; inset: 0;
       width: 100%; height: 100%;
       object-fit: cover;
-      object-position: 50% 18%;
-      /* Recadrage plus serré sur le visage */
-      transform: scale(1.22);
-      transform-origin: 50% 30%;
+      object-position: 50% 22%;
     }
     .about__photo img + .about__mono { display: none; }
     .about__mono {
@@ -1684,7 +1681,7 @@
       <div class="about__grid">
         <aside class="about__aside" data-anim="left">
           <div class="about__photo">
-            <img src="nicole.jpg" alt="Nicole Rota, fondatrice de Holisticademy" onerror="this.remove()" />
+            <img src="nicole.jpg" width="900" height="1030" loading="lazy" decoding="async" alt="Nicole Rota, fondatrice de Holisticademy" onerror="this.remove()" />
             <span class="about__mono" aria-hidden="true">nr</span>
           </div>
           <div class="about__id">
