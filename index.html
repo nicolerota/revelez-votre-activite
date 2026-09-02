@@ -966,19 +966,18 @@
     }
     .vtabs__title { margin: 4px 0 20px; max-width: none; }
     .vtabs__intro {
-      font-size: var(--fs-label);
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      line-height: 2;
+      font-size: var(--fs-body);
+      line-height: 1.75;
       color: var(--ink-2);
       max-width: none;
       margin-bottom: 0;
-      /* pas de justification ni de césure : illisible en capitales */
-      text-align: left;
-      -webkit-hyphens: manual;
-      hyphens: manual;
+      text-align: justify;
+      text-align-last: left;
+      -webkit-hyphens: auto;
+      hyphens: auto;
     }
+    /* une phrase par ligne, uniquement dans cette intro */
+    .vtabs__intro .l { display: block; }
 
     .vtabs__list { display: flex; flex-direction: column; }
     .vtab {
@@ -1622,8 +1621,8 @@
 
         <div class="vtabs__head">
           <span class="eyebrow" data-anim="up">Promesse</span>
-          <h2 class="display vtabs__title" data-anim="up">Vous portez beaucoup, seule. <em>Vous n'avez plus à le faire.</em></h2>
-          <p class="vtabs__intro" data-anim="up">Je sais à quel point c'est épuisant de tout gérer seule, les soins, les clientes, les tarifs, la communication, les chiffres. Ensemble, on prend le temps de regarder ce qui vous pèse vraiment, et on construit, pas à pas, une activité qui vous ressemble et qui vous porte, plutôt que l'inverse.</p>
+          <h2 class="display vtabs__title" data-anim="up">Vous portez beaucoup, seule.<br /><em>Vous n'avez plus à le faire.</em></h2>
+          <p class="vtabs__intro" data-anim="up"><span class="l">Je sais à quel point c'est épuisant de tout gérer seule, les soins, les clientes, les tarifs, la communication, les chiffres.</span><span class="l">Ensemble, on prend le temps de regarder ce qui vous pèse vraiment, et on construit, pas à pas, une activité qui vous ressemble et qui vous porte, plutôt que l'inverse.</span></p>
         </div>
 
         <div class="vtabs__body">
