@@ -342,24 +342,6 @@
       background: linear-gradient(90deg, var(--accent-2), var(--accent));
       z-index: 9999;
     }
-    .cursor, .cursor-ring {
-      position: fixed;
-      top: 0; left: 0;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9997;
-      mix-blend-mode: difference;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .cursor { width: 7px; height: 7px; background: #fff; margin: -3.5px 0 0 -3.5px; }
-    .cursor-ring {
-      width: 40px; height: 40px; margin: -20px 0 0 -20px;
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      transition: opacity 0.3s, width 0.3s var(--ease), height 0.3s var(--ease), margin 0.3s var(--ease);
-    }
-    body.cursor-on .cursor, body.cursor-on .cursor-ring { opacity: 1; }
-    body.cursor-on.cursor-hot .cursor-ring { width: 62px; height: 62px; margin: -31px 0 0 -31px; }
 
     /* ══════════════════════════════════════════════════════════════
        NAV
@@ -1499,7 +1481,7 @@
         transition-duration: 0.01ms !important;
       }
       .aurora__blob, .seal svg { animation: none !important; }
-      #progress, .cursor, .cursor-ring { display: none; }
+      #progress { display: none; }
       html.anim [data-anim] { opacity: 1 !important; transform: none !important; }
       html.anim .hero__title .word__i { transform: none !important; }
       .process__rail::after { transform: scaleY(1); }
@@ -1515,13 +1497,11 @@
   </div>
   <div class="grain" aria-hidden="true"></div>
   <div id="progress" aria-hidden="true"></div>
-  <div class="cursor" aria-hidden="true"></div>
-  <div class="cursor-ring" aria-hidden="true"></div>
 
   <!-- ═══ NAV ═══ -->
   <header class="nav" id="nav">
     <div class="wrap nav__inner">
-      <a href="#top" class="brand" data-cursor aria-label="Holisticademy, accueil"><span class="brand__mark" aria-hidden="true"></span></a>
+      <a href="#top" class="brand" aria-label="Holisticademy, accueil"><span class="brand__mark" aria-hidden="true"></span></a>
 
       <nav>
         <ul class="nav__links">
@@ -1534,7 +1514,7 @@
       </nav>
 
       <div class="nav__cta">
-        <button class="btn btn--accent" data-cursor
+        <button class="btn btn--accent"
           onclick="Calendly.initPopupWidget({url:'https://calendly.com/nicole-rota/appel-decouverte-revelez-votre-activite'});return false;">
           <span>Prendre rendez-vous</span>
         </button>
@@ -1590,7 +1570,7 @@
       </div>
 
       <div class="hero__cta" data-anim="up">
-        <button class="btn btn--lg" data-cursor
+        <button class="btn btn--lg"
           onclick="Calendly.initPopupWidget({url:'https://calendly.com/nicole-rota/appel-decouverte-revelez-votre-activite'});return false;">
           <span>Réserver mon appel découverte</span>
         </button>
@@ -1969,7 +1949,7 @@
             <li>Audit personnalisé de votre structure</li>
           </ul>
           <p class="offer__savings">100 € économisés par rapport aux 4 modules pris séparément (1 600 €)</p>
-          <button class="btn btn--accent btn--block" data-cursor
+          <button class="btn btn--accent btn--block"
             onclick="Calendly.initPopupWidget({url:'https://calendly.com/nicole-rota/appel-decouverte-revelez-votre-activite'});return false;">
             <span>Je choisis l'accompagnement 360°</span>
           </button>
@@ -1985,7 +1965,7 @@
             <li>1 module, au choix</li>
             <li>Audit personnalisé de votre structure</li>
           </ul>
-          <button class="btn btn--ghost btn--block" data-cursor
+          <button class="btn btn--ghost btn--block"
             onclick="Calendly.initPopupWidget({url:'https://calendly.com/nicole-rota/appel-decouverte-revelez-votre-activite'});return false;">
             <span>Choisir mon module</span>
           </button>
@@ -2024,7 +2004,7 @@
       <h2 class="display final__title">Prête à révéler <em>votre activité ?</em></h2>
       <p class="lead final__sub" data-anim="up">Inscription ouverte en continu, chaque parcours est étudié au cas par cas, à votre rythme.</p>
       <div class="final__cta">
-        <button class="btn btn--lg" data-cursor
+        <button class="btn btn--lg"
           onclick="Calendly.initPopupWidget({url:'https://calendly.com/nicole-rota/appel-decouverte-revelez-votre-activite'});return false;">
           <span>Je veux faire le point sur mon activité</span>
         </button>
@@ -2087,7 +2067,7 @@
       <span class="eyebrow" data-anim="up">Instagram</span>
       <div class="insta__head">
         <h2 class="display" data-anim="up">Suivez les coulisses <em>@holisticademy_</em></h2>
-        <a href="https://www.instagram.com/holisticademy_/" target="_blank" rel="noopener noreferrer" class="btn btn--ghost" data-cursor data-anim="up"><span>Me suivre</span></a>
+        <a href="https://www.instagram.com/holisticademy_/" target="_blank" rel="noopener noreferrer" class="btn btn--ghost" data-anim="up"><span>Me suivre</span></a>
       </div>
       <div class="insta__grid" data-anim="up">
         <a href="https://www.instagram.com/holisticademy_/" target="_blank" rel="noopener noreferrer" class="insta__tile" aria-label="Voir sur Instagram">
@@ -2142,7 +2122,6 @@
   <script defer>
   document.addEventListener('DOMContentLoaded', () => {
     const RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const FINE = window.matchMedia('(pointer: fine)').matches;
     const doc = document.documentElement;
 
     /* ── Menu overlay ── */
@@ -2261,29 +2240,6 @@
       counters.forEach(el => cntIO.observe(el));
       /* Failsafe : tout révéler au bout de 3,5 s quoi qu'il arrive */
       setTimeout(revealAll, 3500);
-    }
-
-    /* ── Custom cursor ── */
-    if (FINE && !RM) {
-      const dot = document.querySelector('.cursor');
-      const ring = document.querySelector('.cursor-ring');
-      let mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my;
-      window.addEventListener('mousemove', e => {
-        mx = e.clientX; my = e.clientY;
-        dot.style.transform = `translate(${mx}px, ${my}px)`;
-        document.body.classList.add('cursor-on');
-      });
-      const loop = () => {
-        rx += (mx - rx) * 0.16; ry += (my - ry) * 0.16;
-        ring.style.transform = `translate(${rx}px, ${ry}px)`;
-        requestAnimationFrame(loop);
-      };
-      loop();
-      document.querySelectorAll('a, button, [data-cursor], .faq-q, .module').forEach(el => {
-        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hot'));
-        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hot'));
-      });
-      document.addEventListener('mouseleave', () => document.body.classList.remove('cursor-on'));
     }
 
     /* ── GSAP ── */
