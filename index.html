@@ -759,7 +759,7 @@
 
     /* ── comparatif deux colonnes ── */
     .cmp2 {
-      margin-top: clamp(48px, 5.5vw, 78px);
+      margin-top: clamp(32px, 3.6vw, 50px);
       display: grid;
       grid-template-columns: 1.12fr 0.88fr;   /* la colonne « nous » domine */
       align-items: start;                     /* chaque carte s'arrête à son contenu */
@@ -904,6 +904,7 @@
       margin-top: clamp(48px, 5vw, 72px);
       padding-top: clamp(32px, 4vw, 44px);
       border-top: 1px solid var(--line);
+      max-width: none;
       text-align: center;
       font-family: var(--font-display);
       font-weight: 700;
@@ -2000,6 +2001,8 @@
         </article>
       </div>
 
+      <p class="why__closing" data-anim="up">Le but n'est pas de terminer la formation avec davantage de notes.<br /><em>Le but est que votre activité ait réellement avancé.</em></p>
+
       <div class="cmp2" data-anim="up">
 
         <!-- colonne 1 — Révélez votre activité (recommandé) -->
@@ -2041,7 +2044,6 @@
 
       </div>
 
-      <p class="why__closing" data-anim="up">Le but n'est pas de terminer la formation avec davantage de notes.<br /><em>Le but est que votre activité ait réellement avancé.</em></p>
     </div>
   </section>
 
