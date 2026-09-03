@@ -701,49 +701,6 @@
     .why__intro .l { display: block; width: max-content; max-width: 100%; }
     .why__intro .l + .l { margin-top: 2px; }
 
-    .why__grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      margin-top: clamp(44px, 5vw, 68px);
-    }
-    .why__card {
-      background: rgba(255, 255, 255, 0.62);
-      border: 1px solid var(--glass-brd);
-      border-radius: var(--r-lg);
-      padding: clamp(26px, 2.4vw, 34px);
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
-    }
-    .why__card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
-    .why__ic {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px; height: 42px;
-      border-radius: 50%;
-      background: var(--accent-tint);
-      margin-bottom: 20px;
-    }
-    .why__ic svg {
-      width: 19px; height: 19px;
-      fill: none;
-      stroke: var(--accent-ink);
-      stroke-width: 1.7;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    .why__name {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: var(--fs-h5);
-      line-height: 1.24;
-      letter-spacing: -0.01em;
-      color: var(--dark);
-      margin-bottom: 12px;
-    }
-    .why__text { font-size: var(--fs-sm); line-height: 1.7; color: var(--ink-2); }
-
     /* ── comparatif deux colonnes ── */
     .cmp2 {
       margin-top: clamp(32px, 3.6vw, 50px);
@@ -888,8 +845,8 @@
     .cmp2__col--other .cmp2__verdict { color: var(--ink-3); opacity: 0.75; }
 
     .why__closing {
-      margin-top: clamp(48px, 5vw, 72px);
-      padding-top: clamp(32px, 4vw, 44px);
+      margin-top: clamp(40px, 4.4vw, 60px);
+      padding-top: clamp(30px, 3.6vw, 40px);
       border-top: 1px solid var(--line);
       max-width: none;
       text-align: center;
@@ -902,14 +859,12 @@
     .why__closing em { font-style: normal; color: var(--accent); }
 
     @media (max-width: 1000px) {
-      .why__grid { grid-template-columns: repeat(2, 1fr); }
       .modules__grid { grid-template-columns: repeat(2, 1fr); }
       .cmp2 { grid-template-columns: 1fr; }
       .cmp2__col--own { box-shadow: var(--shadow-md); }
       .cmp2__col--other { margin-top: 0; }
     }
     @media (max-width: 640px) {
-      .why__grid { grid-template-columns: 1fr; }
       .modules__grid { grid-template-columns: 1fr; }
       .cmp2 { grid-template-columns: 1fr; }
       .cmp2__col--own { box-shadow: var(--shadow-md); }
@@ -2063,32 +2018,6 @@
         <span class="eyebrow" data-anim="up">Une formation qui se travaille, pas qui se regarde</span>
         <h2 class="display why__title" data-anim="up"><span class="why__l">Ici, vous ne regardez pas votre formation.</span><span class="why__l"><em>Vous travaillez sur votre entreprise.</em></span></h2>
         <p class="why__intro" data-anim="up"><span class="l">Pas de bibliothèque de vidéos à regarder seule, ni de méthode générique à essayer d'adapter ensuite.</span><span class="l">Chaque séance part de votre activité réelle : vos chiffres, vos tarifs, votre offre, vos clientes et vos outils.</span><span class="l">Nous analysons ce qui bloque, prenons les décisions ensemble et construisons les solutions directement applicables à votre entreprise.</span></p>
-      </div>
-
-      <div class="why__grid" data-anim="up">
-        <article class="why__card">
-          <span class="why__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></span>
-          <h3 class="why__name">100&nbsp;% individuel</h3>
-          <p class="why__text">Aucun groupe, aucune classe, aucun replay. Chaque séance est entièrement consacrée à votre activité.</p>
-        </article>
-
-        <article class="why__card">
-          <span class="why__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3v5h5"/><path d="M19 8v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7z"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg></span>
-          <h3 class="why__name">Votre entreprise comme cas pratique</h3>
-          <p class="why__text">Nous travaillons sur vos vrais chiffres, vos vrais supports et vos problématiques réelles.</p>
-        </article>
-
-        <article class="why__card">
-          <span class="why__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14.5 4.5a4.5 4.5 0 0 0 5.9 5.9L21 9.9 14.1 3z"/><path d="M13 8 4.5 16.5a2.1 2.1 0 0 0 3 3L16 11"/></svg></span>
-          <h3 class="why__name">Des outils concrets</h3>
-          <p class="why__text">Tableaux, tarifs, plan d'action, scripts, contenus, recommandations et outils IA selon vos besoins.</p>
-        </article>
-
-        <article class="why__card">
-          <span class="why__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="4" y1="12" x2="18" y2="12"/><polyline points="12 6 18 12 12 18"/></svg></span>
-          <h3 class="why__name">De l'analyse à l'action</h3>
-          <p class="why__text">Vous ne repartez pas seulement avec des informations : vous savez quoi modifier, quoi garder et par quoi commencer.</p>
-        </article>
       </div>
 
       <p class="why__closing" data-anim="up">Le but n'est pas de terminer la formation avec davantage de notes.<br /><em>Le but est que votre activité ait réellement avancé.</em></p>
