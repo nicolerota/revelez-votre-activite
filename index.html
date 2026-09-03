@@ -596,22 +596,6 @@
       overflow: hidden;
       margin-bottom: 72px;
     }
-    /* photo en filigrane derrière les chiffres */
-    .hero__stats-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      background: url("hero-band.jpg") center / cover no-repeat;
-      opacity: 0.34;
-      filter: saturate(0.8) contrast(0.92);
-    }
-    /* voile clair : garantit la lisibilité des chiffres par-dessus la photo */
-    .hero__stats-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.62));
-    }
     .stat { position: relative; z-index: 1; padding: 24px 20px; text-align: center; border-left: 1px solid var(--line-2); }
     .stat:first-child { border-left: none; }
     .stat__v {
@@ -1655,7 +1639,6 @@
       </div>
 
       <div class="hero__stats glass" data-anim="up">
-        <span class="hero__stats-bg" aria-hidden="true"></span>
         <div class="stat"><span class="stat__v"><span data-count="4">4</span></span><span class="stat__l">Piliers stratégiques</span></div>
         <div class="stat"><span class="stat__v">1:1</span><span class="stat__l">Accompagnement individuel</span></div>
         <div class="stat"><span class="stat__v"><span data-count="100">100</span>&#8239;%</span><span class="stat__l">Sur-mesure</span></div>
