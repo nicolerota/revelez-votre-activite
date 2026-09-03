@@ -761,24 +761,29 @@
     .cmp2 {
       margin-top: clamp(48px, 5.5vw, 78px);
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      border: 1px solid var(--line);
+      grid-template-columns: 1.12fr 0.88fr;   /* la colonne « nous » domine */
+      align-items: stretch;
       border-radius: var(--r-lg);
       overflow: hidden;
-      background: var(--bg);
-      box-shadow: var(--shadow-md);
+      box-shadow: var(--shadow-lg);
     }
     .cmp2__col {
       position: relative;
       padding: clamp(30px, 3.6vw, 58px) clamp(22px, 3vw, 50px) clamp(34px, 4vw, 62px);
     }
-    .cmp2__col + .cmp2__col { border-left: 1px solid var(--line); }
-    /* la colonne « Révélez votre activité » reprend le fond du premier bloc de la page */
+
+    /* ── colonne « Révélez votre activité » : le fond du premier bloc de la page ── */
+    .cmp2__col--own {
+      border: 1px solid var(--accent);
+      border-radius: var(--r-lg);
+      z-index: 2;
+    }
     .cmp2__col--own::before {
       content: '';
       position: absolute;
       inset: 0;
       z-index: 0;
+      border-radius: inherit;
       background-color: #F4EDE3;
       background-image:
         url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.28'/></svg>"),
@@ -790,6 +795,46 @@
       background-blend-mode: overlay, normal, normal, normal, normal;
     }
     .cmp2__col > * { position: relative; z-index: 1; }
+
+    /* ── colonne « formation classique » : en retrait, désaturée, un cran plus basse ── */
+    .cmp2__col--other {
+      margin: clamp(14px, 1.6vw, 26px) 0 clamp(14px, 1.6vw, 26px) calc(-1 * var(--r-lg));
+      padding-left: calc(clamp(22px, 3vw, 50px) + var(--r-lg));
+      border: 1px solid var(--line);
+      border-left: 0;
+      border-radius: 0 var(--r-lg) var(--r-lg) 0;
+      background: #EDEAE5;
+      color: var(--ink-3);
+      z-index: 1;
+    }
+    .cmp2__col--other::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      border-radius: inherit;
+      background: linear-gradient(to bottom, rgba(237, 234, 229, 0) 52%, rgba(237, 234, 229, 0.9) 100%);
+      pointer-events: none;
+    }
+
+    /* ── badge « recommandé » ── */
+    .cmp2__flag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: var(--dark);
+      color: var(--white);
+      font-size: var(--fs-label);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .cmp2__flag svg { width: 12px; height: 12px; fill: currentColor; }
+    .cmp2__head { text-align: center; }
+    .cmp2__flag-slot { min-height: 34px; margin-bottom: 16px; }
 
     .cmp2__eyebrow {
       display: block;
@@ -805,23 +850,29 @@
     .cmp2__title {
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: var(--fs-h3);
-      line-height: 1.16;
+      line-height: 1.14;
       letter-spacing: -0.02em;
       text-align: center;
+      font-size: var(--fs-h4);
       color: var(--ink-3);
+      opacity: 0.75;
     }
-    .cmp2__title--own { font-weight: 900; color: var(--dark); }
+    .cmp2__title--own {
+      font-weight: 900;
+      font-size: var(--fs-h3);
+      color: var(--dark);
+      opacity: 1;
+    }
     .cmp2__title--own em { font-style: normal; color: var(--accent); }
     .cmp2__sub {
       margin: 14px auto 0;
-      max-width: 34ch;
+      max-width: 36ch;
       text-align: center;
       font-size: var(--fs-sm);
       line-height: 1.65;
-      color: var(--ink-2);
     }
-    .cmp2__col--other .cmp2__sub { color: var(--ink-3); }
+    .cmp2__col--own .cmp2__sub { color: var(--ink-2); }
+    .cmp2__col--other .cmp2__sub { color: var(--ink-3); opacity: 0.8; }
 
     .cmp2__groups {
       margin-top: clamp(30px, 3.4vw, 46px);
@@ -837,6 +888,7 @@
       color: var(--ink-3);
     }
     .cmp2__col--own .cmp2__gname { color: var(--dark); }
+    .cmp2__col--other .cmp2__gname { opacity: 0.72; font-weight: 600; }
     .cmp2__list {
       margin-top: 14px;
       display: flex;
@@ -849,9 +901,9 @@
       gap: 13px;
       font-size: var(--fs-sm);
       line-height: 1.62;
-      color: var(--ink-3);
     }
-    .cmp2__col--own .cmp2__item { color: var(--ink); }
+    .cmp2__col--own .cmp2__item { color: var(--ink); font-weight: 500; }
+    .cmp2__col--other .cmp2__item { color: var(--ink-3); opacity: 0.82; }
     .cmp2__ic {
       flex: 0 0 auto;
       width: 19px; height: 19px;
@@ -859,21 +911,26 @@
       border-radius: 999px;
       display: grid;
       place-items: center;
-      border: 1px solid var(--line);
-      color: var(--ink-3);
     }
     .cmp2__ic svg {
       width: 11px; height: 11px;
       fill: none;
       stroke: currentColor;
-      stroke-width: 2.6;
+      stroke-width: 2.8;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
+    /* coche pleine, or */
     .cmp2__ic--own {
       background: var(--accent);
-      border-color: var(--accent);
       color: var(--white);
+      box-shadow: 0 2px 6px rgba(140, 95, 58, 0.32);
+    }
+    /* croix creuse, grisée */
+    .cmp2__ic--no {
+      background: transparent;
+      border: 1px solid rgba(107, 26, 24, 0.16);
+      color: #A79E96;
     }
     .cmp2__foot {
       margin-top: clamp(28px, 3vw, 40px);
@@ -881,10 +938,26 @@
       border-top: 1px solid var(--line-2);
       font-size: var(--fs-sm);
       line-height: 1.6;
-      color: var(--ink-3);
     }
     .cmp2__col--own .cmp2__foot { color: var(--ink-2); border-top-color: var(--line); }
     .cmp2__col--own .cmp2__foot strong { color: var(--accent-ink); font-weight: 700; }
+    .cmp2__col--other .cmp2__foot { color: var(--ink-3); opacity: 0.8; }
+    .cmp2__col--other .cmp2__foot strong { font-weight: 600; }
+
+    /* verdict d'une ligne, en bas de chaque colonne */
+    .cmp2__verdict {
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: var(--fs-sm);
+      letter-spacing: -0.005em;
+    }
+    .cmp2__verdict svg { width: 15px; height: 15px; flex: 0 0 auto; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+    .cmp2__col--own .cmp2__verdict { color: var(--dark); }
+    .cmp2__col--other .cmp2__verdict { color: var(--ink-3); opacity: 0.75; }
 
     .why__closing {
       margin-top: clamp(48px, 5vw, 72px);
@@ -901,13 +974,23 @@
 
     @media (max-width: 1000px) {
       .why__grid { grid-template-columns: repeat(2, 1fr); }
-      .cmp2 { grid-template-columns: 1fr; }
-      .cmp2__col + .cmp2__col { border-left: 0; border-top: 1px solid var(--line); }
+      .cmp2 { grid-template-columns: 1fr; box-shadow: var(--shadow-md); }
+      .cmp2__col--other {
+        margin: -1px 0 0;
+        padding-left: clamp(22px, 3vw, 50px);
+        border: 1px solid var(--line);
+        border-radius: 0 0 var(--r-lg) var(--r-lg);
+      }
     }
     @media (max-width: 640px) {
       .why__grid { grid-template-columns: 1fr; }
-      .cmp2 { grid-template-columns: 1fr; }
-      .cmp2__col + .cmp2__col { border-left: 0; border-top: 1px solid var(--line); }
+      .cmp2 { grid-template-columns: 1fr; box-shadow: var(--shadow-md); }
+      .cmp2__col--other {
+        margin: -1px 0 0;
+        padding-left: clamp(22px, 3vw, 50px);
+        border: 1px solid var(--line);
+        border-radius: 0 0 var(--r-lg) var(--r-lg);
+      }
     }
 
     /* ══════════════════════════════════════════════════════════════
@@ -1986,46 +2069,11 @@
 
       <div class="cmp2" data-anim="up">
 
-        <!-- colonne 1 — la formation en ligne classique -->
-        <div class="cmp2__col cmp2__col--other">
-          <span class="cmp2__eyebrow">Le format le plus répandu</span>
-          <h3 class="cmp2__title">Une formation en ligne classique</h3>
-          <p class="cmp2__sub">Un contenu enregistré une fois, vendu à toutes, que vous consommez seule quand vous trouvez le temps.</p>
-
-          <div class="cmp2__groups">
-            <div>
-              <h4 class="cmp2__gname">Un contenu déjà enregistré</h4>
-              <div class="cmp2__list">
-                <p class="cmp2__item"><span class="cmp2__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="12" x2="18" y2="12"/></svg></span>Des vidéos tournées avant de vous connaître</p>
-                <p class="cmp2__item"><span class="cmp2__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="12" x2="18" y2="12"/></svg></span>Le même programme pour toutes les participantes</p>
-                <p class="cmp2__item"><span class="cmp2__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="12" x2="18" y2="12"/></svg></span>Des exemples génériques, rarement ceux de votre activité</p>
-              </div>
-            </div>
-
-            <div>
-              <h4 class="cmp2__gname">Vous regardez, vous notez</h4>
-              <div class="cmp2__list">
-                <p class="cmp2__item"><span class="cmp2__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="12" x2="18" y2="12"/></svg></span>Beaucoup d'informations, peu de décisions prises</p>
-                <p class="cmp2__item"><span class="cmp2__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="12" x2="18" y2="12"/></svg></span>Des modèles à adapter ensuite, seule, devant votre écran</p>
-                <p class="cmp2__item"><span class="cmp2__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="12" x2="18" y2="12"/></svg></span>Aucun retour sur ce que vous produisez</p>
-              </div>
-            </div>
-
-            <div>
-              <h4 class="cmp2__gname">Et après ?</h4>
-              <div class="cmp2__list">
-                <p class="cmp2__item"><span class="cmp2__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="12" x2="18" y2="12"/></svg></span>Des modules laissés en pause au bout de quelques semaines</p>
-                <p class="cmp2__item"><span class="cmp2__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="12" x2="18" y2="12"/></svg></span>Personne pour vous dire par quoi commencer</p>
-                <p class="cmp2__item"><span class="cmp2__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="12" x2="18" y2="12"/></svg></span>Une activité qui, concrètement, n'a pas bougé</p>
-              </div>
-            </div>
-          </div>
-
-          <p class="cmp2__foot">Vous terminez avec plus de notes qu'au départ, mais avec les mêmes tarifs, la même offre et les mêmes journées.</p>
-        </div>
-
-        <!-- colonne 2 — Révélez votre activité -->
+        <!-- colonne 1 — Révélez votre activité (recommandé) -->
         <div class="cmp2__col cmp2__col--own">
+          <div class="cmp2__head">
+            <span class="cmp2__flag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg>Ce que je vous propose</span>
+          </div>
           <span class="cmp2__eyebrow cmp2__eyebrow--own">L'accompagnement individuel</span>
           <h3 class="cmp2__title cmp2__title--own">Révélez <em>votre activité</em></h3>
           <p class="cmp2__sub">Des séances en direct, construites à partir de vos chiffres, de vos tarifs et de vos clientes, jusqu'à ce que les décisions soient prises et appliquées.</p>
@@ -2073,6 +2121,49 @@
           </div>
 
           <p class="cmp2__foot">Vous terminez avec des tarifs justes, une offre lisible et un plan d'action déjà lancé : <strong>votre activité a réellement avancé.</strong></p>
+          <p class="cmp2__verdict"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 13 9 18 20 6"/></svg>Votre activité a changé</p>
+        </div>
+
+        <!-- colonne 2 — la formation en ligne classique -->
+        <div class="cmp2__col cmp2__col--other">
+          <div class="cmp2__head">
+            <div class="cmp2__flag-slot" aria-hidden="true"></div>
+          </div>
+          <span class="cmp2__eyebrow">Le format le plus répandu</span>
+          <h3 class="cmp2__title">Une formation en ligne classique</h3>
+          <p class="cmp2__sub">Un contenu enregistré une fois, vendu à toutes, que vous consommez seule quand vous trouvez le temps.</p>
+
+          <div class="cmp2__groups">
+            <div>
+              <h4 class="cmp2__gname">Un contenu figé, enregistré une fois</h4>
+              <div class="cmp2__list">
+                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--no" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span>Des vidéos tournées avant même de vous connaître</p>
+                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--no" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span>Le même programme pour toutes, quel que soit votre institut</p>
+                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--no" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span>Des exemples génériques : jamais vos chiffres, jamais vos tarifs</p>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="cmp2__gname">Vous restez spectatrice</h4>
+              <div class="cmp2__list">
+                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--no" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span>Vous regardez, vous notez, et l'agenda reste le même</p>
+                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--no" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span>Des modèles à adapter seule, sans savoir si c'est juste</p>
+                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--no" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span>Aucun retour sur ce que vous produisez</p>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="cmp2__gname">Ce qui arrive le plus souvent</h4>
+              <div class="cmp2__list">
+                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--no" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span>Des modules laissés en pause au bout de trois semaines</p>
+                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--no" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span>Personne pour trancher quand vous hésitez</p>
+                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--no" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span>Les mêmes tarifs, la même offre, les mêmes journées</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="cmp2__foot">Vous avez payé une formation, et vous terminez avec plus de notes qu'au départ. <strong>Votre activité, elle, n'a pas bougé.</strong></p>
+          <p class="cmp2__verdict"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>Rien n'a changé</p>
         </div>
 
       </div>
