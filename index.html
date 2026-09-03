@@ -229,7 +229,6 @@
     /* Paragraphes de corps justifiés (texte structuré) */
     .about__body p,
     .modules__head p,
-    .module__obj,
     .cal__intro p,
     .audit__lead,
     .faq-a__inner {
@@ -904,12 +903,14 @@
 
     @media (max-width: 1000px) {
       .why__grid { grid-template-columns: repeat(2, 1fr); }
+      .modules__grid { grid-template-columns: repeat(2, 1fr); }
       .cmp2 { grid-template-columns: 1fr; }
       .cmp2__col--own { box-shadow: var(--shadow-md); }
       .cmp2__col--other { margin-top: 0; }
     }
     @media (max-width: 640px) {
       .why__grid { grid-template-columns: 1fr; }
+      .modules__grid { grid-template-columns: 1fr; }
       .cmp2 { grid-template-columns: 1fr; }
       .cmp2__col--own { box-shadow: var(--shadow-md); }
       .cmp2__col--other { margin-top: 0; }
@@ -918,41 +919,41 @@
     /* ══════════════════════════════════════════════════════════════
        MODULES — scroll horizontal épinglé
     ══════════════════════════════════════════════════════════════ */
-    .modules__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 48px; }
+    .modules__head { margin-bottom: 8px; }
     .modules__head p { max-width: none; margin-top: 14px; }
     /* Sur écran large, la phrase tient sur une seule ligne */
     @media (min-width: 1080px) { .modules__head p { white-space: nowrap; } }
-    .modules__progress { display: flex; gap: 8px; }
-    .modules__progress i { width: 26px; height: 2px; background: var(--line); transition: background 0.4s; }
-    .modules__progress i.on { background: var(--accent-2); }
 
-    .modules__track {
+    /* Quatre cartes compactes, mêmes proportions que les cartes de l'approche */
+    .modules__grid {
       display: grid;
-      gap: 18px;
-    }
-    .modules__track.is-horizontal {
-      display: flex;
-      flex-wrap: nowrap;
-      gap: clamp(18px, 2.5vw, 32px);
-      width: max-content;
-      will-change: transform;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: clamp(40px, 4.5vw, 60px);
     }
     .module {
-      border-radius: var(--r-lg);
-      padding: clamp(28px, 3.4vw, 52px);
       position: relative;
-      overflow: hidden;
+      border-radius: var(--r-lg);
+      padding: clamp(26px, 2.4vw, 34px);
+      background: rgba(255, 255, 255, 0.62);
+      border: 1px solid var(--glass-brd);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
     }
-    .is-horizontal .module { width: min(78vw, 620px); flex-shrink: 0; }
+    .module:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
     .module__idx {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: var(--accent-tint);
+      margin-bottom: 20px;
       font-family: var(--font-display);
       font-weight: 900;
-      font-size: clamp(3.5rem, 7vw, 6rem);
-      line-height: 0.8;
-      color: var(--accent);
-      -webkit-text-stroke: 0;
-      opacity: 1;
-      margin-bottom: 22px;
+      font-size: 0.98rem;
+      letter-spacing: -0.02em;
+      color: var(--accent-ink);
     }
     .module__pilier {
       font-size: var(--fs-label-sm);
@@ -964,28 +965,36 @@
     .module__name {
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: var(--fs-h3);
+      font-size: var(--fs-h5);
       color: var(--dark);
-      letter-spacing: -0.02em;
-      margin: 8px 0 16px;
+      letter-spacing: -0.015em;
+      margin: 8px 0 12px;
     }
-    .module__obj { font-size: var(--fs-body); line-height: 1.7; color: var(--ink-2); margin-bottom: 22px; }
-    .module__list { list-style: none; display: flex; flex-direction: column; }
+    .module__obj { font-size: var(--fs-sm); line-height: 1.6; color: var(--ink-2); }
+    .module__list {
+      list-style: none;
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line-2);
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
     .module__list li {
       display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 0;
-      border-top: 1px solid var(--line-2);
-      font-size: var(--fs-sm);
+      align-items: flex-start;
+      gap: 10px;
+      font-size: var(--fs-xs);
+      line-height: 1.5;
       color: var(--ink);
     }
     .module__list li::before {
       content: '';
-      width: 5px; height: 5px;
+      flex: 0 0 auto;
+      width: 14px; height: 14px;
+      margin-top: 2px;
       border-radius: 50%;
-      background: var(--accent-2);
-      flex-shrink: 0;
+      background: var(--accent) url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") center / 9px 9px no-repeat;
     }
 
     .ia-band {
@@ -2180,20 +2189,13 @@
   <section class="modules sec-line sec-alt" id="programme">
     <div class="wrap">
       <div class="modules__head">
-        <div>
-          <span class="eyebrow" data-anim="up">La méthode · 4 modules</span>
-          <h2 class="display" data-anim="up">Quatre piliers, <em>une activité entière.</em></h2>
-          <p class="lead" data-anim="up">Un accompagnement complet sur les 4 modules ou à la carte selon ce qui compte le plus pour vous.</p>
-        </div>
-        <div class="modules__progress" id="modProgress" aria-hidden="true">
-          <i class="on"></i><i></i><i></i><i></i>
-        </div>
+        <span class="eyebrow" data-anim="up">La méthode · 4 modules</span>
+        <h2 class="display" data-anim="up">Quatre piliers, <em>une activité entière.</em></h2>
+        <p class="lead" data-anim="up">Un accompagnement complet sur les 4 modules ou à la carte selon ce qui compte le plus pour vous.</p>
       </div>
-    </div>
 
-    <div class="wrap" id="modWrap">
-      <div class="modules__track" id="modTrack">
-        <article class="module glass" id="module-1">
+      <div class="modules__grid" data-anim="up">
+        <article class="module" id="module-1">
           <div class="module__idx">01</div>
           <p class="module__pilier">Rentabilité</p>
           <h3 class="module__name">Fondations rentables</h3>
@@ -2207,7 +2209,7 @@
           </ul>
         </article>
 
-        <article class="module glass" id="module-2">
+        <article class="module" id="module-2">
           <div class="module__idx">02</div>
           <p class="module__pilier">Offre &amp; positionnement</p>
           <h3 class="module__name">Offre signature</h3>
@@ -2221,7 +2223,7 @@
           </ul>
         </article>
 
-        <article class="module glass" id="module-3">
+        <article class="module" id="module-3">
           <div class="module__idx">03</div>
           <p class="module__pilier">Visibilité digitale</p>
           <h3 class="module__name">Visibilité qui attire</h3>
@@ -2235,7 +2237,7 @@
           </ul>
         </article>
 
-        <article class="module glass" id="module-4">
+        <article class="module" id="module-4">
           <div class="module__idx">04</div>
           <p class="module__pilier">Vente &amp; relation client</p>
           <h3 class="module__name">Fidélisation sereine</h3>
@@ -2249,9 +2251,7 @@
           </ul>
         </article>
       </div>
-    </div>
 
-    <div class="wrap">
       <div class="ia-band glass" data-anim="up">
         <div class="ia-band__icon">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
@@ -2817,32 +2817,6 @@
         y: 90, opacity: 0, ease: 'none',
         scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
       });
-
-      /* Modules — horizontal pin (desktop only) */
-      const track = document.getElementById('modTrack');
-      const modWrap = document.getElementById('modWrap');
-      const dots = document.querySelectorAll('#modProgress i');
-      if (track && modWrap && window.matchMedia('(min-width: 901px)').matches) {
-        track.classList.add('is-horizontal');
-        const getDist = () => Math.max(0, track.scrollWidth - modWrap.offsetWidth);
-        gsap.to(track, {
-          x: () => -getDist(),
-          ease: 'none',
-          scrollTrigger: {
-            trigger: modWrap,
-            start: 'top 14%',
-            end: () => '+=' + (getDist() + window.innerHeight * 0.4),
-            pin: modWrap,
-            scrub: 1,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
-            onUpdate: self => {
-              const idx = Math.min(3, Math.round(self.progress * 3));
-              dots.forEach((d, i) => d.classList.toggle('on', i <= idx));
-            }
-          }
-        });
-      }
 
       /* Timeline draw */
       const rail = document.querySelector('.process__rail');
