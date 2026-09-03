@@ -230,7 +230,6 @@
     .about__body p,
     .modules__head p,
     .module__obj,
-    .offer__desc,
     .cal__intro p,
     .audit__lead,
     .faq-a__inner {
@@ -1456,33 +1455,127 @@
     /* ══════════════════════════════════════════════════════════════
        TARIFS
     ══════════════════════════════════════════════════════════════ */
+    /* Mêmes cartes que le comparatif : l'accompagnement complet reprend le fond
+       du hero, le module seul reste une carte claire pleinement lisible. */
     .offers {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-top: 56px;
+      grid-template-columns: 1.12fr 0.88fr;
+      align-items: start;
+      gap: clamp(16px, 2vw, 30px);
+      margin-top: clamp(40px, 4.5vw, 60px);
     }
-    .offer { border-radius: var(--r-lg); padding: clamp(30px, 4vw, 48px); position: relative; }
-    .offer--feat { box-shadow: var(--shadow-lg), var(--shadow-glow); border-color: rgba(201, 169, 140, 0.5); }
+    .offer {
+      position: relative;
+      border-radius: var(--r-lg);
+      padding: clamp(30px, 3.6vw, 54px) clamp(22px, 3vw, 46px) clamp(30px, 3.4vw, 48px);
+    }
+    .offer > * { position: relative; z-index: 1; }
+
+    .offer--feat {
+      border: 1px solid var(--accent);
+      box-shadow: var(--shadow-lg);
+    }
+    .offer--feat::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      border-radius: inherit;
+      background-color: #F4EDE3;
+      background-image:
+        url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.28'/></svg>"),
+        radial-gradient(circle at 66.94% 46.43%, rgba(251, 247, 241, 1) 0%, rgba(251, 247, 241, 0.844) 19.02%, rgba(251, 247, 241, 0.5) 38.05%, rgba(251, 247, 241, 0.156) 57.07%, rgba(251, 247, 241, 0) 76.1%),
+        radial-gradient(circle at 34.69% 66.31%, rgba(212, 173, 130, 0.85) 0%, rgba(212, 173, 130, 0.72) 12.73%, rgba(212, 173, 130, 0.42) 25.45%, rgba(212, 173, 130, 0.13) 38.18%, rgba(212, 173, 130, 0) 50.9%),
+        radial-gradient(circle at 48.93% 19.32%, rgba(151, 104, 64, 0.52) 0%, rgba(151, 104, 64, 0.44) 16.75%, rgba(151, 104, 64, 0.26) 33.5%, rgba(151, 104, 64, 0.08) 50.25%, rgba(151, 104, 64, 0) 67%),
+        radial-gradient(circle at 80.23% 87.54%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.844) 10.28%, rgba(255, 255, 255, 0.5) 20.55%, rgba(255, 255, 255, 0.156) 30.83%, rgba(255, 255, 255, 0) 41.1%);
+      background-size: 120px 120px, auto, auto, auto, auto;
+      background-blend-mode: overlay, normal, normal, normal, normal;
+    }
+
+    .offer--solo {
+      margin-top: clamp(16px, 1.8vw, 30px);
+      border: 1px solid var(--line);
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .offer__head { text-align: center; }
+    /* pastille pleine pour l'offre mise en avant, contour pour l'autre */
     .offer__badge {
-      display: inline-block;
-      font-size: var(--fs-label-sm);
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent-ink);
-      padding: 6px 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      padding: 7px 14px;
+      border-radius: 999px;
       border: 1px solid var(--accent-2);
-      border-radius: 100px;
-      margin-bottom: 22px;
+      color: var(--accent-ink);
+      font-size: var(--fs-label);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
     }
-    .offer__price { font-family: var(--font-display); font-weight: 900; font-size: clamp(2.4rem, 5vw, 3.2rem); color: var(--dark); line-height: 1; letter-spacing: -0.03em; }
-    .offer__price-sub { font-size: var(--fs-sm); color: var(--ink-3); margin: 8px 0 20px; }
-    .offer__desc { font-size: var(--fs-body); line-height: 1.65; color: var(--ink-2); margin-bottom: 20px; }
-    .offer__list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px; }
-    .offer__list li { display: flex; gap: 10px; align-items: flex-start; font-size: var(--fs-sm); color: var(--ink); line-height: 1.45; }
-    .offer__list li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--accent-2); margin-top: 8px; flex-shrink: 0; }
-    .offer__fine { font-size: var(--fs-xs); color: var(--ink-3); margin-top: 16px; line-height: 1.5; }
+    .offer__badge svg { width: 12px; height: 12px; fill: currentColor; }
+    .offer--feat .offer__badge { background: var(--dark); border-color: var(--dark); color: var(--white); }
+
+    .offer__price {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(2.4rem, 5vw, 3.2rem);
+      color: var(--dark);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+    .offer__price-sub { font-size: var(--fs-sm); color: var(--ink-3); margin-top: 10px; }
+    .offer__desc {
+      margin: 16px auto 0;
+      max-width: 38ch;
+      text-align: center;
+      font-size: var(--fs-sm);
+      line-height: 1.65;
+      color: var(--ink-2);
+    }
+
+    .offer__list {
+      list-style: none;
+      margin: clamp(26px, 3vw, 38px) 0 clamp(26px, 3vw, 36px);
+      display: flex;
+      flex-direction: column;
+      gap: clamp(12px, 1.4vw, 18px);
+    }
+    .offer__list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: var(--fs-body);
+      line-height: 1.5;
+      color: var(--ink);
+      font-weight: 600;
+    }
+    .offer--solo .offer__list li { font-weight: 500; }
+    .offer__ic {
+      flex: 0 0 auto;
+      width: 21px; height: 21px;
+      margin-top: 1px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: var(--accent);
+      color: var(--white);
+      box-shadow: 0 2px 6px rgba(140, 95, 58, 0.32);
+    }
+    .offer--solo .offer__ic { background: transparent; border: 1px solid var(--accent-2); color: var(--accent-ink); box-shadow: none; }
+    .offer__ic svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2.8; stroke-linecap: round; stroke-linejoin: round; }
+
+    .offer__fine {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line-2);
+      font-size: var(--fs-xs);
+      color: var(--ink-3);
+      line-height: 1.5;
+    }
+    .offer--feat .offer__fine { border-top-color: var(--line); }
     .offers__note { margin-top: 22px; font-style: italic; font-size: var(--fs-sm); color: var(--ink-2); }
 
     /* ══════════════════════════════════════════════════════════════
@@ -1747,6 +1840,7 @@
       .insta__grid { grid-template-columns: repeat(3, 1fr); }
       
       .offers { grid-template-columns: 1fr; }
+      .offer--solo { margin-top: 0; }
       .hero__stats { grid-template-columns: 1fr 1fr; }
       .stat:nth-child(3) { border-left: none; }
       .stat:nth-child(n+3) { border-top: 1px solid var(--line-2); }
@@ -2327,35 +2421,41 @@
       <h2 class="display" data-anim="up">Deux façons <em>de travailler.</em></h2>
 
       <div class="offers">
-        <article class="offer offer--feat glass" id="sur-mesure">
-          <span class="offer__badge">Accompagnement complet</span>
-          <p class="offer__price"><span data-count="1500">1 500</span> €</p>
-          <p class="offer__price-sub">Les 4 modules · Refonte à 360°</p>
-          <p class="offer__desc">Vous souhaitez revoir votre activité dans son ensemble ? Nous reconstruisons chaque pilier : rentabilité, positionnement, visibilité et vente.</p>
+        <article class="offer offer--feat" id="sur-mesure">
+          <div class="offer__head">
+            <span class="offer__badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg>Accompagnement complet</span>
+            <p class="offer__price"><span data-count="1500">1 500</span> €</p>
+            <p class="offer__price-sub">Les 4 modules · Refonte à 360°</p>
+            <p class="offer__desc">Vous souhaitez revoir votre activité dans son ensemble ? Nous reconstruisons chaque pilier : rentabilité, positionnement, visibilité et vente.</p>
+          </div>
+
           <ul class="offer__list">
-            <li>Les 4 modules, travaillés en profondeur et de façon cohérente</li>
-            <li>Audit personnalisé de votre activité</li>
-            <li>Tous vos livrables : tableaux, grille tarifaire, offre, scripts, outils IA et plan d'action</li>
+            <li><span class="offer__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Les 4 modules, travaillés en profondeur et de façon cohérente</li>
+            <li><span class="offer__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Audit personnalisé de votre activité</li>
+            <li><span class="offer__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Tous vos livrables : tableaux, grille tarifaire, offre, scripts, outils IA et plan d'action</li>
           </ul>
-          <button class="btn btn--accent btn--block"
-            onclick="Calendly.initPopupWidget({url:'https://calendly.com/nicole-rota/appel-decouverte-revelez-votre-activite'});return false;">
+
+          <button class="btn btn--accent btn--block" onclick="Calendly.initPopupWidget({url:'https://calendly.com/nicole-rota/appel-decouverte-revelez-votre-activite'});return false;">
             <span>Je choisis l'accompagnement 360°</span>
           </button>
           <p class="offer__fine">Parcours pédagogique estimé : jusqu'à 40 heures, séances individuelles et mises en application comprises.</p>
         </article>
 
-        <article class="offer glass">
-          <span class="offer__badge">Un module au choix</span>
-          <p class="offer__price"><span data-count="400">400</span> €</p>
-          <p class="offer__price-sub">Le module qui compte le plus, maintenant</p>
-          <p class="offer__desc">Vous avez un problème très ciblé ? Vous identifiez votre priorité, nous la traitons à fond, ensemble.</p>
+        <article class="offer offer--solo">
+          <div class="offer__head">
+            <span class="offer__badge">Un module au choix</span>
+            <p class="offer__price"><span data-count="400">400</span> €</p>
+            <p class="offer__price-sub">Le module qui compte le plus, maintenant</p>
+            <p class="offer__desc">Vous avez un problème très ciblé ? Vous identifiez votre priorité, nous la traitons à fond, ensemble.</p>
+          </div>
+
           <ul class="offer__list">
-            <li>1 module, au choix</li>
-            <li>Audit personnalisé de votre activité</li>
-            <li>Les livrables du module travaillé</li>
+            <li><span class="offer__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>1 module, au choix</li>
+            <li><span class="offer__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Audit personnalisé de votre activité</li>
+            <li><span class="offer__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Les livrables du module travaillé</li>
           </ul>
-          <button class="btn btn--ghost btn--block"
-            onclick="Calendly.initPopupWidget({url:'https://calendly.com/nicole-rota/appel-decouverte-revelez-votre-activite'});return false;">
+
+          <button class="btn btn--ghost btn--block" onclick="Calendly.initPopupWidget({url:'https://calendly.com/nicole-rota/appel-decouverte-revelez-votre-activite'});return false;">
             <span>Choisir mon module</span>
           </button>
           <p class="offer__fine">Durée pédagogique indicative : jusqu'à 10 heures.</p>
