@@ -834,19 +834,9 @@
     }
     .cmp2__flag svg { width: 12px; height: 12px; fill: currentColor; }
     .cmp2__head { text-align: center; }
-    .cmp2__flag-slot { min-height: 34px; margin-bottom: 16px; }
+    /* fantôme de même hauteur, pour aligner les deux titres */
+    .cmp2__flag--ghost { visibility: hidden; }
 
-    .cmp2__eyebrow {
-      display: block;
-      text-align: center;
-      font-size: var(--fs-label);
-      font-weight: 600;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--ink-3);
-      margin-bottom: 12px;
-    }
-    .cmp2__eyebrow--own { color: var(--accent-ink); }
     .cmp2__title {
       font-family: var(--font-display);
       font-weight: 700;
@@ -864,15 +854,6 @@
       opacity: 1;
     }
     .cmp2__title--own em { font-style: normal; color: var(--accent); }
-    .cmp2__sub {
-      margin: 14px auto 0;
-      max-width: 36ch;
-      text-align: center;
-      font-size: var(--fs-sm);
-      line-height: 1.65;
-    }
-    .cmp2__col--own .cmp2__sub { color: var(--ink-2); }
-    .cmp2__col--other .cmp2__sub { color: var(--ink-3); opacity: 0.8; }
 
     .cmp2__groups {
       margin-top: clamp(30px, 3.4vw, 46px);
@@ -2074,9 +2055,7 @@
           <div class="cmp2__head">
             <span class="cmp2__flag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.44 6.19 20.5 7.3 14.03 2.6 9.45l6.5-.95z"/></svg>Ce que je vous propose</span>
           </div>
-          <span class="cmp2__eyebrow cmp2__eyebrow--own">L'accompagnement individuel</span>
           <h3 class="cmp2__title cmp2__title--own">Révélez <em>votre activité</em></h3>
-          <p class="cmp2__sub">Des séances en direct, construites à partir de vos chiffres, de vos tarifs et de vos clientes, jusqu'à ce que les décisions soient prises et appliquées.</p>
 
           <div class="cmp2__groups">
             <div>
@@ -2127,11 +2106,9 @@
         <!-- colonne 2 — la formation en ligne classique -->
         <div class="cmp2__col cmp2__col--other">
           <div class="cmp2__head">
-            <div class="cmp2__flag-slot" aria-hidden="true"></div>
+            <span class="cmp2__flag cmp2__flag--ghost" aria-hidden="true">Ce que je vous propose</span>
           </div>
-          <span class="cmp2__eyebrow">Le format le plus répandu</span>
           <h3 class="cmp2__title">Une formation en ligne classique</h3>
-          <p class="cmp2__sub">Un contenu enregistré une fois, vendu à toutes, que vous consommez seule quand vous trouvez le temps.</p>
 
           <div class="cmp2__groups">
             <div>
