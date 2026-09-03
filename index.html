@@ -328,19 +328,8 @@
     }
 
     /* ══════════════════════════════════════════════════════════════
-       PROGRESSION + CURSEUR
+       CURSEUR
     ══════════════════════════════════════════════════════════════ */
-    #progress {
-      position: fixed;
-      top: 0; left: 0;
-      height: 2px;
-      width: 100%;
-      transform: scaleX(0);
-      transform-origin: 0 50%;
-      background: linear-gradient(90deg, var(--accent-2), var(--accent));
-      z-index: 9999;
-    }
-
     /* ══════════════════════════════════════════════════════════════
        NAV
     ══════════════════════════════════════════════════════════════ */
@@ -1785,7 +1774,6 @@
         transition-duration: 0.01ms !important;
       }
       .aurora__blob, .seal svg { animation: none !important; }
-      #progress { display: none; }
       html.anim [data-anim] { opacity: 1 !important; transform: none !important; }
       html.anim .hero__title .word__i { transform: none !important; }
       .process__rail::after { transform: scaleY(1); }
@@ -1800,7 +1788,6 @@
     <span class="aurora__blob aurora__blob--3"></span>
   </div>
   <div class="grain" aria-hidden="true"></div>
-  <div id="progress" aria-hidden="true"></div>
 
   <!-- ═══ NAV ═══ -->
   <header class="nav" id="nav">
@@ -2707,9 +2694,6 @@
       }
       gsap.registerPlugin(ScrollTrigger);
       const EASE = 'expo.out';
-
-      /* Progress bar */
-      gsap.to('#progress', { scaleX: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: 0.3 } });
 
       /* Hero intro */
       const tl = gsap.timeline({ defaults: { ease: EASE } });
