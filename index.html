@@ -855,46 +855,31 @@
     }
     .cmp2__title--own em { font-style: normal; color: var(--accent); }
 
-    .cmp2__groups {
-      margin-top: clamp(30px, 3.4vw, 46px);
-      display: flex;
-      flex-direction: column;
-      gap: clamp(24px, 2.8vw, 38px);
-    }
-    .cmp2__gname {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: var(--fs-h5);
-      letter-spacing: -0.01em;
-      color: var(--ink-3);
-    }
-    .cmp2__col--own .cmp2__gname { color: var(--dark); }
-    .cmp2__col--other .cmp2__gname { opacity: 0.72; font-weight: 600; }
     .cmp2__list {
-      margin-top: 14px;
+      margin-top: clamp(26px, 3vw, 40px);
       display: flex;
       flex-direction: column;
-      gap: 11px;
+      gap: clamp(14px, 1.5vw, 20px);
     }
     .cmp2__item {
       display: flex;
       align-items: flex-start;
-      gap: 13px;
-      font-size: var(--fs-sm);
-      line-height: 1.62;
+      gap: 14px;
+      font-size: var(--fs-body);
+      line-height: 1.5;
     }
-    .cmp2__col--own .cmp2__item { color: var(--ink); font-weight: 500; }
-    .cmp2__col--other .cmp2__item { color: var(--ink-3); opacity: 0.82; }
+    .cmp2__col--own .cmp2__item { color: var(--ink); font-weight: 600; }
+    .cmp2__col--other .cmp2__item { color: var(--ink-3); font-weight: 400; opacity: 0.8; }
     .cmp2__ic {
       flex: 0 0 auto;
-      width: 19px; height: 19px;
+      width: 21px; height: 21px;
       margin-top: 1px;
       border-radius: 999px;
       display: grid;
       place-items: center;
     }
     .cmp2__ic svg {
-      width: 11px; height: 11px;
+      width: 12px; height: 12px;
       fill: none;
       stroke: currentColor;
       stroke-width: 2.8;
@@ -913,31 +898,21 @@
       border: 1px solid rgba(107, 26, 24, 0.16);
       color: #A79E96;
     }
-    .cmp2__foot {
+    /* verdict d'une ligne, en bas de chaque colonne */
+    .cmp2__verdict {
       margin-top: clamp(28px, 3vw, 40px);
       padding-top: 20px;
       border-top: 1px solid var(--line-2);
-      font-size: var(--fs-sm);
-      line-height: 1.6;
-    }
-    .cmp2__col--own .cmp2__foot { color: var(--ink-2); border-top-color: var(--line); }
-    .cmp2__col--own .cmp2__foot strong { color: var(--accent-ink); font-weight: 700; }
-    .cmp2__col--other .cmp2__foot { color: var(--ink-3); opacity: 0.8; }
-    .cmp2__col--other .cmp2__foot strong { font-weight: 600; }
-
-    /* verdict d'une ligne, en bas de chaque colonne */
-    .cmp2__verdict {
-      margin-top: 18px;
       display: flex;
       align-items: center;
       gap: 10px;
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: var(--fs-sm);
-      letter-spacing: -0.005em;
+      font-size: var(--fs-h5);
+      letter-spacing: -0.01em;
     }
-    .cmp2__verdict svg { width: 15px; height: 15px; flex: 0 0 auto; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
-    .cmp2__col--own .cmp2__verdict { color: var(--dark); }
+    .cmp2__verdict svg { width: 17px; height: 17px; flex: 0 0 auto; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+    .cmp2__col--own .cmp2__verdict { color: var(--dark); border-top-color: var(--line); }
     .cmp2__col--other .cmp2__verdict { color: var(--ink-3); opacity: 0.75; }
 
     .why__closing {
@@ -2057,49 +2032,15 @@
           </div>
           <h3 class="cmp2__title cmp2__title--own">Révélez <em>votre activité</em></h3>
 
-          <div class="cmp2__groups">
-            <div>
-              <h4 class="cmp2__gname">Un accompagnement 100 % individuel</h4>
-              <div class="cmp2__list">
-                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--own" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Des séances en direct, en tête-à-tête, jamais en groupe</p>
-                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--own" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Un rythme calé sur le vôtre, pas sur un calendrier de promo</p>
-                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--own" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Vous posez vos questions au moment où elles se posent</p>
-                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--own" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Une interlocutrice qui connaît le secteur depuis 10 ans</p>
-              </div>
-            </div>
-
-            <div>
-              <h4 class="cmp2__gname">Votre entreprise comme cas pratique</h4>
-              <div class="cmp2__list">
-                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--own" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Vos chiffres réels : chiffre d'affaires, marges, temps passé</p>
-                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--own" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Votre carte de soins et vos tarifs, revus ligne par ligne</p>
-                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--own" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Vos clientes actuelles et celles que vous voulez attirer</p>
-                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--own" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Vos outils : agenda, Instagram, fichier client, devis</p>
-              </div>
-            </div>
-
-            <div>
-              <h4 class="cmp2__gname">Des livrables, pas des notes</h4>
-              <div class="cmp2__list">
-                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--own" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Une grille tarifaire calculée sur votre rentabilité</p>
-                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--own" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Une offre reformulée, prête à être présentée</p>
-                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--own" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Un plan de visibilité tenable, adapté à votre temps disponible</p>
-                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--own" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Des scripts de vente et de relance écrits avec vos mots</p>
-              </div>
-            </div>
-
-            <div>
-              <h4 class="cmp2__gname">Un suivi jusqu'à la mise en œuvre</h4>
-              <div class="cmp2__list">
-                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--own" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Une priorité claire à la sortie de chaque séance</p>
-                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--own" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>On ajuste ensemble ce qui a été appliqué entre deux séances</p>
-                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--own" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Les quatre modules ensemble, ou un seul selon vos besoins</p>
-                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--own" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Un audit de votre activité offert dès l'appel découverte</p>
-              </div>
-            </div>
+          <div class="cmp2__list">
+            <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--own" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Des séances en direct, rien qu'à vous</p>
+            <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--own" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>On travaille sur vos chiffres, pas sur un exemple</p>
+            <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--own" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Vos tarifs recalculés, votre offre réécrite</p>
+            <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--own" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Un plan d'action, pas des notes</p>
+            <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--own" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>On avance jusqu'à ce que ce soit appliqué</p>
+            <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--own" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Votre audit offert dès l'appel découverte</p>
           </div>
 
-          <p class="cmp2__foot">Vous terminez avec des tarifs justes, une offre lisible et un plan d'action déjà lancé : <strong>votre activité a réellement avancé.</strong></p>
           <p class="cmp2__verdict"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 13 9 18 20 6"/></svg>Votre activité a changé</p>
         </div>
 
@@ -2110,36 +2051,14 @@
           </div>
           <h3 class="cmp2__title">Une formation en ligne classique</h3>
 
-          <div class="cmp2__groups">
-            <div>
-              <h4 class="cmp2__gname">Un contenu figé, enregistré une fois</h4>
-              <div class="cmp2__list">
-                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--no" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span>Des vidéos tournées avant même de vous connaître</p>
-                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--no" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span>Le même programme pour toutes, quel que soit votre institut</p>
-                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--no" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span>Des exemples génériques : jamais vos chiffres, jamais vos tarifs</p>
-              </div>
-            </div>
-
-            <div>
-              <h4 class="cmp2__gname">Vous restez spectatrice</h4>
-              <div class="cmp2__list">
-                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--no" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span>Vous regardez, vous notez, et l'agenda reste le même</p>
-                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--no" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span>Des modèles à adapter seule, sans savoir si c'est juste</p>
-                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--no" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span>Aucun retour sur ce que vous produisez</p>
-              </div>
-            </div>
-
-            <div>
-              <h4 class="cmp2__gname">Ce qui arrive le plus souvent</h4>
-              <div class="cmp2__list">
-                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--no" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span>Des modules laissés en pause au bout de trois semaines</p>
-                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--no" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span>Personne pour trancher quand vous hésitez</p>
-                <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--no" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span>Les mêmes tarifs, la même offre, les mêmes journées</p>
-              </div>
-            </div>
+          <div class="cmp2__list">
+            <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--no" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span>Des vidéos tournées avant de vous connaître</p>
+            <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--no" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span>Le même contenu pour toutes</p>
+            <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--no" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span>À vous d'adapter, seule</p>
+            <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--no" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span>Personne pour trancher quand vous hésitez</p>
+            <p class="cmp2__item"><span class="cmp2__ic cmp2__ic--no" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span>Trois semaines plus tard, tout est en pause</p>
           </div>
 
-          <p class="cmp2__foot">Vous avez payé une formation, et vous terminez avec plus de notes qu'au départ. <strong>Votre activité, elle, n'a pas bougé.</strong></p>
           <p class="cmp2__verdict"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>Rien n'a changé</p>
         </div>
 
