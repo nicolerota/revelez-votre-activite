@@ -867,6 +867,7 @@
       .cmp2__col--other { margin-top: 0; }
     }
     @media (max-width: 640px) {
+      .modules__head { position: static; }
       .module { position: static; grid-template-columns: 1fr; gap: 22px; }
       .module__head { flex-direction: column; gap: 12px; }
       .cmp2 { grid-template-columns: 1fr; }
@@ -877,7 +878,16 @@
     /* ══════════════════════════════════════════════════════════════
        MODULES — scroll horizontal épinglé
     ══════════════════════════════════════════════════════════════ */
-    .modules__head { margin-bottom: 8px; }
+    /* Le titre reste collé en haut pendant que les cartes s'empilent dessous.
+       `--stack-top` (hauteur du titre + marges) est mesuré en JS ; sans JS,
+       la valeur de repli suffit. */
+    .modules__pin { position: relative; --stack-top: 250px; }
+    .modules__head {
+      position: sticky;
+      top: 88px;
+      z-index: 1;          /* passe DERRIÈRE les cartes quand il se décolle */
+      margin-bottom: 8px;
+    }
     .modules__head p { max-width: none; margin-top: 14px; }
     /* Sur écran large, la phrase tient sur une seule ligne */
     @media (min-width: 1080px) { .modules__head p { white-space: nowrap; } }
@@ -893,7 +903,8 @@
     }
     .module {
       position: sticky;
-      top: var(--stick, 104px);
+      top: var(--stick);
+      z-index: 2;
       border-radius: var(--r-lg);
       padding: clamp(28px, 3.2vw, 48px) clamp(26px, 3vw, 52px);
       background: var(--white);
@@ -904,10 +915,10 @@
       gap: clamp(24px, 3vw, 56px);
       align-items: start;
     }
-    .module:nth-child(1) { --stick: 104px; }
-    .module:nth-child(2) { --stick: 122px; }
-    .module:nth-child(3) { --stick: 140px; }
-    .module:nth-child(4) { --stick: 158px; }
+    .module:nth-child(1) { --stick: var(--stack-top); }
+    .module:nth-child(2) { --stick: calc(var(--stack-top) + 18px); }
+    .module:nth-child(3) { --stick: calc(var(--stack-top) + 36px); }
+    .module:nth-child(4) { --stick: calc(var(--stack-top) + 54px); }
 
     .module__head { display: flex; align-items: flex-start; gap: clamp(18px, 2vw, 28px); }
     .module__idx {
@@ -2105,13 +2116,14 @@
   <!-- ═══ MODULES (scroll horizontal) ═══ -->
   <section class="modules sec-line sec-alt" id="programme">
     <div class="wrap">
-      <div class="modules__head">
-        <span class="eyebrow" data-anim="up">La méthode · 4 modules</span>
-        <h2 class="display" data-anim="up">Quatre piliers, <em>une activité entière.</em></h2>
-        <p class="lead" data-anim="up">Un accompagnement complet sur les 4 modules ou à la carte selon ce qui compte le plus pour vous.</p>
-      </div>
+      <div class="modules__pin">
+        <div class="modules__head">
+          <span class="eyebrow" data-anim="up">La méthode · 4 modules</span>
+          <h2 class="display" data-anim="up">Quatre piliers, <em>une activité entière.</em></h2>
+          <p class="lead" data-anim="up">Un accompagnement complet sur les 4 modules ou à la carte selon ce qui compte le plus pour vous.</p>
+        </div>
 
-      <div class="modules__stack">
+        <div class="modules__stack">
         <article class="module" id="module-1">
           <div class="module__head">
             <div class="module__idx">01</div>
@@ -2183,6 +2195,7 @@
             <li>IA pour automatiser votre suivi client</li>
           </ul>
         </article>
+        </div>
       </div>
 
       <div class="ia-band glass" data-anim="up">
@@ -2751,23 +2764,44 @@
         scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
       });
 
-      /* Modules — les cartes s'empilent : celle du dessous recule légèrement
-         quand la suivante vient la recouvrir (l'empilement lui-même est en CSS sticky) */
+      /* Modules — les cartes s'empilent sous le titre resté collé en haut.
+         `--stack-top` = où la première carte s'arrête, juste sous le titre. */
+      const modPin = document.querySelector('.modules__pin');
+      const modHead = document.querySelector('.modules__head');
       const stackCards = gsap.utils.toArray('.modules__stack .module');
-      if (stackCards.length > 1 && window.matchMedia('(min-width: 901px)').matches) {
-        stackCards.forEach((card, i) => {
-          if (i === stackCards.length - 1) return;
-          gsap.to(card, {
-            scale: 0.965, opacity: 0.72, ease: 'none', transformOrigin: '50% 0%',
-            scrollTrigger: {
-              trigger: stackCards[i + 1],
-              start: 'top bottom-=180',
-              end: 'top top+=170',
-              scrub: true,
-              invalidateOnRefresh: true
-            }
-          });
+      if (modPin && modHead) {
+        let stackTop = 0;
+        const setStackTop = () => {
+          const top = Math.round(88 + modHead.offsetHeight + 24);
+          /* on n'écrit que si la valeur change : écrire à chaque passage
+             modifiait la mise en page, ce qui relançait un refresh, en boucle */
+          if (top !== stackTop) {
+            stackTop = top;
+            modPin.style.setProperty('--stack-top', top + 'px');
+          }
+        };
+        setStackTop();
+        let stackResizeT;
+        window.addEventListener('resize', () => {
+          clearTimeout(stackResizeT);
+          stackResizeT = setTimeout(setStackTop, 150);
         });
+
+        if (stackCards.length > 1 && window.matchMedia('(min-width: 901px)').matches) {
+          stackCards.forEach((card, i) => {
+            if (i === stackCards.length - 1) return;
+            gsap.to(card, {
+              scale: 0.965, opacity: 0.72, ease: 'none', transformOrigin: '50% 0%',
+              scrollTrigger: {
+                trigger: stackCards[i + 1],
+                start: 'top bottom-=180',
+                end: () => 'top top+=' + (stackTop + 20),
+                scrub: true,
+                invalidateOnRefresh: true
+              }
+            });
+          });
+        }
       }
 
       /* Timeline draw */
