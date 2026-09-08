@@ -6,15 +6,21 @@
   <title>Révélez votre activité · Holisticademy</title>
   <meta name="description" content="Accompagnement individuel pour professionnelles de la beauté & bien-être · Rentabilité, offre, visibilité, vente, un module au choix dès 400 € ou refonte à 360° à 1 500 €." />
   <meta name="theme-color" content="#FBFAF7" />
-  <link rel="canonical" href="https://holisticademy.com/" />
+  <link rel="canonical" href="https://www.holisticademy.com/" />
   <link rel="icon" type="image/png" href="favicon.png" />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Révélez votre activité · Holisticademy" />
   <meta property="og:description" content="Accompagnement individuel pour professionnelles de la beauté & bien-être. Nous reprenons chaque pilier de votre activité, un par un." />
-  <meta property="og:url" content="https://holisticademy.com/" />
-  <meta property="og:image" content="https://holisticademy.com/logo.png" />
+  <meta property="og:url" content="https://www.holisticademy.com/" />
+  <meta property="og:image" content="https://www.holisticademy.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Révélez votre activité — accompagnement individuel pour professionnelles de l'esthétique et du bien-être" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Holisticademy" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.holisticademy.com/og-image.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -352,6 +358,21 @@
       gap: 28px;
     }
     .brand { flex-shrink: 0; display: block; line-height: 0; }
+    .nav__cta { flex-shrink: 0; }
+    .nav__cta .btn { white-space: nowrap; }
+    /* Entre 901 et 1200 px, sept entrées ne tiennent plus à pleine taille :
+       on resserre la gouttière et le corps plutôt que de laisser les mots se couper. */
+    @media (max-width: 1200px) {
+      .nav__links { gap: 22px; }
+      .nav__links a { font-size: 0.72rem; letter-spacing: 0.1em; }
+      .nav__cta .btn { padding: 14px 22px; font-size: 0.68rem; }
+    }
+    @media (max-width: 1080px) {
+      .nav__links { gap: 18px; }
+      .nav__links a { font-size: 0.68rem; letter-spacing: 0.07em; }
+      /* le bouton ne tient plus à côté des sept entrées : le CTA flottant prend le relais */
+      .nav__cta { display: none; }
+    }
     /* Logo « ho » recoloré en bordeaux via masque (le PNG est une silhouette pleine) */
     .brand__mark {
       display: block;
@@ -390,6 +411,7 @@
     }
     .nav__links a {
       position: relative;
+      white-space: nowrap;
       font-size: 0.78rem;
       font-weight: 700;
       letter-spacing: 0.14em;
@@ -723,7 +745,8 @@
     /* Fond chaud des cartes mises en avant — même recette que le hero,
        mais éclaircie : base plus pâle et halos sable/brun adoucis. */
     .cmp2__col--own::before,
-    .offer--feat::before {
+    .offer--feat::before,
+    .partner__cta::before {
       content: '';
       position: absolute;
       inset: 0;
@@ -862,6 +885,7 @@
     .why__closing em { font-style: normal; color: var(--accent); }
 
     @media (max-width: 1000px) {
+      .partner__grid { grid-template-columns: 1fr; }
       .cmp2 { grid-template-columns: 1fr; }
       .cmp2__col--own { box-shadow: var(--shadow-md); }
       .cmp2__col--other { margin-top: 0; }
@@ -1524,6 +1548,79 @@
     .offers__note { margin-top: 22px; font-style: italic; font-size: var(--fs-sm); color: var(--ink-2); }
 
     /* ══════════════════════════════════════════════════════════════
+       ORGANISMES DE FORMATION — partenariat
+    ══════════════════════════════════════════════════════════════ */
+    .partner__head { max-width: 74ch; }
+    .partner__head p { margin-top: 16px; }
+    .partner__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: clamp(40px, 4.5vw, 60px);
+    }
+    .partner__card {
+      border-radius: var(--r-lg);
+      padding: clamp(26px, 2.6vw, 38px);
+      background: rgba(255, 255, 255, 0.62);
+      border: 1px solid var(--glass-brd);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
+    }
+    .partner__card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+    .partner__ic {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      background: var(--accent-tint);
+      margin-bottom: 22px;
+    }
+    .partner__ic svg {
+      width: 21px; height: 21px;
+      fill: none;
+      stroke: var(--accent-ink);
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .partner__name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: var(--fs-h5);
+      line-height: 1.24;
+      letter-spacing: -0.01em;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+    .partner__text { font-size: var(--fs-sm); line-height: 1.7; color: var(--ink-2); }
+
+    .partner__cta {
+      position: relative;          /* borne le fond chaud du ::before */
+      overflow: hidden;
+      margin-top: clamp(36px, 4vw, 52px);
+      padding: clamp(26px, 3vw, 40px) clamp(24px, 3vw, 44px);
+      border-radius: var(--r-lg);
+      border: 1px solid var(--accent);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: clamp(20px, 3vw, 44px);
+      flex-wrap: wrap;
+    }
+    .partner__cta > * { position: relative; z-index: 1; }
+    .partner__pitch {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: var(--fs-h5);
+      line-height: 1.4;
+      color: var(--dark);
+      max-width: 58ch;
+    }
+    .partner__pitch strong { color: var(--accent-ink); font-weight: 700; }
+
+    /* ══════════════════════════════════════════════════════════════
        AUDIT — bande
     ══════════════════════════════════════════════════════════════ */
     .audit__lead { max-width: 62ch; margin-bottom: 46px; font-size: var(--fs-body); line-height: 1.72; color: var(--ink-2); }
@@ -1838,6 +1935,7 @@
       <li><a href="#apropos">Qui je suis</a></li>
           <li><a href="#programme">La méthode</a></li>
           <li><a href="#financement">Tarifs</a></li>
+          <li><a href="#organismes">Organismes</a></li>
           <li><a href="#rdv">Contact</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
@@ -1865,6 +1963,7 @@
       <li><a href="#deroulement">Le déroulement</a></li>
       <li><a href="#avis">Avis clientes</a></li>
       <li><a href="#financement">Tarifs</a></li>
+      <li><a href="#organismes">Écoles &amp; organismes</a></li>
       <li><a href="#rdv">Appel découverte</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ol>
@@ -2382,6 +2481,44 @@
     </div>
   </section>
 
+  <!-- ═══ ORGANISMES DE FORMATION — partenariat ═══ -->
+  <section class="sec-line sec-alt" id="organismes">
+    <div class="wrap">
+      <div class="partner__head">
+        <span class="eyebrow" data-anim="up">Écoles &amp; organismes de formation</span>
+        <h2 class="display" data-anim="up">Vos élèves apprennent le métier. <em>Pas encore à en vivre.</em></h2>
+        <p class="lead" data-anim="up">Massage, esthétique, soins : vos programmes forment d'excellentes praticiennes. Mais une fois diplômées, beaucoup se retrouvent seules face aux tarifs, à l'offre, à la visibilité et à la vente. C'est exactement la partie que j'enseigne, et je peux l'ajouter à votre catalogue sans que vous ayez à la construire.</p>
+      </div>
+
+      <div class="partner__grid">
+        <article class="partner__card" data-anim="up">
+          <span class="partner__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 7.5 12 3l9 4.5-9 4.5z"/><path d="M7 10.5V16c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5v-5.5"/><line x1="21" y1="7.5" x2="21" y2="13"/></svg></span>
+          <h3 class="partner__name">Le module qui manque à votre programme</h3>
+          <p class="partner__text">Rentabilité, offre et positionnement, visibilité, vente et relation client : les quatre piliers de la gestion d'activité, ceux qu'une formation métier n'a pas vocation à couvrir.</p>
+        </article>
+
+        <article class="partner__card" data-anim="up">
+          <span class="partner__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.4"/><path d="M2.5 20c0-3.5 2.9-5.6 6.5-5.6s6.5 2.1 6.5 5.6"/><path d="M17 4.6a3.4 3.4 0 0 1 0 6.6"/><path d="M19 14.8c1.7.7 2.8 2.2 2.8 4.2"/></svg></span>
+          <h3 class="partner__name">Rien à construire de votre côté</h3>
+          <p class="partner__text">J'interviens directement auprès de vos élèves, en présentiel ou en visio. Le format, la durée et le moment dans le cursus se calent avec vous : les quatre modules, ou seulement celui qui vous intéresse.</p>
+        </article>
+
+        <article class="partner__card" data-anim="up">
+          <span class="partner__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 8.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-2.5"/><path d="M12.5 12H21"/><polyline points="18.5 9.5 21 12 18.5 14.5"/></svg></span>
+          <h3 class="partner__name">Une contrepartie financière pour vous</h3>
+          <p class="partner__text">Vous enrichissez votre catalogue d'une formation que vous ne proposez pas, et vous percevez une part sur les inscriptions. Les modalités se définissent ensemble, par convention de partenariat.</p>
+        </article>
+      </div>
+
+      <div class="partner__cta" data-anim="up">
+        <p class="partner__pitch">Parlons de votre programme et de ce qui manque à vos élèves. <strong>30 minutes suffisent pour voir si ça a du sens.</strong></p>
+        <button class="btn btn--accent" onclick="Calendly.initPopupWidget({url:'https://calendly.com/nicole-rota/appel-decouverte-revelez-votre-activite'});return false;">
+          <span>Échanger sur un partenariat</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══ APPEL DÉCOUVERTE + CALENDRIER ═══ -->
   <section class="sec-line sec-alt" id="rdv">
     <div class="wrap">
@@ -2540,6 +2677,21 @@
     burger.addEventListener('click', () => toggleMenu(!document.body.classList.contains('menu-open')));
     menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
     document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleMenu(false); });
+
+    /* ── Instagram — section affichée seulement si les photos existent ──
+       Les tuiles sont en lazy-loading : on sonde donc insta-1.jpg avec une
+       image hors DOM. Absente = la section entière est retirée, pour ne pas
+       montrer une grille vide. Dès que les photos sont déposées à la racine,
+       la section réapparaît d'elle-même, sans toucher au code. */
+    const insta = document.getElementById('instagram');
+    if (insta) {
+      const probe = new Image();
+      probe.onerror = () => {
+        insta.remove();
+        if (window.ScrollTrigger) ScrollTrigger.refresh();
+      };
+      probe.src = 'insta-1.jpg';
+    }
 
     /* ── Nav stuck ── */
     const nav = document.getElementById('nav');
