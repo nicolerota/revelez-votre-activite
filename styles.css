@@ -1954,10 +1954,20 @@ html.anim [data-hero-title] { opacity: 0; }
   padding-top: clamp(132px, 19vh, 196px);
   padding-bottom: clamp(56px, 9vh, 104px);
 }
-.phero__inner { position: relative; z-index: 1; max-width: 1140px; }
-/* Même échelle que le titre de l'accueil : les pages ont le même poids. */
-.phero__title {
-  font-size: var(--fs-h1);
+/* Le bloc part plus à gauche et occupe toute la largeur utile : les titres
+   sont longs, il leur faut la place de tenir sur deux lignes. */
+.phero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: none;
+  padding-inline: clamp(16px, 3.2vw, 46px);
+}
+/* Même échelle que le titre de l'accueil (5,6 rem sur grand écran). La
+   pente en vw est un peu plus douce que celle de --fs-h1 : les phrases des
+   pages intérieures sont plus longues, il leur faut tenir sur deux lignes
+   jusque vers 1000 px. */
+h1.display.phero__title {   /* bat `h1.display`, plus spécifique que `.phero__title` */
+  font-size: clamp(2.5rem, 6.25vw, 5.6rem);
   line-height: 0.97;
   margin-bottom: 30px;
 }
