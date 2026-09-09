@@ -498,7 +498,9 @@ body.menu-open .menu { opacity: 1; pointer-events: all; transform: translateY(0)
   height: 140px;
   background: linear-gradient(to bottom, rgba(251, 250, 247, 0), var(--bg));
 }
-.hero__inner { position: relative; z-index: 1; max-width: 1140px; }
+/* Même largeur que toutes les sections (--maxw) : bridé à 1140 px, le hero
+   démarrait 50 px à droite du reste de la page. */
+.hero__inner { position: relative; z-index: 1; max-width: var(--maxw); }
 .hero__title { margin-bottom: 30px; }
 .hero__promise {
   font-size: var(--fs-lead);
@@ -1954,20 +1956,18 @@ html.anim [data-hero-title] { opacity: 0; }
   padding-top: clamp(132px, 19vh, 196px);
   padding-bottom: clamp(56px, 9vh, 104px);
 }
-/* Le bloc part plus à gauche et occupe toute la largeur utile : les titres
-   sont longs, il leur faut la place de tenir sur deux lignes. */
-.phero__inner {
-  position: relative;
-  z-index: 1;
-  max-width: none;
-  padding-inline: clamp(16px, 3.2vw, 46px);
-}
+/* Même colonne que toutes les autres sections : surtitre, titre, texte et
+   bouton s'alignent exactement sur le reste de la page. */
+.phero__inner { position: relative; z-index: 1; max-width: var(--maxw); }
 /* Même échelle que le titre de l'accueil (5,6 rem sur grand écran). La
    pente en vw est un peu plus douce que celle de --fs-h1 : les phrases des
    pages intérieures sont plus longues, il leur faut tenir sur deux lignes
    jusque vers 1000 px. */
 h1.display.phero__title {   /* bat `h1.display`, plus spécifique que `.phero__title` */
-  font-size: clamp(2.5rem, 6.25vw, 5.6rem);
+  /* Le plus grand corps auquel la phrase entière tient sur deux lignes dans
+     la colonne commune (1 104 px de texte) — un cran sous le titre de
+     l'accueil, qui lui n'a que trois mots à placer. */
+  font-size: clamp(2.4rem, 5.4vw, 4.7rem);
   line-height: 0.97;
   margin-bottom: 30px;
 }
