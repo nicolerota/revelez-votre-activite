@@ -275,6 +275,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* Hero intro — l'accueil est la seule page qui porte le grand hero */
     if (document.querySelector('.hero')) {
+    /* Le trait du surtitre est dessiné par une transition CSS déclenchée
+       par `.in`. Les éléments du hero sont animés par GSAP et n'étaient
+       jamais marqués `.in` : le trait n'apparaissait qu'au filet de
+       sécurité, 3,5 s plus tard. On le lance avec le reste. */
+    document.querySelectorAll('.hero .eyebrow').forEach(el => el.classList.add('in'));
     const tl = gsap.timeline({ defaults: { ease: EASE } });
     tl.set('.hero__title', { opacity: 1 }, 0)
       .from('.hero__title .word', { opacity: 0, yPercent: 70, duration: 1, stagger: 0.055 }, 0.1)
