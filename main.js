@@ -237,6 +237,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })();
 
+  /* ── Modules : où la première carte s'arrête, juste sous le titre collé ──
+     Mesuré ici et pas dans le bloc GSAP : si la librairie ne charge pas,
+     la valeur de repli du CSS laissait les cartes recouvrir le titre. */
+  const modPin = document.querySelector('.modules__pin');
+  const modHead = document.querySelector('.modules__head');
+  if (modPin && modHead) {
+    let stackTop = 0;
+    const setStackTop = () => {
+      const top = Math.round(88 + modHead.offsetHeight + 20);
+      /* on n'écrit que si la valeur change : écrire à chaque passage
+         modifiait la mise en page, ce qui relançait un refresh, en boucle */
+      if (top !== stackTop) {
+        stackTop = top;
+        modPin.style.setProperty('--stack-top', top + 'px');
+      }
+    };
+    setStackTop();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(setStackTop);
+    let stackResizeT;
+    window.addEventListener('resize', () => {
+      clearTimeout(stackResizeT);
+      stackResizeT = setTimeout(setStackTop, 150);
+    });
+  }
+
   /* ── GSAP ── */
   const startGSAP = () => {
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
@@ -275,29 +300,9 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    /* Modules — les cartes s'empilent sous le titre resté collé en haut.
-       `--stack-top` = où la première carte s'arrête, juste sous le titre. */
-    const modPin = document.querySelector('.modules__pin');
-    const modHead = document.querySelector('.modules__head');
+    /* Modules — les cartes s'empilent sous le titre resté collé en haut. */
     const stackCards = gsap.utils.toArray('.modules__stack .module');
     if (modPin && modHead) {
-      let stackTop = 0;
-      const setStackTop = () => {
-        const top = Math.round(88 + modHead.offsetHeight + 24);
-        /* on n'écrit que si la valeur change : écrire à chaque passage
-           modifiait la mise en page, ce qui relançait un refresh, en boucle */
-        if (top !== stackTop) {
-          stackTop = top;
-          modPin.style.setProperty('--stack-top', top + 'px');
-        }
-      };
-      setStackTop();
-      let stackResizeT;
-      window.addEventListener('resize', () => {
-        clearTimeout(stackResizeT);
-        stackResizeT = setTimeout(setStackTop, 150);
-      });
-
       if (stackCards.length > 1 && window.matchMedia('(min-width: 901px)').matches) {
         stackCards.forEach((card, i) => {
           if (i === stackCards.length - 1) return;
@@ -306,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollTrigger: {
               trigger: stackCards[i + 1],
               start: 'top bottom-=180',
-              end: () => 'top top+=' + (stackTop + 20),
+              end: () => 'top top+=' + (parseInt(getComputedStyle(modPin).getPropertyValue('--stack-top'), 10) + 20),
               scrub: true,
               invalidateOnRefresh: true
             }

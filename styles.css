@@ -852,7 +852,16 @@ body.menu-open .menu { opacity: 1; pointer-events: all; transform: translateY(0)
   .cmp2__col--other { margin-top: 0; }
 }
 @media (max-width: 640px) {
-  .modules__head { position: static; }
+  /* Plus d'empilement : le bandeau dépoli n'a plus lieu d'être */
+  .modules__head {
+    position: static;
+    margin-inline: 0;
+    padding: 0;
+    background: none;
+    -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+  }
+  .modules__head::after { display: none; }
   .module { position: static; grid-template-columns: 1fr; gap: 22px; }
   .module__head { flex-direction: column; gap: 12px; }
   .cmp2 { grid-template-columns: 1fr; }
@@ -866,12 +875,33 @@ body.menu-open .menu { opacity: 1; pointer-events: all; transform: translateY(0)
 /* Le titre reste collé en haut pendant que les cartes s'empilent dessous.
    `--stack-top` (hauteur du titre + marges) est mesuré en JS ; sans JS,
    la valeur de repli suffit. */
-.modules__pin { position: relative; --stack-top: 250px; }
+.modules__pin { position: relative; --stack-top: 250px; padding-bottom: 12px; }
+/* Le titre reste au-dessus des cartes : en fin de section, elles glissent
+   dessous au lieu de venir le recouvrir à moitié. Le bandeau dépoli les
+   masque proprement, et le dégradé sous le titre évite la coupure nette. */
 .modules__head {
   position: sticky;
   top: 88px;
-  z-index: 1;          /* passe DERRIÈRE les cartes quand il se décolle */
+  z-index: 3;
   margin-bottom: 8px;
+  margin-inline: calc(var(--pad) * -0.5);
+  padding: 16px calc(var(--pad) * 0.5) 18px;
+  background: rgba(253, 253, 252, 0.94);
+}
+@supports ((backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px))) {
+  .modules__head {
+    background: rgba(253, 253, 252, 0.78);
+    -webkit-backdrop-filter: blur(12px) saturate(1.05);
+            backdrop-filter: blur(12px) saturate(1.05);
+  }
+}
+.modules__head::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; top: 100%;
+  height: 24px;
+  background: linear-gradient(to bottom, rgba(253, 253, 252, 0.9), rgba(253, 253, 252, 0));
+  pointer-events: none;
 }
 .modules__head p { max-width: none; margin-top: 14px; }
 /* Sur écran large, la phrase tient sur une seule ligne */
