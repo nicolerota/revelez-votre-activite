@@ -1924,11 +1924,12 @@ html.anim [data-hero-title] { opacity: 0; }
   padding-top: clamp(132px, 19vh, 196px);
   padding-bottom: clamp(56px, 9vh, 104px);
 }
-.phero__inner { position: relative; z-index: 1; max-width: 980px; }
+.phero__inner { position: relative; z-index: 1; max-width: 1140px; }
+/* Même échelle que le titre de l'accueil : les pages ont le même poids. */
 .phero__title {
-  font-size: clamp(2.2rem, 5.4vw, 4.1rem);
-  line-height: 1.03;
-  margin-bottom: 26px;
+  font-size: var(--fs-h1);
+  line-height: 0.97;
+  margin-bottom: 30px;
 }
 .phero__sub {
   max-width: 64ch;
