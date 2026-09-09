@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!tabs.length) return;
 
     const DELAY = 6000;
-    let i = 0, timer = null, paused = false;
+    let i = 0, timer = null, paused = false, started = false;
 
     const show = (next) => {
       next = (next + tabs.length) % tabs.length;
@@ -197,14 +197,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const active = tabs[i];
       active.classList.remove('is-running', 'is-paused');
       void active.offsetWidth;                 // relance l'animation de la barre
-      if (RM || paused) { active.classList.add('is-paused'); return; }
+      if (RM || paused || !started) { active.classList.add('is-paused'); return; }
       active.classList.add('is-running');
       timer = setTimeout(() => show(i + 1), DELAY);
     };
 
-    tabs.forEach((t, k) => t.addEventListener('click', () => { paused = false; show(k); }));
+    tabs.forEach((t, k) => t.addEventListener('click', () => { paused = false; started = true; show(k); }));
     root.querySelectorAll('.vtabs__btn').forEach(b =>
-      b.addEventListener('click', () => { paused = false; show(i + Number(b.dataset.dir)); }));
+      b.addEventListener('click', () => { paused = false; started = true; show(i + Number(b.dataset.dir)); }));
 
     if (frame) {
       frame.addEventListener('mouseenter', () => { paused = true; clearTimeout(timer);
@@ -212,7 +212,29 @@ document.addEventListener('DOMContentLoaded', () => {
       frame.addEventListener('mouseleave', () => { paused = false; run(); });
     }
 
-    run();
+    /* Le carrousel attend d'être à l'écran : sinon, le temps qu'on fasse
+       défiler jusqu'ici, il en serait déjà au 3e onglet. Il repart de
+       l'onglet 1 tant que personne ne l'a encore vu, et se met en pause
+       dès qu'il ressort du champ. */
+    if (RM || !('IntersectionObserver' in window)) {
+      started = true;
+      run();
+    } else {
+      const vio = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            if (!started) { started = true; run(); }
+            else if (!paused) run();
+          } else {
+            clearTimeout(timer);
+            tabs[i].classList.remove('is-running');
+            tabs[i].classList.add('is-paused');
+          }
+        });
+      }, { threshold: 0.35 });
+      vio.observe(root);
+      run();   // affiche l'onglet 1 figé, barre à l'arrêt
+    }
   })();
 
   /* ── GSAP ── */
