@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact · Réserver votre appel découverte · Holisticademy</title>
+  <meta name="description" content="Réservez votre appel découverte de 30 minutes, gratuit et sans engagement, pour faire le point sur votre activité et définir votre priorité." />
+  <meta name="theme-color" content="#FBFAF7" />
+  <link rel="canonical" href="https://www.holisticademy.com/contact" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Contact · Réserver votre appel découverte · Holisticademy" />
+  <meta property="og:description" content="Réservez votre appel découverte de 30 minutes, gratuit et sans engagement, pour faire le point sur votre activité et définir votre priorité." />
+  <meta property="og:url" content="https://www.holisticademy.com/contact" />
+  <meta property="og:image" content="https://www.holisticademy.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Révélez votre activité — accompagnement individuel pour professionnelles de l'esthétique et du bien-être" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Holisticademy" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.holisticademy.com/og-image.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <script>
+    /* Pré-masquage anti-FOUC — seulement si le mouvement n'est pas réduit */
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('anim');
+    }
+  </script>
+</head>
+<body>
+
+  <div class="aurora" aria-hidden="true">
+    <span class="aurora__blob aurora__blob--1"></span>
+    <span class="aurora__blob aurora__blob--2"></span>
+    <span class="aurora__blob aurora__blob--3"></span>
+  </div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ═══ NAV ═══ -->
+  <header class="nav" id="nav">
+    <div class="wrap nav__inner">
+      <a href="/" class="brand" aria-label="Holisticademy, accueil"><span class="brand__mark" aria-hidden="true"></span></a>
+
+      <nav aria-label="Navigation principale">
+        <ul class="nav__links">
+          <li><a href="/formation">Formation</a></li>
+          <li><a href="/qui-je-suis">Qui je suis</a></li>
+          <li><a href="/organismes">Organismes</a></li>
+          <li><a href="/contact" class="is-current">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav__cta">
+        <button class="btn btn--accent"
+          onclick="Calendly.initPopupWidget({url:'https://calendly.com/nicole-rota/appel-decouverte-revelez-votre-activite'});return false;">
+          <span>Prendre rendez-vous</span>
+        </button>
+      </div>
+
+      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ═══ MENU OVERLAY ═══ -->
+  <div class="menu" id="menu">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li><a href="/formation">Formation</a></li>
+      <li><a href="/qui-je-suis">Qui je suis</a></li>
+      <li><a href="/organismes">Organismes</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ol>
+    <div class="menu__foot">
+      <a href="https://www.instagram.com/holisticademy_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="/contact">Appel découverte</a>
+    </div>
+  </div>
+
+  <!-- ═══ EN-TÊTE DE PAGE ═══ -->
+  <section class="phero" id="top">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="wrap phero__inner">
+      <span class="eyebrow" data-anim="up">Appel découverte · offert</span>
+      <h1 class="display phero__title" data-anim="up">Trente minutes pour faire le point<br /><em>sur votre activité.</em></h1>
+      <p class="phero__sub" data-anim="up">En visio ou par téléphone, sans argumentaire de vente. Nous faisons le point sur votre situation, identifions votre problématique principale et définissons votre priorité.</p>
+    </div>
+  </section>
+
+  <!-- ═══ CALENDRIER + INFOS ═══ -->
+  <section class="sec-line sec-alt" id="rdv">
+    <div class="wrap">
+      <div class="contact__grid">
+
+        <div class="cal__frame glass" data-anim="up">
+          <div class="calendly-inline-widget"
+            data-url="https://calendly.com/nicole-rota/appel-decouverte-revelez-votre-activite?hide_gdpr_banner=1&primary_color=6e4b33&text_color=1c1a17&background_color=fcfcfa">
+          </div>
+        </div>
+
+        <aside class="contact__aside" data-anim="up">
+          <div class="contact__card">
+            <h2 class="contact__ttl">Comment ça se passe</h2>
+            <ul class="contact__list">
+              <li><span class="contact__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Vous choisissez un créneau de 30 minutes dans le calendrier.</li>
+              <li><span class="contact__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Nous échangeons en visio ou par téléphone, comme vous préférez.</li>
+              <li><span class="contact__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Vous repartez avec votre priorité identifiée, que l'on travaille ensemble ensuite ou non.</li>
+            </ul>
+            <p class="contact__fine">Gratuit et sans engagement. L'audit approfondi de votre activité, lui, fait partie de l'accompagnement.</p>
+          </div>
+
+          <div class="contact__card contact__card--soft">
+            <p class="contact__ttl contact__ttl--sm">Vous représentez une école ou un organisme&nbsp;?</p>
+            <p class="contact__text">Le même créneau permet d'échanger sur un partenariat et sur ce qui manque à vos élèves.</p>
+            <a href="/organismes" class="contact__link">Voir la page Écoles &amp; organismes</a>
+          </div>
+
+          <div class="contact__card contact__card--soft">
+            <p class="contact__ttl contact__ttl--sm">Ailleurs</p>
+            <p class="contact__text">Les coulisses, les conseils et les nouveautés se passent sur Instagram.</p>
+            <a href="https://www.instagram.com/holisticademy_/" target="_blank" rel="noopener noreferrer" class="contact__link">@holisticademy_</a>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="wrap foot">
+      <div class="foot__top">
+        <div class="foot__brandcol">
+          <a href="/" class="brand foot__brand" aria-label="Holisticademy"><span class="brand__mark" aria-hidden="true"></span></a>
+          <p class="foot__tag">Accompagnement individuel pour les professionnelles de l'esthétique et du bien-être.</p>
+        </div>
+        <nav class="foot__nav" aria-label="Pied de page">
+          <div class="foot__col">
+            <p class="foot__ttl">Le site</p>
+            <a href="/">Accueil</a>
+            <a href="/formation">La formation</a>
+            <a href="/qui-je-suis">Qui je suis</a>
+            <a href="/organismes">Écoles &amp; organismes</a>
+          </div>
+          <div class="foot__col">
+            <p class="foot__ttl">Aller plus loin</p>
+            <a href="/formation#tarifs">Tarifs</a>
+            <a href="/formation#faq">FAQ</a>
+            <a href="/contact">Appel découverte</a>
+            <a href="https://www.instagram.com/holisticademy_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </div>
+        </nav>
+      </div>
+      <p class="foot__legal">© 2026 Holisticademy · Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <!-- ═══ FLOATING CTA ═══ -->
+  <div class="float-cta" id="floatCta">
+    <button class="btn btn--accent"
+      onclick="Calendly.initPopupWidget({url:'https://calendly.com/nicole-rota/appel-decouverte-revelez-votre-activite'});return false;">
+      <span>Réserver mon appel</span>
+    </button>
+  </div>
+
+  <!-- ═══ SCRIPTS ═══ -->
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" defer></script>
+  <script src="/main.js" defer></script>
+
+</body>
+</html>

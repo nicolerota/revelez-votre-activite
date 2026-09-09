@@ -1,0 +1,8 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/audit", "destination": "/contact", "permanent": true },
+    { "source": "/merci", "destination": "/contact", "permanent": false }
+  ]
+}
