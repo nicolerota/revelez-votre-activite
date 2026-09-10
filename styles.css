@@ -2168,3 +2168,60 @@ h1.display.phero__title {   /* bat `h1.display`, plus spécifique que `.phero__t
 /* Arrivée sur une ancre (lien venu d'une autre page) : le titre de section
    ne doit pas passer sous le header fixe. */
 section[id], article[id] { scroll-margin-top: 96px; }
+
+/* ══════════════════════════════════════════════════════════════
+   FINANCEMENT — encart sous les tarifs
+══════════════════════════════════════════════════════════════ */
+.fund {
+  display: flex;
+  gap: clamp(18px, 2vw, 28px);
+  align-items: flex-start;
+  margin-top: clamp(28px, 3.4vw, 44px);
+  padding: clamp(24px, 2.6vw, 34px) clamp(24px, 2.8vw, 38px);
+  background: var(--bg-2);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-lg);
+}
+.fund__ic {
+  flex: 0 0 auto;
+  width: 46px; height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid var(--line-2);
+}
+.fund__ic svg {
+  width: 22px; height: 22px;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.fund__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-h5);
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+.fund__text {
+  font-size: var(--fs-sm);
+  line-height: 1.75;
+  color: var(--ink-2);
+  max-width: 88ch;
+}
+.fund__text strong { color: var(--accent-ink); font-weight: 700; }
+.fund__fine {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-2);
+  font-size: var(--fs-xs);
+  line-height: 1.65;
+  color: var(--ink-3);
+  max-width: 88ch;
+}
+@media (max-width: 620px) {
+  .fund { flex-direction: column; gap: 16px; }
+}
