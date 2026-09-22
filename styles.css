@@ -43,11 +43,11 @@
      Gamme resserrée (rapport ~1,25 d'un cran à l'autre) : les titres
      descendent nettement, le corps de texte remonte un peu. L'écart entre
      le plus petit et le plus grand passe de 1 à 9,5 à 1 à 5. */
-  --fs-h1:       clamp(2.2rem, 5.4vw, 4rem);
-  --fs-h2:       clamp(1.6rem, 3.2vw, 2.4rem);
-  --fs-h2-sm:    clamp(1.5rem, 2.8vw, 2.1rem);
-  --fs-h3:       clamp(1.35rem, 2.1vw, 1.7rem);
-  --fs-h4:       clamp(1.15rem, 1.6vw, 1.35rem);
+  --fs-h1:       clamp(1.85rem, 5.4vw, 4rem);
+  --fs-h2:       clamp(1.35rem, 3.2vw, 2.4rem);
+  --fs-h2-sm:    clamp(1.3rem, 2.8vw, 2.1rem);
+  --fs-h3:       clamp(1.2rem, 2.1vw, 1.7rem);
+  --fs-h4:       clamp(1.05rem, 1.6vw, 1.35rem);
   --fs-h5:       1.08rem;
   --fs-quote:    clamp(1.2rem, 2.2vw, 1.6rem);
   --fs-quote-sm: clamp(0.98rem, 1.3vw, 1.08rem);
@@ -444,7 +444,7 @@ body.menu-open .menu { opacity: 1; pointer-events: all; transform: translateY(0)
   display: block;
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(2rem, 8vw, 3.6rem);
+  font-size: clamp(1.7rem, 7vw, 3rem);
   line-height: 1.16;
   color: var(--dark);
   letter-spacing: -0.03em;
@@ -932,7 +932,7 @@ body.menu-open .menu { opacity: 1; pointer-events: all; transform: translateY(0)
   flex: 0 0 auto;
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(2rem, 3.2vw, 2.9rem);   /* sous le titre h1, au-dessus du h2 */
+  font-size: clamp(1.6rem, 3.2vw, 2.9rem);   /* sous le titre h1, au-dessus du h2 */
   line-height: 0.82;
   letter-spacing: -0.04em;
   color: var(--accent);
@@ -1495,7 +1495,7 @@ body.menu-open .menu { opacity: 1; pointer-events: all; transform: translateY(0)
 .offer__price {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  font-size: clamp(1.55rem, 3.4vw, 2.6rem);
   color: var(--dark);
   line-height: 1;
   letter-spacing: -0.03em;
