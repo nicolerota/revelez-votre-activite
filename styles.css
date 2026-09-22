@@ -2298,3 +2298,37 @@ section[id], article[id] { scroll-margin-top: 96px; }
 @media (max-width: 620px) {
   .fund { flex-direction: column; gap: 16px; }
 }
+
+/* ══════════════════════════════════════════════════════════════
+   TYPOGRAPHIE SUR PETIT ÉCRAN
+   Placé en fin de feuille : à spécificité égale, c'est la dernière
+   déclaration qui l'emporte.
+══════════════════════════════════════════════════════════════ */
+@media (max-width: 760px) {
+  /* Le texte justifié sur une colonne étroite creuse des trous entre les
+     mots — on repasse au fer à gauche. */
+  .about__body p,
+  .modules__head p,
+  .cal__intro p,
+  .audit__lead,
+  .faq-a__inner,
+  .why__intro,
+  .phero__sub--justify,
+  .offer__desc,
+  .module__obj {
+    text-align: left;
+    hyphens: none;
+  }
+
+  /* Titres : un interligne serré passe bien sur une ligne de 60 px de haut,
+     pas sur trois lignes de 22 px. */
+  h1.display { line-height: 1.08; }
+  h2.display { line-height: 1.18; }
+  .phero__title { line-height: 1.1; }
+  .why__title, .vtabs__title { line-height: 1.18; }
+
+  /* Un peu d'air entre le titre et le texte qui suit. */
+  .why__title { margin-bottom: 18px; }
+  .why__intro { line-height: 1.65; }
+  .phero__sub { line-height: 1.6; }
+}
