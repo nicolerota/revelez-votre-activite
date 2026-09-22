@@ -1853,6 +1853,12 @@ footer { border-top: 1px solid var(--line); padding-block: clamp(48px, 7vh, 72px
   line-height: 1.7;
   color: var(--ink-2);
 }
+.foot__tag-sub {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: var(--fs-xs);
+  color: var(--ink-3);
+}
 .foot__nav {
   display: flex;
   gap: clamp(36px, 6vw, 88px);
