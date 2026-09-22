@@ -1545,6 +1545,16 @@ body.menu-open .menu { opacity: 1; pointer-events: all; transform: translateY(0)
 ══════════════════════════════════════════════════════════════ */
 .partner__head { max-width: 74ch; }
 .partner__head p { margin-top: 16px; }
+/* Paragraphe écrit une phrase par ligne : il lui faut toute la colonne,
+   et le découpage saute sur les écrans étroits. */
+.partner__head:has(.lead--lines) { max-width: none; }
+.lead--lines { max-width: none; }
+@media (max-width: 1150px) {
+  /* en dessous, la phrase la plus longue ne tient plus sur une ligne :
+     mieux vaut laisser le paragraphe couler que d'obtenir un mélange
+     de lignes pleines et de lignes coupées */
+  .lead--lines br { display: none; }
+}
 .partner__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1994,7 +2004,7 @@ h1.display.phero__title {   /* bat `h1.display`, plus spécifique que `.phero__t
    pour que la seconde tienne d'un seul tenant. Le retour forcé ne vaut que
    sur grand écran ; en dessous, le texte reprend son cours naturel. */
 .phero__sub--wide { max-width: none; }
-@media (max-width: 900px) {
+@media (max-width: 1150px) {
   .phero__sub--wide br { display: none; }
 }
 .phero .hero__tags { margin-top: 34px; }
