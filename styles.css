@@ -576,7 +576,7 @@ body.menu-open .menu { opacity: 1; pointer-events: all; transform: translateY(0)
 .stat__v {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  font-size: clamp(1.45rem, 2.3vw, 1.85rem);
   color: var(--dark);
   line-height: 1;
   letter-spacing: 0;
@@ -625,7 +625,7 @@ body.menu-open .menu { opacity: 1; pointer-events: all; transform: translateY(0)
   justify-content: center;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 5rem;
+  font-size: 3.6rem;
   color: var(--white);
   opacity: 0.9;
 }
@@ -932,7 +932,7 @@ body.menu-open .menu { opacity: 1; pointer-events: all; transform: translateY(0)
   flex: 0 0 auto;
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(2.6rem, 4.4vw, 4.2rem);
+  font-size: clamp(2rem, 3.2vw, 2.9rem);   /* sous le titre h1, au-dessus du h2 */
   line-height: 0.82;
   letter-spacing: -0.04em;
   color: var(--accent);
@@ -1384,7 +1384,7 @@ body.menu-open .menu { opacity: 1; pointer-events: all; transform: translateY(0)
   position: absolute;
   top: 0.06em; left: 0.2em;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 6.5rem;
+  font-size: 5rem;
   line-height: 1;
   color: var(--accent);
   opacity: 0.22;
@@ -1495,7 +1495,7 @@ body.menu-open .menu { opacity: 1; pointer-events: all; transform: translateY(0)
 .offer__price {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(2.4rem, 5vw, 3.2rem);
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
   color: var(--dark);
   line-height: 1;
   letter-spacing: -0.03em;
@@ -1944,7 +1944,7 @@ html.anim [data-hero-title] { opacity: 0; }
   .about__grid { grid-template-columns: 1fr; }
   .about__aside { position: static; display: flex; gap: 24px; align-items: center; }
   .about__photo { width: 168px; flex-shrink: 0; }
-  .about__mono { font-size: 3rem; }
+  .about__mono { font-size: 2.4rem; }
   .about__id { margin-top: 0; }
 }
 @media (max-width: 900px) {
@@ -2061,7 +2061,7 @@ h1.display.phero__title {   /* bat `h1.display`, plus spécifique que `.phero__t
 .peek__idx {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: 1.6rem;
+  font-size: 1.45rem;
   line-height: 1;
   color: var(--accent);
 }
