@@ -1699,7 +1699,7 @@ body.menu-open .menu { opacity: 1; pointer-events: all; transform: translateY(0)
   flex: 1 1 auto;
   min-width: 320px;
   height: 100%;
-  min-height: 760px;   /* de quoi afficher le calendrier en entier */
+  min-height: 1150px;  /* présentation Calendly + calendrier entier */
   border-radius: var(--r);
   overflow: hidden;
 }
@@ -2123,7 +2123,16 @@ h1.display.phero__title {   /* bat `h1.display`, plus spécifique que `.phero__t
   gap: clamp(20px, 2.6vw, 34px);
   align-items: stretch;
 }
-.contact__aside { display: flex; flex-direction: column; gap: clamp(16px, 1.8vw, 22px); }
+/* La colonne s'étire sur toute la hauteur du calendrier : les trois blocs
+   se répartissent pour que le dernier se termine au même niveau. */
+/* La colonne s'étire sur la hauteur du calendrier : les trois blocs se
+   répartissent pour que le dernier se termine au même niveau. */
+.contact__aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(16px, 1.8vw, 22px);
+}
 .contact__card {
   padding: clamp(24px, 2.4vw, 34px);
   background: var(--white);
@@ -2190,6 +2199,8 @@ h1.display.phero__title {   /* bat `h1.display`, plus spécifique que `.phero__t
 .contact__link:hover { border-color: var(--accent); }
 @media (max-width: 980px) {
   .contact__grid { grid-template-columns: 1fr; }
+  .contact__aside { justify-content: flex-start; }
+  .calendly-inline-widget { min-height: 1050px; }
 }
 
 /* Arrivée sur une ancre (lien venu d'une autre page) : le titre de section
