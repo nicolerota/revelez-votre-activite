@@ -996,7 +996,10 @@ body.menu-open .menu { opacity: 1; pointer-events: all; transform: translateY(0)
 .process__head h2 { max-width: 16ch; margin-inline: auto; }
 .process__head .lead { margin-top: 16px; max-width: 46ch; margin-inline: auto; }
 
-.process { position: relative; margin-top: clamp(32px, 4.5vw, 60px); }
+.process { position: relative; margin-top: clamp(18px, 2.2vw, 30px); }
+/* Section volontairement plus compacte que les autres : cinq étapes, ça
+   s'allonge vite. */
+#deroulement { padding-block: clamp(56px, 7.5vh, 96px); }
 .process__rail {
   --draw: 0;
   position: absolute;
@@ -1017,9 +1020,9 @@ body.menu-open .menu { opacity: 1; pointer-events: all; transform: translateY(0)
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(36px, 7vw, 96px);
+  gap: clamp(30px, 5.5vw, 76px);
   align-items: center;
-  padding-block: clamp(28px, 4.5vw, 54px);
+  padding-block: clamp(14px, 1.8vw, 22px);
 }
 .pstep::before {
   content: '';
@@ -1081,19 +1084,19 @@ body.menu-open .menu { opacity: 1; pointer-events: all; transform: translateY(0)
 .pstep__title {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: var(--fs-h4);
+  font-size: var(--fs-h5);
   color: var(--dark);
-  line-height: 1.2;
-  margin-bottom: 10px;
+  line-height: 1.25;
+  margin-bottom: 8px;
 }
-.pstep__text { font-size: var(--fs-body); line-height: 1.7; color: var(--ink-2); max-width: 42ch; }
+.pstep__text { font-size: var(--fs-sm); line-height: 1.65; color: var(--ink-2); max-width: 40ch; }
 .pstep:nth-child(even) .pstep__text { margin-left: auto; }
 
 /* — maquettes — */
 .mock {
-  width: min(340px, 100%);
+  width: min(248px, 100%);
   border-radius: var(--r);
-  padding: 16px 18px 18px;
+  padding: 13px 15px 15px;
   background: var(--glass-2);
   -webkit-backdrop-filter: blur(14px) saturate(1.5);
   backdrop-filter: blur(14px) saturate(1.5);
