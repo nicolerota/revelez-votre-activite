@@ -2021,17 +2021,23 @@ h1.display.phero__title {   /* bat `h1.display`, plus spécifique que `.phero__t
   line-height: 1;
   color: var(--accent);
 }
+/* Corps et interlettrage resserrés : « VENTE & RELATION CLIENT » passait
+   sur deux lignes et décalait le titre et le texte de cette carte par
+   rapport aux trois autres. */
 .peek__pilier {
-  font-size: var(--fs-label);
+  font-size: 0.6rem;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-3);
+  white-space: nowrap;
 }
 .peek__name {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: var(--fs-h5);
+  /* fluide : « Fondations rentables » doit tenir sur une ligne jusqu'en bas
+     de la grille à 4 colonnes (1 000 px) */
+  font-size: clamp(0.98rem, 1.28vw, 1.15rem);
   line-height: 1.25;
   color: var(--dark);
 }
