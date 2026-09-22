@@ -848,24 +848,11 @@ body.menu-open .menu { opacity: 1; pointer-events: all; transform: translateY(0)
 .why__closing em { font-style: normal; color: var(--accent); }
 
 @media (max-width: 1000px) {
-  .partner__grid { grid-template-columns: 1fr; }
   .cmp2 { grid-template-columns: 1fr; }
   .cmp2__col--own { box-shadow: var(--shadow-md); }
   .cmp2__col--other { margin-top: 0; }
 }
 @media (max-width: 640px) {
-  /* Plus d'empilement : le bandeau dépoli n'a plus lieu d'être */
-  .modules__head {
-    position: static;
-    margin-inline: 0;
-    padding: 0;
-    background: none;
-    -webkit-backdrop-filter: none;
-            backdrop-filter: none;
-  }
-  .modules__head::after { display: none; }
-  .module { position: static; grid-template-columns: 1fr; gap: 22px; }
-  .module__head { flex-direction: column; gap: 12px; }
   .cmp2 { grid-template-columns: 1fr; }
   .cmp2__col--own { box-shadow: var(--shadow-md); }
   .cmp2__col--other { margin-top: 0; }
@@ -947,6 +934,23 @@ body.menu-open .menu { opacity: 1; pointer-events: all; transform: translateY(0)
   letter-spacing: -0.04em;
   color: var(--accent);
 }
+/* ── Mobile : plus d'empilement collant ──
+   Ce bloc doit rester APRÈS les règles ci-dessus : à spécificité égale,
+   c'est la dernière déclaration qui gagne, media query ou pas. */
+@media (max-width: 640px) {
+  .modules__head {
+    position: static;
+    margin-inline: 0;
+    padding: 0;
+    background: none;
+    -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+  }
+  .modules__head::after { display: none; }
+  .module { position: static; grid-template-columns: 1fr; gap: 22px; }
+  .module__head { flex-direction: column; gap: 12px; }
+}
+
 .module__pilier {
   font-size: var(--fs-label-sm);
   font-weight: 600;
@@ -1566,6 +1570,10 @@ body.menu-open .menu { opacity: 1; pointer-events: all; transform: translateY(0)
   gap: 20px;
   margin-top: clamp(40px, 4.5vw, 60px);
 }
+@media (max-width: 1000px) {
+  /* placé après la règle de base, sinon il reste trois colonnes sur mobile */
+  .partner__grid { grid-template-columns: 1fr; }
+}
 .partner__card {
   border-radius: var(--r-lg);
   padding: clamp(26px, 2.6vw, 38px);
@@ -1938,6 +1946,9 @@ html.anim [data-hero-title] { opacity: 0; }
 }
 @media (max-width: 900px) {
   .nav__links, .nav__cta { display: none; }
+  /* sans cette règle, le burger reste masqué et la navigation disparaît
+     entièrement sur mobile */
+  .burger { display: flex; }
   .insta__grid { grid-template-columns: repeat(3, 1fr); }
   
   .offers { grid-template-columns: 1fr; }
