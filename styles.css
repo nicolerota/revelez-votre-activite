@@ -1694,8 +1694,15 @@ body.menu-open .menu { opacity: 1; pointer-events: all; transform: translateY(0)
 @media (min-width: 1080px) {
   .cal__intro h2 em { white-space: nowrap; }
 }
-.cal__frame { border-radius: var(--r-lg); overflow: hidden; padding: 6px; }
-.calendly-inline-widget { min-width: 320px; height: 720px; border-radius: var(--r); overflow: hidden; }
+.cal__frame { border-radius: var(--r-lg); overflow: hidden; padding: 6px; display: flex; }
+.calendly-inline-widget {
+  flex: 1 1 auto;
+  min-width: 320px;
+  height: 100%;
+  min-height: 760px;   /* de quoi afficher le calendrier en entier */
+  border-radius: var(--r);
+  overflow: hidden;
+}
 
 /* ══════════════════════════════════════════════════════════════
    CTA FINAL
@@ -2108,11 +2115,13 @@ h1.display.phero__title {   /* bat `h1.display`, plus spécifique que `.phero__t
 /* ══════════════════════════════════════════════════════════════
    PAGE CONTACT — calendrier + colonne d'informations
 ══════════════════════════════════════════════════════════════ */
+/* Les deux colonnes s'étirent à la même hauteur : le calendrier se cale sur
+   la colonne d'informations, et se termine exactement au même niveau. */
 .contact__grid {
   display: grid;
   grid-template-columns: 1.35fr 0.65fr;
   gap: clamp(20px, 2.6vw, 34px);
-  align-items: start;
+  align-items: stretch;
 }
 .contact__aside { display: flex; flex-direction: column; gap: clamp(16px, 1.8vw, 22px); }
 .contact__card {
