@@ -2004,6 +2004,9 @@ h1.display.phero__title {   /* bat `h1.display`, plus spécifique que `.phero__t
    pour que la seconde tienne d'un seul tenant. Le retour forcé ne vaut que
    sur grand écran ; en dessous, le texte reprend son cours naturel. */
 .phero__sub--wide { max-width: none; }
+/* Paragraphe justifié : les lignes vont d'un bord à l'autre de la colonne
+   au lieu de laisser un drapeau irrégulier à droite. */
+.phero__sub--justify { text-align: justify; text-align-last: left; }
 @media (max-width: 1150px) {
   .phero__sub--wide br { display: none; }
 }
