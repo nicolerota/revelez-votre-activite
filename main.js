@@ -12,10 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
     '#avis': '/formation#avis',
     '#financement': '/formation#tarifs',
     '#sur-mesure': '/formation#tarifs',
-    '#module-1': '/formation#module-1',
-    '#module-2': '/formation#module-2',
-    '#module-3': '/formation#module-3',
-    '#module-4': '/formation#module-4',
+    '#module-1': '/formation#programme',
+    '#module-2': '/formation#programme',
+    '#module-3': '/formation#programme',
+    '#module-4': '/formation#programme',
     '#faq': '/formation#faq',
     '#apropos': '/qui-je-suis',
     '#instagram': '/qui-je-suis#instagram',
@@ -28,6 +28,23 @@ document.addEventListener('DOMContentLoaded', () => {
   if (hash && LEGACY[hash] && !document.querySelector(hash)) {
     window.location.replace(LEGACY[hash]);
     return;
+  }
+
+  /* ── Arrivée directe sur une carte de module ──
+     Les 4 modules s'empilent en `position: sticky` : atterrir sur la
+     carte 2, 3 ou 4 place la page au milieu de l'empilement, là où les
+     cartes sont à mi-animation — on voit alors une carte à moitié
+     effacée sous le titre. On remonte donc au début de la section. */
+  if (/^#module-[1-4]$/.test(hash)) {
+    const programme = document.getElementById('programme');
+    if (programme) {
+      history.replaceState(null, '', '#programme');
+      const toProgramme = () => programme.scrollIntoView();
+      requestAnimationFrame(toProgramme);
+      /* les polices et le widget Calendly décalent la mise en page après
+         coup : on recale une fois tout chargé */
+      window.addEventListener('load', () => setTimeout(toProgramme, 60), { once: true });
+    }
   }
 
   /* ── Menu overlay ── */
