@@ -1089,7 +1089,9 @@ body.menu-open .menu { opacity: 1; pointer-events: all; transform: translateY(0)
   line-height: 1.25;
   margin-bottom: 8px;
 }
-.pstep__text { font-size: var(--fs-sm); line-height: 1.65; color: var(--ink-2); max-width: 40ch; }
+/* Pas de bride : le texte occupe toute la demi-colonne, sinon les phrases
+   se cassent en petits pavés de trois lignes. */
+.pstep__text { font-size: var(--fs-sm); line-height: 1.65; color: var(--ink-2); }
 .pstep:nth-child(even) .pstep__text { margin-left: auto; }
 
 /* — maquettes — */
