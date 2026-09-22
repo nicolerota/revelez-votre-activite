@@ -2059,7 +2059,6 @@ h1.display.phero__title {   /* bat `h1.display`, plus spécifique que `.phero__t
   gap: 26px;
   flex-wrap: wrap;
 }
-.peek__note { font-size: var(--fs-sm); color: var(--ink-3); }
 @media (max-width: 1000px) { .peek__grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px)  { .peek__grid { grid-template-columns: 1fr; } }
 
