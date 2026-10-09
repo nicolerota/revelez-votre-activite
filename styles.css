@@ -36,8 +36,10 @@
 
   --ease: cubic-bezier(.22, 1, .36, 1);
 
-  --font-display: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-sans:    'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  /* Une seule famille pour tout le site, comme sur lakshmi-france.com
+     (DM Sans partout : titres, menu, corps). */
+  --font-display: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-sans:    'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
   /* ── Échelle typographique ──
      Gamme resserrée (rapport ~1,25 d'un cran à l'autre) : les titres
