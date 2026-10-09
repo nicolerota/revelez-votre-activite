@@ -349,7 +349,15 @@
         <h2 class="display" data-anim="up">Ce qu'elles en <em>disent.</em></h2>
       </div>
 
-      <div class="avis__grid">
+      <div class="avis__carousel" data-anim="up">
+        <button class="avis__nav avis__nav--prev" type="button" aria-label="Avis précédents">
+          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="avis__nav avis__nav--next" type="button" aria-label="Avis suivants">
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+
+        <div class="avis__grid" id="avisTrack">
         <figure class="avis-card glass" data-anim="up">
           <blockquote class="avis-card__text">
             Des formations en marketing, gestion, c'est la plus intéressante que j'ai faite. C'est celle qui est la plus facile à appliquer et qui me donne l'impulsion de faire les choses.
@@ -399,6 +407,7 @@
             <span class="avis-card__name">Catherine<span class="avis-card__offer">Accompagnement complet</span></span>
           </figcaption>
         </figure>
+        </div>
       </div>
     </div>
   </section>

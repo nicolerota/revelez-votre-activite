@@ -1376,26 +1376,57 @@ body.menu-open .menu { opacity: 1; pointer-events: all; transform: translateY(0)
 
 /* ── AVIS CLIENTES ── */
 .avis__head { text-align: center; margin-bottom: 56px; }
-/* Les avis s'accumulent au fil du temps (3, puis 4, 5...) : une grille à
-   colonnes fixes finit toujours par tomber juste ou de travers selon le
-   nombre de cartes. On passe en flexbox avec retour à la ligne : 3 cartes
-   par rangée tant que la largeur le permet, et la dernière rangée
-   incomplète se centre au lieu de laisser un trou à droite. */
+/* Les avis s'accumulent au fil du temps (3, puis 4, 5...) : plutôt qu'une
+   grille qui retombe juste ou de travers selon le nombre de cartes, elles
+   restent sur UNE seule ligne et défilent — à la souris, au doigt, ou via
+   les deux flèches. */
+.avis__carousel { position: relative; }
 .avis__grid {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-wrap: nowrap;
   gap: 24px;
-  max-width: 1160px;
-  margin-inline: auto;
-  align-items: stretch;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scroll-behavior: smooth;
+  padding-block: 4px;         /* laisse passer l'ombre des cartes au survol */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
+.avis__grid::-webkit-scrollbar { display: none; }
 .avis-card {
   position: relative;
-  flex: 1 1 320px;
-  max-width: 368px;
+  flex: 0 0 auto;
+  width: clamp(280px, 30vw, 360px);
+  scroll-snap-align: start;
   padding: clamp(32px, 3.4vw, 46px) clamp(26px, 3vw, 42px) clamp(28px, 3vw, 38px);
   border-radius: var(--r-lg);
+}
+/* Flèches de navigation — même langage que celles de la section Promesse */
+.avis__nav {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  width: 46px; height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid var(--line-2);
+  box-shadow: var(--shadow-sm);
+  color: var(--dark);
+  transform: translateY(-50%);
+  transition: background 0.3s var(--ease), box-shadow 0.3s var(--ease), opacity 0.3s, transform 0.2s var(--ease);
+}
+.avis__nav:hover { background: var(--bg-2); box-shadow: var(--shadow-md); }
+.avis__nav:active { transform: translateY(-50%) scale(0.92); }
+.avis__nav:disabled { opacity: 0.3; pointer-events: none; }
+.avis__nav svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.avis__nav--prev { left: clamp(-14px, -2.2vw, -8px); }
+.avis__nav--next { right: clamp(-14px, -2.2vw, -8px); }
+@media (max-width: 700px) {
+  /* Le doigt fait très bien l'affaire ; les flèches encombrent surtout */
+  .avis__nav { display: none; }
 }
 .avis-card::before {
   content: '\201C';
@@ -1457,6 +1488,8 @@ body.menu-open .menu { opacity: 1; pointer-events: all; transform: translateY(0)
   margin-top: 3px;
 }
 @media (max-width: 900px) {
+  /* Une carte pleine largeur par « page » de swipe plutôt que plusieurs
+     cartes étroites côte à côte. */
   .avis-card { flex-basis: 100%; max-width: 480px; }
 }
 

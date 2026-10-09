@@ -112,6 +112,28 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.faq-item.open .faq-a').forEach(a => { a.style.height = a.scrollHeight + 'px'; });
   });
 
+  /* ── Avis clientes : défilement horizontal ── */
+  (() => {
+    const track = document.getElementById('avisTrack');
+    const carousel = track && track.closest('.avis__carousel');
+    if (!track || !carousel) return;
+    const prev = carousel.querySelector('.avis__nav--prev');
+    const next = carousel.querySelector('.avis__nav--next');
+
+    const step = () => track.clientWidth * 0.9;
+    prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: RM ? 'auto' : 'smooth' }));
+    next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: RM ? 'auto' : 'smooth' }));
+
+    const updateNav = () => {
+      const max = track.scrollWidth - track.clientWidth;
+      prev.disabled = track.scrollLeft <= 4;
+      next.disabled = track.scrollLeft >= max - 4;
+    };
+    track.addEventListener('scroll', updateNav, { passive: true });
+    window.addEventListener('resize', updateNav);
+    updateNav();
+  })();
+
   /* ── Split hero title into words ── */
   const splitWords = (el) => {
     const nodes = Array.from(el.childNodes);
