@@ -1368,14 +1368,24 @@ body.menu-open .menu { opacity: 1; pointer-events: all; transform: translateY(0)
 
 /* ── AVIS CLIENTES ── */
 .avis__head { text-align: center; margin-bottom: 56px; }
+/* Les avis s'accumulent au fil du temps (3, puis 4, 5...) : une grille à
+   colonnes fixes finit toujours par tomber juste ou de travers selon le
+   nombre de cartes. On passe en flexbox avec retour à la ligne : 3 cartes
+   par rangée tant que la largeur le permet, et la dernière rangée
+   incomplète se centre au lieu de laisser un trou à droite. */
 .avis__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;
-  align-items: start;
+  max-width: 1160px;
+  margin-inline: auto;
+  align-items: stretch;
 }
 .avis-card {
   position: relative;
+  flex: 1 1 320px;
+  max-width: 368px;
   padding: clamp(32px, 3.4vw, 46px) clamp(26px, 3vw, 42px) clamp(28px, 3vw, 38px);
   border-radius: var(--r-lg);
 }
@@ -1439,7 +1449,7 @@ body.menu-open .menu { opacity: 1; pointer-events: all; transform: translateY(0)
   margin-top: 3px;
 }
 @media (max-width: 900px) {
-  .avis__grid { grid-template-columns: 1fr; max-width: 660px; margin-inline: auto; }
+  .avis-card { flex-basis: 100%; max-width: 480px; }
 }
 
 /* ══════════════════════════════════════════════════════════════
