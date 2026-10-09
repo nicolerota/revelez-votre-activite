@@ -45,7 +45,12 @@
      Gamme resserrée (rapport ~1,25 d'un cran à l'autre) : les titres
      descendent nettement, le corps de texte remonte un peu. L'écart entre
      le plus petit et le plus grand passe de 1 à 9,5 à 1 à 5. */
-  --fs-h1:       clamp(1.85rem, 5.4vw, 4rem);
+  /* Le plafond passe de 4rem à 3.6rem, et 5,4vw à 4,4vw : en MAJUSCULES le
+     texte est sensiblement plus large qu'en bas-de-casse, et la phrase la
+     plus longue (page Contact : « Trente minutes pour faire le point sur
+     votre activité. ») doit continuer à tenir sur deux lignes dans la
+     colonne commune (1104px), y compris une fois le plafond atteint. */
+  --fs-h1:       clamp(1.85rem, 4.4vw, 3.6rem);
   --fs-h2:       clamp(1.35rem, 3.2vw, 2.4rem);
   --fs-h2-sm:    clamp(1.3rem, 2.8vw, 2.1rem);
   --fs-h3:       clamp(1.2rem, 2.1vw, 1.7rem);
@@ -156,15 +161,16 @@ body.menu-open { overflow: hidden; }
 ══════════════════════════════════════════════════════════════ */
 .display {
   font-family: var(--font-display);
-  font-weight: 900;
-  letter-spacing: -0.022em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
   color: var(--dark);
-  line-height: 1.02;
+  line-height: 1.08;
 }
-h1.display { font-size: var(--fs-h1); line-height: 0.97; }
-h2.display { font-size: var(--fs-h2); line-height: 1.08; }
-h3.display { font-size: var(--fs-h4); line-height: 1.18; font-weight: 700; letter-spacing: -0.015em; }
-.display em { font-style: normal; font-weight: 900; color: var(--accent); }
+h1.display { font-size: var(--fs-h1); line-height: 1.02; }
+h2.display { font-size: var(--fs-h2); line-height: 1.12; }
+h3.display { font-size: var(--fs-h4); line-height: 1.22; font-weight: 700; letter-spacing: -0.005em; }
+.display em { font-style: normal; font-weight: 700; color: var(--accent); }
 
 .eyebrow {
   display: inline-flex;
